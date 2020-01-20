@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   
-  <title>基于VHDL的数字秒表设计 | Gzwang&#39;s Blog</title>
+  <title>Tag: 编程语言 | Gzwang&#39;s Blog</title>
   
   
   <meta name="description" content="做最好的自己">
@@ -48,7 +48,7 @@
   
   
   <div class="cover-wrapper">
-    <cover class='cover post half'>
+    <cover class='cover  half'>
       
         
   <h1 class='title'>Gzwang's Blog</h1>
@@ -280,11 +280,25 @@
 
   <div class="l_body">
     <div class='body-wrapper'>
-      <div class='l_main'>
+      
+<div class='l_main'>
   
-
-  <article id="post" class="post white-box article-type-post" itemscope itemprop="blogPost">
     
+      
+  <section class="post-list">
+    
+      
+        
+          
+        
+      
+    
+    
+      
+        
+          <div class='post-wrapper'>
+            <article class="post reveal ">
+  
 
 
   <section class='meta'>
@@ -293,13 +307,11 @@
     <div class="meta" id="header-meta">
       
         
-  
-    <h1 class="title">
-      <a href="/2020/01/19/%E5%9F%BA%E4%BA%8EVHDL%E7%9A%84%E6%95%B0%E5%AD%97%E7%A7%92%E8%A1%A8%E8%AE%BE%E8%AE%A1/">
-        基于VHDL的数字秒表设计
-      </a>
-    </h1>
-  
+  <h2 class="title">
+    <a href="/2020/01/19/%E5%9F%BA%E4%BA%8EVHDL%E7%9A%84%E6%95%B0%E5%AD%97%E7%A7%92%E8%A1%A8%E8%AE%BE%E8%AE%A1/">
+      基于VHDL的数字秒表设计
+    </a>
+  </h2>
 
 
       
@@ -341,24 +353,6 @@
           
             
   
-    <div class="new-meta-item browse busuanzi">
-      <a class='notlink'>
-        <i class="fas fa-eye" aria-hidden="true"></i>
-        <p>
-          <span id="busuanzi_value_page_pv">
-            <i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i>
-          </span>
-        </p>
-      </a>
-    </div>
-  
-
-
-          
-        
-          
-            
-  
 
           
         
@@ -375,148 +369,44 @@
   </section>
 
 
-    <section class="article typo">
-      <div class="article-entry" itemprop="articleBody">
-        <p>VHDL是一门硬件描述语言，相比较于其它高级语言(Python,C等)，语法复杂且功能单一，学起来也没有高级语言学的简单，但VHDL可直接对底层硬件进行操作，效率比高级语言要高得多。VHDL的语法结构很强，包括引用包、实体、结构体、说明等，其中实体和结构体是一段基本VHDL程序必要的部分。</p>
-<h3 id="一、实验选题及目标"><a href="#一、实验选题及目标" class="headerlink" title="一、实验选题及目标"></a>一、实验选题及目标</h3><h4 id="1-实验选题"><a href="#1-实验选题" class="headerlink" title="1.实验选题"></a>1.实验选题</h4><p>在科技高度发展的今天，集成电路和计算机应用得到了高速发展。尤其是计算机应用的发展，它在人们日常生活中已逐渐崭露头角，大多数电子产品多是有计算机电路组成，如：手机、mp3等。而且将来的不久他们的身影将会频繁的出现在我们身边，各种家用电器多会实现微电脑技术，电脑各部分在工作时多是一时间为基准的。</p>
-<p>本文就是基于计算机电路的时钟脉冲信号、状态控制等原理设计出的数字秒表。秒表在很多领域充当一个重要角色，在各种比赛中对秒表的精确度要求很高，尤其是一些科学实验，他们对时间精确度达到了几纳秒级别。数字秒表具有操作方便、使用简单、计数精准等使用优点，在日常生活中的到了广泛认可和使用。</p>
-<h4 id="2-实验目标"><a href="#2-实验目标" class="headerlink" title="2.实验目标"></a>2.实验目标</h4><p>设计一块数字秒表，能够精确反映计时时间，并完成复位、计时功能。秒表的计时范围为0秒~ 59分59.99秒，精度为0.01秒，并可显示计时时间的分、秒、毫秒等度量。</p>
-<p>（1）具有秒表系统功能要求显示功能, 用8个数码管分别显示时、分、秒、毫秒，计时范围为00: 00： 00~ 59: 59：99。 </p>
-<p>（2）数字秒表计时精度是0.01s。</p>
-<p>（3）具有启/ 停开关, 复位开关，复位开关在任何情况下都能使用，使计实清零。</p>
-<h3 id="二、实验内容"><a href="#二、实验内容" class="headerlink" title="二、实验内容"></a>二、实验内容</h3><p>根据系统设计要求, 系统的底层设计主要由控制模块、分频模块、计时模块、显示模块四部分组成。系统顶层设计图如图1所示：</p>
-<p>图中左边为三个输入信号CLK、CLR、SP分别为时钟信号、复位开关和启/ 停开关。主要模块有：分频模块（CB10），时间计数器(COUNT),复位控制(CONTROL)，数据选择模块(MULX),译码器(BCD7)。右边为五个输出信号LED、OUTBCD、SEG、CO、EN分别为七段式LED码值、输出时间值、数码管位选、分频信号和使能信号。</p>
-<p>由模10计数器模块与模6计数器模块进行计数；实验室仪器可产生标准的50mHz的时钟信号，通过分频器模块产生所需的1kHz的时钟信号；复位模块可进行计数器复位操作；译码器是为了将四位二进制信号转换为LED所需的七位二进制编码；状态变换模块是为了用户按键后信号的变换及保持。</p>
-
-      </div>
+  <section class="article typo">
+    <div class="article-entry" itemprop="articleBody">
       
       
-        <br>
-        
-
-
-  <section class='meta' id="footer-meta">
-    <div class='new-meta-box'>
-      
-        
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-01-20T16:48:00+08:00">
-  <a class='notlink'>
-    <i class="fas fa-clock" aria-hidden="true"></i>
-    <p>更新于 2020年1月20日</p>
-  </a>
-</div>
-
-        
-      
-        
-          
-  
-  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" rel="nofollow"><i class="fas fa-tag" aria-hidden="true"></i><p>编程语言</p></a></div>
-
-
-        
-      
-        
-          
-  <div class="new-meta-item share -mob-share-list">
-  <div class="-mob-share-list share-body">
-    
-      
-        <a class="-mob-share-qq" title="QQ好友" rel="external nofollow noopener noreferrer"
-          
-          href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2020/01/19/%E5%9F%BA%E4%BA%8EVHDL%E7%9A%84%E6%95%B0%E5%AD%97%E7%A7%92%E8%A1%A8%E8%AE%BE%E8%AE%A1/&title=基于VHDL的数字秒表设计 | Gzwang's Blog&summary="
-          
-          >
-          
-            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/assets@19.1.9/logo/128/qq.png">
-          
-        </a>
-      
-    
-      
-        <a class="-mob-share-qzone" title="QQ空间" rel="external nofollow noopener noreferrer"
-          
-          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://yoursite.com/2020/01/19/%E5%9F%BA%E4%BA%8EVHDL%E7%9A%84%E6%95%B0%E5%AD%97%E7%A7%92%E8%A1%A8%E8%AE%BE%E8%AE%A1/&title=基于VHDL的数字秒表设计 | Gzwang's Blog&summary="
-          
-          >
-          
-            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/assets@19.1.9/logo/128/qzone.png">
-          
-        </a>
-      
-    
-      
-        <a class="-mob-share-weibo" title="微博" rel="external nofollow noopener noreferrer"
-          
-          href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2020/01/19/%E5%9F%BA%E4%BA%8EVHDL%E7%9A%84%E6%95%B0%E5%AD%97%E7%A7%92%E8%A1%A8%E8%AE%BE%E8%AE%A1/&title=基于VHDL的数字秒表设计 | Gzwang's Blog&summary="
-          
-          >
-          
-            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/assets@19.1.9/logo/128/weibo.png">
-          
-        </a>
-      
-    
-  </div>
-</div>
-
-
-
-        
+        <div class="readmore">
+          <a href="/2020/01/19/%E5%9F%BA%E4%BA%8EVHDL%E7%9A%84%E6%95%B0%E5%AD%97%E7%A7%92%E8%A1%A8%E8%AE%BE%E8%AE%A1/" class="flat-box">
+            <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
+            阅读全文
+          </a>
+        </div>
       
     </div>
+    
+      <div class="full-width auto-padding tags">
+        
+          <a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> 编程语言</a>
+        
+      </div>
+    
   </section>
+</article>
 
-
-      
-      
-          <div class="prev-next">
-              
-              
-                  <section class="next">
-                      <span class="art-item-right" aria-hidden="true">
-                          <h6>下一页&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i></h6>
-                          <h4>
-                              <a href="/2020/01/17/%E7%94%B5%E5%AD%90%E8%AE%BE%E8%AE%A1/" rel="prev" title="电子设计">
-                                  
-                                      电子设计
-                                  
-                              </a>
-                          </h4>
-                          
-                      </span>
-                  </section>
-              
           </div>
+        
       
-    </section>
-  </article>
-
-
-
-  <!-- 显示推荐文章和评论 -->
-
-
+    
+  </section>
+  
+    
+    <!-- 根据主题中的设置决定是否在archive中针对摘要部分的MathJax公式加载mathjax.js文件 -->
+    
+    
 
   
 
 
-
-
-
-
-<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
-
-
-
-  <script>
-    window.subData = {
-      title: '基于VHDL的数字秒表设计',
-      tools: true
-    }
-  </script>
-
-
+    
+  
 </div>
 <aside class='l_side'>
   
@@ -629,25 +519,6 @@
           
         
           
-          
-            
-              
-  <section class='widget toc-wrapper'>
-    
-<header class='pure'>
-  <div><i class="fas fa-list fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;本文目录</div>
-  
-    <!-- <div class='wrapper'><a class="s-toc rightBtn" rel="external nofollow noopener noreferrer" href="javascript:void(0)"><i class="fas fa-thumbtack fa-fw"></i></a></div> -->
-  
-</header>
-
-    <div class='content pure'>
-      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、实验选题及目标"><span class="toc-text">一、实验选题及目标</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-实验选题"><span class="toc-text">1.实验选题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-实验目标"><span class="toc-text">2.实验目标</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、实验内容"><span class="toc-text">二、实验内容</span></a></li></ol>
-    </div>
-  </section>
-
-
-            
           
         
           
@@ -833,46 +704,6 @@
 
 
             
-          
-        
-          
-          
-        
-      
-        
-          
-          
-        
-          
-          
-        
-          
-          
-        
-          
-          
-        
-          
-          
-        
-          
-          
-        
-      
-        
-          
-          
-        
-          
-          
-        
-          
-          
-        
-          
-          
-        
-          
           
         
           
