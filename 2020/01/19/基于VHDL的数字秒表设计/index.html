@@ -24,26 +24,26 @@
     <meta name="description" content="当今社会正朝着电子市场发展，越来越多的电子产品应用于各个领域。数字秒表是日常生活中比较常见的电子产品，常用于体育比赛和时间计时，计时的精准性和稳定性是衡量数字秒表最重要的两个指标。现在市场上的数字秒表基本上都能满足计时准确的要求，但很少能满足计时稳定性的要求。本文设计了一种用于精确计时且计时稳定性高的数字秒表，该设计是在Quartus Ⅱ环境下，基于 VHDL语言来编写的，具有开关、计时和显示功能">
 <meta property="og:type" content="article">
 <meta property="og:title" content="基于VHDL的数字秒表设计">
-<meta property="og:url" content="http://yoursite.com/2020/01/19/%E5%9F%BA%E4%BA%8EVHDL%E7%9A%84%E6%95%B0%E5%AD%97%E7%A7%92%E8%A1%A8%E8%AE%BE%E8%AE%A1/index.html">
+<meta property="og:url" content="https://gzwangu.github.io/2020/01/19/%E5%9F%BA%E4%BA%8EVHDL%E7%9A%84%E6%95%B0%E5%AD%97%E7%A7%92%E8%A1%A8%E8%AE%BE%E8%AE%A1/index.html">
 <meta property="og:site_name" content="Gzwang&#39;s Blog">
 <meta property="og:description" content="当今社会正朝着电子市场发展，越来越多的电子产品应用于各个领域。数字秒表是日常生活中比较常见的电子产品，常用于体育比赛和时间计时，计时的精准性和稳定性是衡量数字秒表最重要的两个指标。现在市场上的数字秒表基本上都能满足计时准确的要求，但很少能满足计时稳定性的要求。本文设计了一种用于精确计时且计时稳定性高的数字秒表，该设计是在Quartus Ⅱ环境下，基于 VHDL语言来编写的，具有开关、计时和显示功能">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://yoursite.com/images/%E5%9F%BA%E4%BA%8EVHDL%E7%9A%84%E6%95%B0%E5%AD%97%E7%A7%92%E8%A1%A8%E8%AE%BE%E8%AE%A1/RTL.png">
-<meta property="og:image" content="http://yoursite.com/images/%E5%9F%BA%E4%BA%8EVHDL%E7%9A%84%E6%95%B0%E5%AD%97%E7%A7%92%E8%A1%A8%E8%AE%BE%E8%AE%A1/block.png">
-<meta property="og:image" content="http://yoursite.com/images/%E5%9F%BA%E4%BA%8EVHDL%E7%9A%84%E6%95%B0%E5%AD%97%E7%A7%92%E8%A1%A8%E8%AE%BE%E8%AE%A1/CB10.png">
-<meta property="og:image" content="http://yoursite.com/images/%E5%9F%BA%E4%BA%8EVHDL%E7%9A%84%E6%95%B0%E5%AD%97%E7%A7%92%E8%A1%A8%E8%AE%BE%E8%AE%A1/CONTROL.png">
-<meta property="og:image" content="http://yoursite.com/images/%E5%9F%BA%E4%BA%8EVHDL%E7%9A%84%E6%95%B0%E5%AD%97%E7%A7%92%E8%A1%A8%E8%AE%BE%E8%AE%A1/CDU10.png">
-<meta property="og:image" content="http://yoursite.com/images/%E5%9F%BA%E4%BA%8EVHDL%E7%9A%84%E6%95%B0%E5%AD%97%E7%A7%92%E8%A1%A8%E8%AE%BE%E8%AE%A1/CDU6.png">
-<meta property="og:image" content="http://yoursite.com/images/%E5%9F%BA%E4%BA%8EVHDL%E7%9A%84%E6%95%B0%E5%AD%97%E7%A7%92%E8%A1%A8%E8%AE%BE%E8%AE%A1/COUNT.png">
-<meta property="og:image" content="http://yoursite.com/images/%E5%9F%BA%E4%BA%8EVHDL%E7%9A%84%E6%95%B0%E5%AD%97%E7%A7%92%E8%A1%A8%E8%AE%BE%E8%AE%A1/MULX.png">
-<meta property="og:image" content="http://yoursite.com/images/%E5%9F%BA%E4%BA%8EVHDL%E7%9A%84%E6%95%B0%E5%AD%97%E7%A7%92%E8%A1%A8%E8%AE%BE%E8%AE%A1/BCD7.png">
-<meta property="og:image" content="http://yoursite.com/images/%E5%9F%BA%E4%BA%8EVHDL%E7%9A%84%E6%95%B0%E5%AD%97%E7%A7%92%E8%A1%A8%E8%AE%BE%E8%AE%A1/STOPWATCH.png">
+<meta property="og:image" content="https://gzwangu.github.io/images/%E5%9F%BA%E4%BA%8EVHDL%E7%9A%84%E6%95%B0%E5%AD%97%E7%A7%92%E8%A1%A8%E8%AE%BE%E8%AE%A1/RTL.png">
+<meta property="og:image" content="https://gzwangu.github.io/images/%E5%9F%BA%E4%BA%8EVHDL%E7%9A%84%E6%95%B0%E5%AD%97%E7%A7%92%E8%A1%A8%E8%AE%BE%E8%AE%A1/block.png">
+<meta property="og:image" content="https://gzwangu.github.io/images/%E5%9F%BA%E4%BA%8EVHDL%E7%9A%84%E6%95%B0%E5%AD%97%E7%A7%92%E8%A1%A8%E8%AE%BE%E8%AE%A1/CB10.png">
+<meta property="og:image" content="https://gzwangu.github.io/images/%E5%9F%BA%E4%BA%8EVHDL%E7%9A%84%E6%95%B0%E5%AD%97%E7%A7%92%E8%A1%A8%E8%AE%BE%E8%AE%A1/CONTROL.png">
+<meta property="og:image" content="https://gzwangu.github.io/images/%E5%9F%BA%E4%BA%8EVHDL%E7%9A%84%E6%95%B0%E5%AD%97%E7%A7%92%E8%A1%A8%E8%AE%BE%E8%AE%A1/CDU10.png">
+<meta property="og:image" content="https://gzwangu.github.io/images/%E5%9F%BA%E4%BA%8EVHDL%E7%9A%84%E6%95%B0%E5%AD%97%E7%A7%92%E8%A1%A8%E8%AE%BE%E8%AE%A1/CDU6.png">
+<meta property="og:image" content="https://gzwangu.github.io/images/%E5%9F%BA%E4%BA%8EVHDL%E7%9A%84%E6%95%B0%E5%AD%97%E7%A7%92%E8%A1%A8%E8%AE%BE%E8%AE%A1/COUNT.png">
+<meta property="og:image" content="https://gzwangu.github.io/images/%E5%9F%BA%E4%BA%8EVHDL%E7%9A%84%E6%95%B0%E5%AD%97%E7%A7%92%E8%A1%A8%E8%AE%BE%E8%AE%A1/MULX.png">
+<meta property="og:image" content="https://gzwangu.github.io/images/%E5%9F%BA%E4%BA%8EVHDL%E7%9A%84%E6%95%B0%E5%AD%97%E7%A7%92%E8%A1%A8%E8%AE%BE%E8%AE%A1/BCD7.png">
+<meta property="og:image" content="https://gzwangu.github.io/images/%E5%9F%BA%E4%BA%8EVHDL%E7%9A%84%E6%95%B0%E5%AD%97%E7%A7%92%E8%A1%A8%E8%AE%BE%E8%AE%A1/STOPWATCH.png">
 <meta property="article:published_time" content="2020-01-19T09:55:56.000Z">
 <meta property="article:modified_time" content="2020-04-25T07:55:39.949Z">
 <meta property="article:author" content="gzwang">
 <meta property="article:tag" content="VHDL">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://yoursite.com/images/%E5%9F%BA%E4%BA%8EVHDL%E7%9A%84%E6%95%B0%E5%AD%97%E7%A7%92%E8%A1%A8%E8%AE%BE%E8%AE%A1/RTL.png">
+<meta name="twitter:image" content="https://gzwangu.github.io/images/%E5%9F%BA%E4%BA%8EVHDL%E7%9A%84%E6%95%B0%E5%AD%97%E7%A7%92%E8%A1%A8%E8%AE%BE%E8%AE%A1/RTL.png">
     
         <link rel="alternate" type="application/atom+xml" title="Gzwang&#39;s Blog" href="/atom.xml">
     
@@ -541,7 +541,7 @@ endmodule</code></pre>
     </div>
     
     <footer>
-        <a href="http://yoursite.com">
+        <a href="https://gzwangu.github.io">
             <img src="/img/avatar.jpg" alt="gzwang">
             gzwang
         </a>
@@ -567,7 +567,7 @@ endmodule</code></pre>
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2020/01/19/%E5%9F%BA%E4%BA%8EVHDL%E7%9A%84%E6%95%B0%E5%AD%97%E7%A7%92%E8%A1%A8%E8%AE%BE%E8%AE%A1/&title=《基于VHDL的数字秒表设计》 — Gzwang's Blog&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://gzwangu.github.io/2020/01/19/%E5%9F%BA%E4%BA%8EVHDL%E7%9A%84%E6%95%B0%E5%AD%97%E7%A7%92%E8%A1%A8%E8%AE%BE%E8%AE%A1/&title=《基于VHDL的数字秒表设计》 — Gzwang's Blog&pic=https://gzwangu.github.io/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -577,22 +577,22 @@ endmodule</code></pre>
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2020/01/19/%E5%9F%BA%E4%BA%8EVHDL%E7%9A%84%E6%95%B0%E5%AD%97%E7%A7%92%E8%A1%A8%E8%AE%BE%E8%AE%A1/&title=《基于VHDL的数字秒表设计》 — Gzwang's Blog&source=个人博客" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://gzwangu.github.io/2020/01/19/%E5%9F%BA%E4%BA%8EVHDL%E7%9A%84%E6%95%B0%E5%AD%97%E7%A7%92%E8%A1%A8%E8%AE%BE%E8%AE%A1/&title=《基于VHDL的数字秒表设计》 — Gzwang's Blog&source=个人博客" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2020/01/19/%E5%9F%BA%E4%BA%8EVHDL%E7%9A%84%E6%95%B0%E5%AD%97%E7%A7%92%E8%A1%A8%E8%AE%BE%E8%AE%A1/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://gzwangu.github.io/2020/01/19/%E5%9F%BA%E4%BA%8EVHDL%E7%9A%84%E6%95%B0%E5%AD%97%E7%A7%92%E8%A1%A8%E8%AE%BE%E8%AE%A1/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《基于VHDL的数字秒表设计》 — Gzwang's Blog&url=http://yoursite.com/2020/01/19/%E5%9F%BA%E4%BA%8EVHDL%E7%9A%84%E6%95%B0%E5%AD%97%E7%A7%92%E8%A1%A8%E8%AE%BE%E8%AE%A1/&via=http://yoursite.com" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《基于VHDL的数字秒表设计》 — Gzwang's Blog&url=https://gzwangu.github.io/2020/01/19/%E5%9F%BA%E4%BA%8EVHDL%E7%9A%84%E6%95%B0%E5%AD%97%E7%A7%92%E8%A1%A8%E8%AE%BE%E8%AE%A1/&via=https://gzwangu.github.io" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2020/01/19/%E5%9F%BA%E4%BA%8EVHDL%E7%9A%84%E6%95%B0%E5%AD%97%E7%A7%92%E8%A1%A8%E8%AE%BE%E8%AE%A1/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://gzwangu.github.io/2020/01/19/%E5%9F%BA%E4%BA%8EVHDL%E7%9A%84%E6%95%B0%E5%AD%97%E7%A7%92%E8%A1%A8%E8%AE%BE%E8%AE%A1/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -726,7 +726,7 @@ endmodule</code></pre>
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2020/01/19/%E5%9F%BA%E4%BA%8EVHDL%E7%9A%84%E6%95%B0%E5%AD%97%E7%A7%92%E8%A1%A8%E8%AE%BE%E8%AE%A1/&title=《基于VHDL的数字秒表设计》 — Gzwang's Blog&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://gzwangu.github.io/2020/01/19/%E5%9F%BA%E4%BA%8EVHDL%E7%9A%84%E6%95%B0%E5%AD%97%E7%A7%92%E8%A1%A8%E8%AE%BE%E8%AE%A1/&title=《基于VHDL的数字秒表设计》 — Gzwang's Blog&pic=https://gzwangu.github.io/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -736,22 +736,22 @@ endmodule</code></pre>
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2020/01/19/%E5%9F%BA%E4%BA%8EVHDL%E7%9A%84%E6%95%B0%E5%AD%97%E7%A7%92%E8%A1%A8%E8%AE%BE%E8%AE%A1/&title=《基于VHDL的数字秒表设计》 — Gzwang's Blog&source=个人博客" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://gzwangu.github.io/2020/01/19/%E5%9F%BA%E4%BA%8EVHDL%E7%9A%84%E6%95%B0%E5%AD%97%E7%A7%92%E8%A1%A8%E8%AE%BE%E8%AE%A1/&title=《基于VHDL的数字秒表设计》 — Gzwang's Blog&source=个人博客" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2020/01/19/%E5%9F%BA%E4%BA%8EVHDL%E7%9A%84%E6%95%B0%E5%AD%97%E7%A7%92%E8%A1%A8%E8%AE%BE%E8%AE%A1/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://gzwangu.github.io/2020/01/19/%E5%9F%BA%E4%BA%8EVHDL%E7%9A%84%E6%95%B0%E5%AD%97%E7%A7%92%E8%A1%A8%E8%AE%BE%E8%AE%A1/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《基于VHDL的数字秒表设计》 — Gzwang's Blog&url=http://yoursite.com/2020/01/19/%E5%9F%BA%E4%BA%8EVHDL%E7%9A%84%E6%95%B0%E5%AD%97%E7%A7%92%E8%A1%A8%E8%AE%BE%E8%AE%A1/&via=http://yoursite.com" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《基于VHDL的数字秒表设计》 — Gzwang's Blog&url=https://gzwangu.github.io/2020/01/19/%E5%9F%BA%E4%BA%8EVHDL%E7%9A%84%E6%95%B0%E5%AD%97%E7%A7%92%E8%A1%A8%E8%AE%BE%E8%AE%A1/&via=https://gzwangu.github.io" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2020/01/19/%E5%9F%BA%E4%BA%8EVHDL%E7%9A%84%E6%95%B0%E5%AD%97%E7%A7%92%E8%A1%A8%E8%AE%BE%E8%AE%A1/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://gzwangu.github.io/2020/01/19/%E5%9F%BA%E4%BA%8EVHDL%E7%9A%84%E6%95%B0%E5%AD%97%E7%A7%92%E8%A1%A8%E8%AE%BE%E8%AE%A1/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -762,7 +762,7 @@ endmodule</code></pre>
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://yoursite.com/2020/01/19/%E5%9F%BA%E4%BA%8EVHDL%E7%9A%84%E6%95%B0%E5%AD%97%E7%A7%92%E8%A1%A8%E8%AE%BE%E8%AE%A1/" alt="微信分享二维码">
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://gzwangu.github.io/2020/01/19/%E5%9F%BA%E4%BA%8EVHDL%E7%9A%84%E6%95%B0%E5%AD%97%E7%A7%92%E8%A1%A8%E8%AE%BE%E8%AE%A1/" alt="微信分享二维码">
 </div>
 
 
