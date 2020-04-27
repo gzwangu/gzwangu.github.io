@@ -22,6 +22,10 @@
             
             <tag> Python </tag>
             
+            <tag> 树莓派 </tag>
+            
+            <tag> Web </tag>
+            
         </tags>
       
     </entry>
@@ -46,6 +50,8 @@
         <tags>
             
             <tag> C </tag>
+            
+            <tag> 操作系统 </tag>
             
         </tags>
       
@@ -72,6 +78,8 @@
             
             <tag> VHDL </tag>
             
+            <tag> FPGA </tag>
+            
         </tags>
       
     </entry>
@@ -96,6 +104,8 @@
         <tags>
             
             <tag> C51 </tag>
+            
+            <tag> 单片机 </tag>
             
         </tags>
       
