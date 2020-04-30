@@ -21,20 +21,27 @@
     
     
     <meta name="keywords" content="Python,树莓派,Web">
-    <meta name="description" content="个人博客">
+    <meta name="description" content="本文介绍了家庭门禁管理系统的一种设计方案，基于旷视云平台的人脸识别技术实现了一款智能门禁系统，使用Face++人脸识别进行实时人脸分析，不仅使用便利，而且保证了识别数据的有效性和准确性，系统分为硬件和软件两个部分，硬件以树莓派4B为控制核心，外接摄像头、步进电机、蜂鸣器、触摸开关等模块；软件部分基于旷视云平台，构建了在不同操作环境下信息管理与控制系统，通过应用场景模拟对系统进行试验，结果表明：该系">
 <meta property="og:type" content="article">
 <meta property="og:title" content="基于树莓派的人脸识别门禁系统">
 <meta property="og:url" content="https://gzwangu.github.io/2020/04/25/%E5%9F%BA%E4%BA%8E%E6%A0%91%E8%8E%93%E6%B4%BE%E7%9A%84%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB%E9%97%A8%E7%A6%81%E7%B3%BB%E7%BB%9F/index.html">
 <meta property="og:site_name" content="Gzwang&#39;s Blog">
-<meta property="og:description" content="个人博客">
+<meta property="og:description" content="本文介绍了家庭门禁管理系统的一种设计方案，基于旷视云平台的人脸识别技术实现了一款智能门禁系统，使用Face++人脸识别进行实时人脸分析，不仅使用便利，而且保证了识别数据的有效性和准确性，系统分为硬件和软件两个部分，硬件以树莓派4B为控制核心，外接摄像头、步进电机、蜂鸣器、触摸开关等模块；软件部分基于旷视云平台，构建了在不同操作环境下信息管理与控制系统，通过应用场景模拟对系统进行试验，结果表明：该系">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://gzwangu.github.io/images/%E5%9F%BA%E4%BA%8E%E6%A0%91%E8%8E%93%E6%B4%BE%E7%9A%84%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB%E9%97%A8%E7%A6%81%E7%B3%BB%E7%BB%9F/system.png">
+<meta property="og:image" content="https://gzwangu.github.io/images/%E5%9F%BA%E4%BA%8E%E6%A0%91%E8%8E%93%E6%B4%BE%E7%9A%84%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB%E9%97%A8%E7%A6%81%E7%B3%BB%E7%BB%9F/login.png">
+<meta property="og:image" content="https://gzwangu.github.io/images/%E5%9F%BA%E4%BA%8E%E6%A0%91%E8%8E%93%E6%B4%BE%E7%9A%84%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB%E9%97%A8%E7%A6%81%E7%B3%BB%E7%BB%9F/main.png">
+<meta property="og:image" content="https://gzwangu.github.io/images/%E5%9F%BA%E4%BA%8E%E6%A0%91%E8%8E%93%E6%B4%BE%E7%9A%84%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB%E9%97%A8%E7%A6%81%E7%B3%BB%E7%BB%9F/E-R.png">
+<meta property="og:image" content="https://gzwangu.github.io/images/%E5%9F%BA%E4%BA%8E%E6%A0%91%E8%8E%93%E6%B4%BE%E7%9A%84%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB%E9%97%A8%E7%A6%81%E7%B3%BB%E7%BB%9F/datebase.png">
+<meta property="og:image" content="https://gzwangu.github.io/images/%E5%9F%BA%E4%BA%8E%E6%A0%91%E8%8E%93%E6%B4%BE%E7%9A%84%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB%E9%97%A8%E7%A6%81%E7%B3%BB%E7%BB%9F/main-contorl.png">
 <meta property="article:published_time" content="2020-04-25T08:41:29.000Z">
-<meta property="article:modified_time" content="2020-04-29T07:18:52.265Z">
+<meta property="article:modified_time" content="2020-04-29T12:32:23.255Z">
 <meta property="article:author" content="gzwang">
 <meta property="article:tag" content="Python">
 <meta property="article:tag" content="树莓派">
 <meta property="article:tag" content="Web">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gzwangu.github.io/images/%E5%9F%BA%E4%BA%8E%E6%A0%91%E8%8E%93%E6%B4%BE%E7%9A%84%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB%E9%97%A8%E7%A6%81%E7%B3%BB%E7%BB%9F/system.png">
     
         <link rel="alternate" type="application/atom+xml" title="Gzwang&#39;s Blog" href="/atom.xml">
     
@@ -159,6 +166,13 @@
 
 <div class="container body-wrap">
     
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#绪论"><span class="post-toc-number">1.</span> <span class="post-toc-text">绪论</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#课题背景"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">课题背景</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#设计任务与要求"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">设计任务与要求</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#系统设计需求分析"><span class="post-toc-number">2.</span> <span class="post-toc-text">系统设计需求分析</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#开发环境及开发平台"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">开发环境及开发平台</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#设计的主要算法及分析"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">设计的主要算法及分析</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#系统的组成及工作原理"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">系统的组成及工作原理</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#设计的重点与难点"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">设计的重点与难点</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#系统的总体设计"><span class="post-toc-number">3.</span> <span class="post-toc-text">系统的总体设计</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#系统功能层次图"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">系统功能层次图</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#系统功能描述"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">系统功能描述</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#系统的模块设计"><span class="post-toc-number">4.</span> <span class="post-toc-text">系统的模块设计</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#界面（UI）设计"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">界面（UI）设计</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#界面布局示意图"><span class="post-toc-number">4.1.1.</span> <span class="post-toc-text">界面布局示意图</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#界面控件（或部件）设计"><span class="post-toc-number">4.1.2.</span> <span class="post-toc-text">界面控件（或部件）设计</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#数据库设计"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">数据库设计</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#E-R图"><span class="post-toc-number">4.2.1.</span> <span class="post-toc-text">E-R图</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#数据库表结构"><span class="post-toc-number">4.2.2.</span> <span class="post-toc-text">数据库表结构</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#主控模块设计"><span class="post-toc-number">4.3.</span> <span class="post-toc-text">主控模块设计</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#程序流程图"><span class="post-toc-number">4.3.1.</span> <span class="post-toc-text">程序流程图</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#系统功能描述-1"><span class="post-toc-number">4.3.2.</span> <span class="post-toc-text">系统功能描述</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#null"><span class="post-toc-number">4.4.</span> <span class="post-toc-text"></span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
 
 <article id="post-基于树莓派的人脸识别门禁系统"
   class="post-article article-type-post fade" itemprop="blogPost">
@@ -181,7 +195,72 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            
+            <p>本文介绍了家庭门禁管理系统的一种设计方案，基于旷视云平台的人脸识别技术实现了一款智能门禁系统，使用Face++人脸识别进行实时人脸分析，不仅使用便利，而且保证了识别数据的有效性和准确性，系统分为硬件和软件两个部分，硬件以树莓派4B为控制核心，外接摄像头、步进电机、蜂鸣器、触摸开关等模块；软件部分基于旷视云平台，构建了在不同操作环境下信息管理与控制系统，通过应用场景模拟对系统进行试验，结果表明：该系统运行可靠，外接模块以及系统电路运行良好，识别准确率高，电机响应平均时间为0.5s，消息远程收发功能、信息管理与控制系统的相关功能均可正常执行。</p>
+<h3 id="绪论"><a href="#绪论" class="headerlink" title="绪论"></a>绪论</h3><h4 id="课题背景"><a href="#课题背景" class="headerlink" title="课题背景"></a>课题背景</h4><p>随着计算机网络技术的发展成熟，在给我们带来便捷的同时，也带来了运用高新技术手段进性偷盗、抢劫等违法犯罪问题，家庭安全问题越来越受到人们的重视，现代人工智能的安防领域也有了极大的突破和进展，出现了各种身份识别方法。其中最热门的、被关注最多的就是人脸识别，而人脸识别算法也从过去单一的模式识别到如今的多算法提取，从二维平面图像到多维建模生物识别。人脸识别技术凭借其自身的实用性及可靠性得到了广泛的认可，对采用人脸识别方式作为门禁管理系统的小区而言，不仅可以将社区管理提高一个档次、同时节省许多管理成本，而且能够有效地保障社区安全。此外近年来，基于Linux的单片机计算机也已逐渐发展成熟，并以其低价、自由的特点被广泛使用。因此本文将人脸识别与嵌入式、树莓派等相融合，设计出一套高安全级别的门禁管理系统。</p>
+<h4 id="设计任务与要求"><a href="#设计任务与要求" class="headerlink" title="设计任务与要求"></a>设计任务与要求</h4><p>基于门禁系统中安全性、准确性、效率的需求，以face++人脸识别云服务为核心，树莓派等为硬件基础设计实现具有人脸识别功能和远程实时监控功能的智能安防门禁系统，能够改善传统安防领域的安全性、方便性、直观性。</p>
+<h3 id="系统设计需求分析"><a href="#系统设计需求分析" class="headerlink" title="系统设计需求分析"></a>系统设计需求分析</h3><h4 id="开发环境及开发平台"><a href="#开发环境及开发平台" class="headerlink" title="开发环境及开发平台"></a>开发环境及开发平台</h4><p>Windows10操作系统、Raspbian操作系统；</p>
+<p>Visual Studio Code编译器、FinalShell SSH工具、windows远程桌面连接；</p>
+<h4 id="设计的主要算法及分析"><a href="#设计的主要算法及分析" class="headerlink" title="设计的主要算法及分析"></a>设计的主要算法及分析</h4><p>Face＋＋人脸检测分析、人脸搜索、人脸添加和删除API，传入图片进行人脸检测和人脸分析，可以检测图片内的所有人脸，对于每个检测出的人脸，会给出其唯一标识 face_token（人脸符记），可用于后续的人脸比对操作。将两个人脸进行比对，来判断是否为同一个人，返回比对结果置信度和不同误识率下的阈值，同时还可以添加和删除人脸信息。</p>
+<h4 id="系统的组成及工作原理"><a href="#系统的组成及工作原理" class="headerlink" title="系统的组成及工作原理"></a>系统的组成及工作原理</h4><p>系统主要有两大部分组成：硬件部分和软件部分。硬件主要包括树莓派主控设备、触摸开关、图像采集设备、警报设备和步进电机模块。软件主要有基于Flask框架的web可视化界面。</p>
+<p>当有人触摸开关时，触发人脸识别主函数进行实时拍照并将此照片发送至Face++云服务中心进行分析，云服务得出上传图像的人脸参数，并把参数跟已经预存在人脸数据库中的面部信息进行比对，将比对结果传回到树莓派．确认识别成功后控制步进电机转动，若人脸不匹配则触发警报，同时记录下本次的识别数据。</p>
+<h4 id="设计的重点与难点"><a href="#设计的重点与难点" class="headerlink" title="设计的重点与难点"></a>设计的重点与难点</h4><p>本系统设计重点在于人脸检测分析及人脸比对、系统整体软硬件架构；</p>
+<p>难点有硬件设备的安装与调试、前端网页的设计与代码编写，frp 可用于内网穿透的高性能的反向代理应用，使用frp实现内网穿透远程实时监控。Face++的人脸库数据操作有两种方式，一种直接在Face++云的控制中心上传，另一种是通过代码的方式进行操作．第一种方式虽然可以直接使用，但对于用户来说，整个操作过程还是较为繁琐．为方便对云平台人脸数据库进行管理，需要建立一个用户管理系统界面。</p>
+<h3 id="系统的总体设计"><a href="#系统的总体设计" class="headerlink" title="系统的总体设计"></a>系统的总体设计</h3><h4 id="系统功能层次图"><a href="#系统功能层次图" class="headerlink" title="系统功能层次图"></a>系统功能层次图</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/基于树莓派的人脸识别门禁系统/system.png" alt="system" title="">
+                </div>
+                <div class="image-caption">system</div>
+            </figure> 
+
+<h4 id="系统功能描述"><a href="#系统功能描述" class="headerlink" title="系统功能描述"></a>系统功能描述</h4><p>本文的门禁系统设计具有半自动的特点。首先待检测人员用手触碰触发模块，主控模块接收到触发信号进行拍照并保存，接着调用人脸比对程序将原始的图片以二进制形式上传至Face++云服务，待上传完成之后，若检测到人脸，云服务会返回人脸的相似度，主控模块将对返回的结果进行比对判断。如果对比成功，则驱动步进电机开始旋转，否则触发警报模块。同时web客户端可远程查看实时监控画面、人员管理、查看门禁记录、开关门操作和人员管理等功能。</p>
+<h3 id="系统的模块设计"><a href="#系统的模块设计" class="headerlink" title="系统的模块设计"></a>系统的模块设计</h3><h4 id="界面（UI）设计"><a href="#界面（UI）设计" class="headerlink" title="界面（UI）设计"></a>界面（UI）设计</h4><h5 id="界面布局示意图"><a href="#界面布局示意图" class="headerlink" title="界面布局示意图"></a>界面布局示意图</h5><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/基于树莓派的人脸识别门禁系统/login.png" alt="login" title="">
+                </div>
+                <div class="image-caption">login</div>
+            </figure> 
+
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/基于树莓派的人脸识别门禁系统/main.png" alt="main" title="">
+                </div>
+                <div class="image-caption">main</div>
+            </figure> 
+
+<h5 id="界面控件（或部件）设计"><a href="#界面控件（或部件）设计" class="headerlink" title="界面控件（或部件）设计"></a>界面控件（或部件）设计</h5><p>主要设计四个界面：登录界面、主界面、门禁记录界面和人员管理界面。</p>
+<p>登录界面主要包括用户名及密码输入，登录按钮；</p>
+<p>主界面有显示实时监控画面、退出登录按钮、开关门按钮、人员管理按钮和门禁记录按钮；</p>
+<p>人员管理界面主要有家庭成员列表，增加或删除家庭人员等控件；</p>
+<p>门禁记录界面显示刷门禁的时间日期、人脸相似度、人脸名和姓名；</p>
+<h4 id="数据库设计"><a href="#数据库设计" class="headerlink" title="数据库设计"></a>数据库设计</h4><h5 id="E-R图"><a href="#E-R图" class="headerlink" title="E-R图"></a>E-R图</h5><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/基于树莓派的人脸识别门禁系统/E-R.png" alt="E-R" title="">
+                </div>
+                <div class="image-caption">E-R</div>
+            </figure> 
+
+<h5 id="数据库表结构"><a href="#数据库表结构" class="headerlink" title="数据库表结构"></a>数据库表结构</h5><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/基于树莓派的人脸识别门禁系统/datebase.png" alt="datebase" title="">
+                </div>
+                <div class="image-caption">datebase</div>
+            </figure> 
+
+<h4 id="主控模块设计"><a href="#主控模块设计" class="headerlink" title="主控模块设计"></a>主控模块设计</h4><h5 id="程序流程图"><a href="#程序流程图" class="headerlink" title="程序流程图"></a>程序流程图</h5><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/基于树莓派的人脸识别门禁系统/main-contorl.png" alt="main-contorl" title="">
+                </div>
+                <div class="image-caption">main-contorl</div>
+            </figure> 
+
+<h5 id="系统功能描述-1"><a href="#系统功能描述-1" class="headerlink" title="系统功能描述"></a>系统功能描述</h5><p>循环检测触摸开关有无产生高电平，若有则拍照并保存本地，接着调用人脸检测程序将原始的图片以二进制形式上传至Face++云服务，待上传完成之后，若检测到人脸，接着调用人脸搜索API云服务会返回人脸的相似度[7]，主控模块将对返回的结果进行比对判断。如果对比成功，则驱动步进电机开始旋转，否则触发警报模块。最终识别记录信息会上传到腾讯云端数据库，方便获取和查看。</p>
+<h4 id=""><a href="#" class="headerlink" title=""></a></h4>
         </div>
 
         <blockquote class="post-copyright">
@@ -189,7 +268,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2020-04-29T07:18:52.265Z" itemprop="dateUpdated">2020-04-29 15:18:52</time>
+    最后更新时间：<time datetime="2020-04-29T12:32:23.255Z" itemprop="dateUpdated">2020-04-29 20:32:23</time>
 </span><br>
 
 
