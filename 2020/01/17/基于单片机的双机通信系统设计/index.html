@@ -31,7 +31,7 @@
 <meta property="og:image" content="https://gzwangu.github.io/images/%E5%9F%BA%E4%BA%8E%E5%8D%95%E7%89%87%E6%9C%BA%E7%9A%84%E5%8F%8C%E6%9C%BA%E9%80%9A%E4%BF%A1%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/simulation.png">
 <meta property="og:image" content="https://gzwangu.github.io/images/%E5%9F%BA%E4%BA%8E%E5%8D%95%E7%89%87%E6%9C%BA%E7%9A%84%E5%8F%8C%E6%9C%BA%E9%80%9A%E4%BF%A1%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/process.png">
 <meta property="article:published_time" content="2020-01-17T03:32:09.000Z">
-<meta property="article:modified_time" content="2020-04-29T07:13:29.252Z">
+<meta property="article:modified_time" content="2020-04-29T12:39:51.390Z">
 <meta property="article:author" content="gzwang">
 <meta property="article:tag" content="C51">
 <meta property="article:tag" content="单片机">
@@ -204,14 +204,21 @@
 <h4 id="软件设计"><a href="#软件设计" class="headerlink" title="软件设计"></a>软件设计</h4><p>通过通信协议进行发送接收，甲机先发送‘?’给乙机，当乙机接收到‘?’后，会在LCD屏上显示选择同意或拒绝，如同意和甲机建立通信，则通过按键K3向甲机回答‘Y’，同时甲乙机LCD屏上显示‘Agree’。如拒绝和甲机通信，则通过按键K4向甲机回答‘N’，同时甲乙机LCD屏上显示‘Refuse’，甲机可再次请求建立连接。甲机收到乙机的答复后做出下一步操作。</p>
 <p>当甲机和乙机建立通信后，一方可先按下K3键输入内容，每次发送内容最多可达32个字符，通过单片机上的键盘输入，输入完毕后，按下K4键点击发送，在屏幕下方会提示‘Send Finish’， 另一方收到的内容会在LCD上显示，此时可继续接收或发送信息，为了不影响下次接收的内容显示，可选择按键K3清空LCD屏幕，不清空则接着上次接收内容继续显示。甲乙两机可实现自由的全双工通信，即聊天模式。</p>
 <p>其中键盘是行列式键盘，它是用P2口的4条I/O线作为行线，4条I/O线作为列线组成的键盘。在行线和列线的每一个交叉点上，设置一个按键，这样键盘中按键的个数是16个。通过每次键盘列扫描、按键判断、键值计算三个步骤检测是否有按键按下并返回按下的按键值。</p>
-<p>除了基本的发送和接收功能，该通信系统建立后还可拒收对方信息，即把对方拉黑功能，按下K4键选择拒绝或恢复通信。发送图片音乐也是通信的一大特点，一方向另一方发送播放音乐《我和我的祖国》，播放音乐过程中不干扰正常的通信，可通过键盘中任意键结束音乐播放。  </p>
-<p><img src="/images/%E5%9F%BA%E4%BA%8E%E5%8D%95%E7%89%87%E6%9C%BA%E7%9A%84%E5%8F%8C%E6%9C%BA%E9%80%9A%E4%BF%A1%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/simulation.png" alt="simulation"></p>
+<p>除了基本的发送和接收功能，该通信系统建立后还可拒收对方信息，即把对方拉黑功能，按下K4键选择拒绝或恢复通信。发送图片音乐也是通信的一大特点，一方向另一方发送播放音乐《我和我的祖国》，播放音乐过程中不干扰正常的通信，可通过键盘中任意键结束音乐播放。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/基于单片机的双机通信系统设计/simulation.png" alt="整体电路设计图" title="">
+                </div>
+                <div class="image-caption">整体电路设计图</div>
+            </figure>
+
 <h3 id="程序框图"><a href="#程序框图" class="headerlink" title="程序框图"></a>程序框图</h3><figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="/images/基于单片机的双机通信系统设计/process.png" alt="process" title="">
+                    <img src="/images/基于单片机的双机通信系统设计/process.png" alt="程序流程图" title="">
                 </div>
-                <div class="image-caption">process</div>
+                <div class="image-caption">程序流程图</div>
             </figure>  
 
 <h3 id="核心代码"><a href="#核心代码" class="headerlink" title="核心代码"></a>核心代码</h3><h4 id="发送输入"><a href="#发送输入" class="headerlink" title="发送输入"></a>发送输入</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span>(send_count&lt;<span class="number">32</span>) &#123;  </span><br><span class="line">    key = <span class="built_in">getKey</span>();   <span class="comment">//获取键值  </span></span><br><span class="line">    <span class="keyword">if</span> (key != <span class="number">-1</span>) &#123;     <span class="comment">//有键按下</span></span><br><span class="line">		delayms(<span class="number">10</span>);    <span class="comment">//延时10ms，消除按键抖动</span></span><br><span class="line">        key = <span class="built_in">getKey</span>();  <span class="comment">//再次获取键值</span></span><br><span class="line">        <span class="keyword">if</span> (key != <span class="number">-1</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span>(send_count==<span class="number">16</span>)              <span class="comment">//超过16个字符显示在第二行</span></span><br><span class="line">                writecmd_1602(<span class="number">0x80</span>+<span class="number">0x40</span>);</span><br><span class="line">            <span class="keyword">if</span>(key&lt;<span class="number">10</span>) &#123;</span><br><span class="line">                input[send_count++] = <span class="string">'0'</span>+key;   <span class="comment">//数字0-9</span></span><br><span class="line">                <span class="keyword">if</span>(send_count==<span class="number">1</span>)</span><br><span class="line">                    writecmd_1602(<span class="number">0x01</span>);	  <span class="comment">//清屏Please enter</span></span><br><span class="line">                writedata_1602(<span class="string">'0'</span>+key);   <span class="comment">//显示输入的内容</span></span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                input[send_count++] = a_f[key<span class="number">-10</span>];  <span class="comment">//字母a-f</span></span><br><span class="line">                <span class="keyword">if</span>(send_count==<span class="number">1</span>)</span><br><span class="line">                    writecmd_1602(<span class="number">0x01</span>);	  <span class="comment">//清屏Please enter</span></span><br><span class="line">                writedata_1602(a_f[key<span class="number">-10</span>]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    P2 = <span class="number">0x0f</span>;        <span class="comment">//判断按键是否松开，防止一直输入</span></span><br><span class="line">    <span class="keyword">while</span>((P2 &amp; <span class="number">0x0f</span>) != <span class="number">0x0f</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -234,7 +241,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2020-04-29T07:13:29.252Z" itemprop="dateUpdated">2020-04-29 15:13:29</time>
+    最后更新时间：<time datetime="2020-04-29T12:39:51.390Z" itemprop="dateUpdated">2020-04-29 20:39:51</time>
 </span><br>
 
 

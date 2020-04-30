@@ -39,7 +39,7 @@
 <meta property="og:image" content="https://gzwangu.github.io/images/%E5%9F%BA%E4%BA%8EVHDL%E7%9A%84%E6%95%B0%E5%AD%97%E7%A7%92%E8%A1%A8%E8%AE%BE%E8%AE%A1/BCD7.png">
 <meta property="og:image" content="https://gzwangu.github.io/images/%E5%9F%BA%E4%BA%8EVHDL%E7%9A%84%E6%95%B0%E5%AD%97%E7%A7%92%E8%A1%A8%E8%AE%BE%E8%AE%A1/STOPWATCH.png">
 <meta property="article:published_time" content="2020-01-19T09:55:56.000Z">
-<meta property="article:modified_time" content="2020-04-27T01:45:21.213Z">
+<meta property="article:modified_time" content="2020-04-29T12:44:33.030Z">
 <meta property="article:author" content="gzwang">
 <meta property="article:tag" content="VHDL">
 <meta property="article:tag" content="FPGA">
@@ -211,9 +211,9 @@
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="/images/基于VHDL的数字秒表设计/RTL.png" alt="RTL" title="">
+                    <img src="/images/基于VHDL的数字秒表设计/RTL.png" alt="RTL图" title="">
                 </div>
-                <div class="image-caption">RTL</div>
+                <div class="image-caption">RTL图</div>
             </figure>
 
 <h3 id="实验开发环境与器材"><a href="#实验开发环境与器材" class="headerlink" title="实验开发环境与器材"></a>实验开发环境与器材</h3><p>Quartus Ⅱ 9.1和FPGA器件EP2C35F484C8</p>
@@ -240,9 +240,9 @@
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="/images/基于VHDL的数字秒表设计/block.png" alt="block" title="">
+                    <img src="/images/基于VHDL的数字秒表设计/block.png" alt="系统构成框图" title="">
                 </div>
-                <div class="image-caption">block</div>
+                <div class="image-caption">系统构成框图</div>
             </figure>
 
 <h3 id="实验结果与分析"><a href="#实验结果与分析" class="headerlink" title="实验结果与分析"></a>实验结果与分析</h3><p>数字秒表系统各个模块及整体仿真图如下：</p>
@@ -250,9 +250,9 @@
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="/images/基于VHDL的数字秒表设计/CB10.png" alt="CB10" title="">
+                    <img src="/images/基于VHDL的数字秒表设计/CB10.png" alt="时基分频模块仿真图" title="">
                 </div>
-                <div class="image-caption">CB10</div>
+                <div class="image-caption">时基分频模块仿真图</div>
             </figure>
 
 <p>CLK是时钟脉冲输入端，CO为分频后信号输出端。由FPGA器件内部50mHZ的时钟脉冲产生秒表需要的1kHZ时钟频率，需要对50mHZ进行50000分频。</p>
@@ -261,9 +261,9 @@
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="/images/基于VHDL的数字秒表设计/CONTROL.png" alt="CONTROL" title="">
+                    <img src="/images/基于VHDL的数字秒表设计/CONTROL.png" alt="控制模块仿真图" title="">
                 </div>
-                <div class="image-caption">CONTROL</div>
+                <div class="image-caption">控制模块仿真图</div>
             </figure>
 
 <p>（3）计时模块仿真</p>
@@ -271,9 +271,9 @@
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="/images/基于VHDL的数字秒表设计/CDU10.png" alt="CDU10" title="">
+                    <img src="/images/基于VHDL的数字秒表设计/CDU10.png" alt="十进制计数器仿真图" title="">
                 </div>
-                <div class="image-caption">CDU10</div>
+                <div class="image-caption">十进制计数器仿真图</div>
             </figure>
 
 <p>图中可以看出十进制计数器的计数功能正常，从0计到9后回0，清零时立即从0开始计时。</p>
@@ -281,9 +281,9 @@
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="/images/基于VHDL的数字秒表设计/CDU6.png" alt="CDU6" title="">
+                    <img src="/images/基于VHDL的数字秒表设计/CDU6.png" alt="六进制计数器仿真图" title="">
                 </div>
-                <div class="image-caption">CDU6</div>
+                <div class="image-caption">六进制计数器仿真图</div>
             </figure>
 
 <p>图中可以看出六进制计数器的计数功能正常，从0计到5后回0，清零时立即从0开始计时。</p>
@@ -291,9 +291,9 @@
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="/images/基于VHDL的数字秒表设计/COUNT.png" alt="COUNT" title="">
+                    <img src="/images/基于VHDL的数字秒表设计/COUNT.png" alt="计时器仿真图" title="">
                 </div>
-                <div class="image-caption">COUNT</div>
+                <div class="image-caption">计时器仿真图</div>
             </figure>
 
 <p>计时器功能正常，能够准确计时ms、10ms、100ms、1s、10s、1min、10min、hour位。</p>
@@ -303,27 +303,27 @@
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="/images/基于VHDL的数字秒表设计/MULX.png" alt="MULX" title="">
+                    <img src="/images/基于VHDL的数字秒表设计/MULX.png" alt="数据选择器仿真图" title="">
                 </div>
-                <div class="image-caption">MULX</div>
+                <div class="image-caption">数据选择器仿真图</div>
             </figure>
 
 <p>②BCD七段译码器仿真</p>
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="/images/基于VHDL的数字秒表设计/BCD7.png" alt="BCD7" title="">
+                    <img src="/images/基于VHDL的数字秒表设计/BCD7.png" alt="BCD七段译码器仿真图" title="">
                 </div>
-                <div class="image-caption">BCD7</div>
+                <div class="image-caption">BCD七段译码器仿真图</div>
             </figure>
 
 <p>（5）秒表系统仿真</p>
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="/images/基于VHDL的数字秒表设计/STOPWATCH.png" alt="STOPWATCH" title="">
+                    <img src="/images/基于VHDL的数字秒表设计/STOPWATCH.png" alt="秒表系统仿真图" title="">
                 </div>
-                <div class="image-caption">STOPWATCH</div>
+                <div class="image-caption">秒表系统仿真图</div>
             </figure>
 
 <p>秒表系统仿真正常，从ms位到hour位依次刷新扫描，百进制和六十进制正常，异步清零复位正常，系统整体运行良好。由仿真结果可以看出系统具有计时和显示功能，且满足计时精度为10ms，计时范围为0 ～ 59 分 59.99 秒的设计要求，同时计时稳定性高。</p>
@@ -534,7 +534,7 @@ endmodule</code></pre>
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2020-04-27T01:45:21.213Z" itemprop="dateUpdated">2020-04-27 09:45:21</time>
+    最后更新时间：<time datetime="2020-04-29T12:44:33.030Z" itemprop="dateUpdated">2020-04-29 20:44:33</time>
 </span><br>
 
 
