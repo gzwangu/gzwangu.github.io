@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>uCOS-II知识点</title>
+      <link href="/2020/05/04/uCOS-II%E7%9F%A5%E8%AF%86%E7%82%B9/"/>
+      <url>/2020/05/04/uCOS-II%E7%9F%A5%E8%AF%86%E7%82%B9/</url>
+      
+        <content type="html"><![CDATA[<h3 id="第一章-嵌入式实时操作系统的基本概念"><a href="#第一章-嵌入式实时操作系统的基本概念" class="headerlink" title="第一章 嵌入式实时操作系统的基本概念"></a>第一章 嵌入式实时操作系统的基本概念</h3><p>第一章都是些基本概念知识，比如：什么是嵌入式操作系统，嵌入式操作系统是支持嵌入式系统工作的操作系统，一般用于比较复杂的嵌入式系统软件开发中；什么又是嵌入式实时操作系统，大多嵌入式系统应用在实时环境中，因此嵌入式操作系统跟实时（Real-Time）操作系统密切联系在一起；典型嵌入式操作系统有哪些，主要有VxWorks、Windows CE、Palm OS、QNX、Linux 和 μC/OS 等。这些东西了解即可，不用死记硬背，换句话说——不考。</p><h3 id="第二章-uCOS-II-中的任务（重点）"><a href="#第二章-uCOS-II-中的任务（重点）" class="headerlink" title="第二章 uCOS-II 中的任务（重点）"></a>第二章 uCOS-II 中的任务（重点）</h3><h4 id="任务的基本概念"><a href="#任务的基本概念" class="headerlink" title="任务的基本概念"></a>任务的基本概念</h4><p>从应用程序设计的角度，uC/OS-II 的任务就是一个<em>线程</em></p><p>uC/OS-II 任务的组成：</p><blockquote><p>任务代码：任务的执行部分<br>任务堆栈：保存任务工作环境<br>任务控制块：保存任务的属性</p></blockquote><p>uC/OS-II 的任务有两种：</p><blockquote><p>用户任务：由应用程序设计者编写的任务<br>系统任务：系统提供的任务 </p></blockquote><p>预定义了两个系统任务：<em>空闲任务</em>和<em>统计任务</em>。系统在某个时间内无用户任务可运行而处于空闲状态，为使 CPU 在没有用户任务可执行时有事可做，uC/OS-II 提供了空闲任务。统计任务每秒计算一次 CPU 在单位时间内被使用的时间，并把计算结果以百分比的形式存放在变量 OSCPUsage 中，以便应用程序通过访问它来了解 CPU 的利用率。</p><p>任务的5种状态：睡眠状态、就绪状态、运行状态、等待状态、中断服务状态</p><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/images/uCOS-II知识点/task_state_transition.png" alt="任务状态转换图" title="">                </div>                <div class="image-caption">任务状态转换图</div>            </figure><p>uC/OS-II 最多可以对 <em>64</em> 个任务进行管理，其中系统任务（预留）8 个，用户任务 56 个</p><p>每个任务都必须具有一个唯一的优先级别，0～63 共 64 个优先级别，数字越小，优先级别越高。</p><p>在文件 OS_CFG.H 中常数 OS_LOWEST_PRIO 表示最低优先级 </p><p>任务个数：OS_LOWEST_PRIO + 1，其中 OS_LOWEST_PRIO 自动赋给空闲任务，OS_LOWEST_PRIO－1 自动赋给统计任务（存在的话）</p><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/images/uCOS-II知识点/例2-3.png" alt="例2-3" title="">                </div>                <div class="image-caption">例2-3</div>            </figure><p>任务的优先级别为 28 个即 0～27，则最低优先级别的常数 OS_LOWEST_PRIO 值为 27，应用程序中使用了系统提供的空闲任务和统计任务，则应用程序最多可以安排 28-2 = 26 个任务。</p><h4 id="任务堆栈"><a href="#任务堆栈" class="headerlink" title="任务堆栈"></a>任务堆栈</h4><p>任务的重要组成部分；每个任务都配有自己的堆栈；满足任务切换和响应中断时保护CPU寄存器中的内容及存储任务私有数据的需要；</p><p>在文件 OS_CPU.H 中的数据类型 OS_STK </p><blockquote><p>typedef unsigned int OS_STK;       //该类型长度为16位 </p></blockquote><p>在应用程序中定义 OS_STK 类型的一个数组 </p><blockquote><p># define TASK_STK_SIZE 512          //定义堆栈长度<br>OS_STK TaskStk[TASK_STK_SIZE];       //定义数组</p></blockquote><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/images/uCOS-II知识点/OSTaskCreate.png" alt="OSTaskCreate()原型" title="">                </div>                <div class="image-caption">OSTaskCreate()原型</div>            </figure><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/images/uCOS-II知识点/例2-4.png" alt="例 2-4" title="">                </div>                <div class="image-caption">例 2-4</div>            </figure><p>堆栈的增长方向是随系统所使用的处理器不同而不同,例 2-4 是假设使用了支持堆栈向下增长方式的处理器，如果使用堆栈增长方向向上的形式则如下：</p><blockquote><p>OSTaskCreat(MyTask, &amp;MyTaskAgu, &amp;MyTaskStk[0], 20);</p></blockquote><h4 id="任务控制块及其链表"><a href="#任务控制块及其链表" class="headerlink" title="任务控制块及其链表"></a>任务控制块及其链表</h4><p>任务控制块（OS_TCB）：用来记录任务的堆栈指针、任务的当前状态、任务的优先级别等一系列与任务管理有关的属性的表 </p><p>用两条链表来管理任务控制块：</p><blockquote><p>空任务控制块链表：应用程序调用函数 OSInit() 对 uC/OS-II 系统进行初始化时建立的单向链表<br>任务控制块链表：应用程序调用 OSTaskCreate() 创建任务时建立的双向链表</p></blockquote><p>OSTCBInit() 的主要任务如下：</p><ul><li>为被创建任务从空任务控制块链表获取一个任务控制块；</li><li>用任务的属性对任务控制块各个成员进行赋值；</li><li>把这个任务控制块链入到任务控制块链表；</li></ul><p><strong>OSTCBPrioTbl[ ]</strong>：以任务优先级为下标，保存任务控制块指针的数组。</p><p>为什么要对TCB进行初始化？ </p><ul><li>获得任务控制块 </li><li>保存任务属性</li></ul><h4 id="任务就绪表及任务调度"><a href="#任务就绪表及任务调度" class="headerlink" title="任务就绪表及任务调度"></a>任务就绪表及任务调度</h4><p>uC/OS-II进行调度的思想 </p><ul><li>每时每刻总是让优先级最高的就绪任务处于运行状态 </li><li>在系统或用户任务调用系统函数及执行中断服务程序 结束时，调用调度器来确定应该运行的任务并运行它</li></ul><p>任务就绪表：OSRdyTbl[ ]数组，无符号8位数，一个元素可表达8个任务的就绪状态（1/0）</p><p>OSRdyGrp：位数对应 OSRdyTbl[ ] 的下标，即组号；状态表示该组有无任务就绪</p><h3 id="第三章"><a href="#第三章" class="headerlink" title="第三章"></a>第三章</h3><p>任务就绪表相关操作（相对难一点的）<br>优先级反转，过程，怎么解决</p><p>osschding  任务调度<br>时钟中断服务子程序  ostimetike<br>有函数实现过程<br>内存创建使用<br>信号量集的请求发送</p><p>程序分析<br>第四章例9<br>第五章例1</p><p>第二章 40-50</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 课程学习 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 操作系统 </tag>
+            
+            <tag> 知识点 </tag>
+            
+            <tag> uC/OS-II </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>基于树莓派的人脸识别门禁系统</title>
       <link href="/2020/04/25/%E5%9F%BA%E4%BA%8E%E6%A0%91%E8%8E%93%E6%B4%BE%E7%9A%84%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB%E9%97%A8%E7%A6%81%E7%B3%BB%E7%BB%9F/"/>
       <url>/2020/04/25/%E5%9F%BA%E4%BA%8E%E6%A0%91%E8%8E%93%E6%B4%BE%E7%9A%84%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB%E9%97%A8%E7%A6%81%E7%B3%BB%E7%BB%9F/</url>
@@ -33,7 +62,7 @@
     
     
     <entry>
-      <title>uCOS-II实验</title>
+      <title>uC/OS-II实验</title>
       <link href="/2020/04/25/uCOS-II%E5%AE%9E%E9%AA%8C/"/>
       <url>/2020/04/25/uCOS-II%E5%AE%9E%E9%AA%8C/</url>
       
@@ -49,9 +78,11 @@
       
         <tags>
             
-            <tag> C </tag>
-            
             <tag> 操作系统 </tag>
+            
+            <tag> uC/OS-II </tag>
+            
+            <tag> C </tag>
             
         </tags>
       
@@ -118,7 +149,7 @@
       <link href="/2020/01/16/hello-world/"/>
       <url>/2020/01/16/hello-world/</url>
       
-        <content type="html"><![CDATA[<p>hello everybody!  </p><p>关于我</p><p>CUMT 2017级信科专业</p><p>菜鸡一枚，爱好和平</p><p>有相关问题请Q：<a href="mailto:651406060@qq.com">651406060@qq.com</a></p><p>开始搞事情！  </p><p><img src="/images/hello-world/go.jpg" alt="go"></p>]]></content>
+        <content type="html"><![CDATA[<p>hello everybody!  </p><p>关于我</p><p>CUMT 2017级信科专业</p><p>菜鸡一枚，爱好和平</p><p>有相关问题请Q：<a href="mailto:651406060@qq.com">651406060@qq.com</a></p><p>开始搞事情！</p><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/images/hello-world/go.jpg" alt="go" title="">                </div>                <div class="image-caption">go</div>            </figure>]]></content>
       
       
       
