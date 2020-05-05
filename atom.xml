@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://gzwangu.github.io/"/>
-  <updated>2020-05-05T12:26:00.118Z</updated>
+  <updated>2020-05-05T12:42:31.748Z</updated>
   <id>https://gzwangu.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>HDL复习</title>
+    <link href="https://gzwangu.github.io/2020/05/05/HDL%E5%A4%8D%E4%B9%A0/"/>
+    <id>https://gzwangu.github.io/2020/05/05/HDL%E5%A4%8D%E4%B9%A0/</id>
+    <published>2020-05-05T12:41:46.000Z</published>
+    <updated>2020-05-05T12:42:31.748Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+      <category term="课程学习" scheme="https://gzwangu.github.io/categories/%E8%AF%BE%E7%A8%8B%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="FPGA" scheme="https://gzwangu.github.io/tags/FPGA/"/>
+    
+      <category term="知识点" scheme="https://gzwangu.github.io/tags/%E7%9F%A5%E8%AF%86%E7%82%B9/"/>
+    
+      <category term="HDL" scheme="https://gzwangu.github.io/tags/HDL/"/>
+    
+  </entry>
   
   <entry>
     <title>uCOS-II知识点</title>
