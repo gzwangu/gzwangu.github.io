@@ -39,7 +39,7 @@
 <meta property="og:image" content="https://gzwangu.github.io/images/uCOS-II%E7%9F%A5%E8%AF%86%E7%82%B9/%E4%BE%8B2-72.png">
 <meta property="og:image" content="https://gzwangu.github.io/images/uCOS-II%E7%9F%A5%E8%AF%86%E7%82%B9/OSTaskSuspendResume.png">
 <meta property="article:published_time" content="2020-05-04T01:35:59.000Z">
-<meta property="article:modified_time" content="2020-05-05T11:59:48.456Z">
+<meta property="article:modified_time" content="2020-05-05T12:26:00.118Z">
 <meta property="article:author" content="gzwang">
 <meta property="article:tag" content="操作系统">
 <meta property="article:tag" content="uC&#x2F;OS-II">
@@ -202,13 +202,16 @@
             <h3 id="第一章-嵌入式实时操作系统的基本概念"><a href="#第一章-嵌入式实时操作系统的基本概念" class="headerlink" title="第一章 嵌入式实时操作系统的基本概念"></a>第一章 嵌入式实时操作系统的基本概念</h3><p>第一章都是些基本概念知识，比如：什么是嵌入式操作系统，嵌入式操作系统是支持嵌入式系统工作的操作系统，一般用于比较复杂的嵌入式系统软件开发中；什么又是嵌入式实时操作系统，大多嵌入式系统应用在实时环境中，因此嵌入式操作系统跟实时（Real-Time）操作系统密切联系在一起；典型嵌入式操作系统有哪些，主要有VxWorks、Windows CE、Palm OS、QNX、Linux 和 μC/OS 等。这些东西了解即可，不用死记硬背，换句话说——不考。</p>
 <h3 id="第二章-uC-OS-II-中的任务（重点）"><a href="#第二章-uC-OS-II-中的任务（重点）" class="headerlink" title="第二章 uC/OS-II 中的任务（重点）"></a>第二章 uC/OS-II 中的任务（重点）</h3><h4 id="任务的基本概念"><a href="#任务的基本概念" class="headerlink" title="任务的基本概念"></a>任务的基本概念</h4><p>从应用程序设计的角度，uC/OS-II 的任务就是一个<em>线程</em></p>
 <p>uC/OS-II 任务的组成：</p>
-<blockquote>
-<p>任务代码：任务的执行部分<br>任务堆栈：保存任务工作环境<br>任务控制块：保存任务的属性</p>
-</blockquote>
+<ul>
+<li>任务代码：任务的执行部分 </li>
+<li>任务堆栈：保存任务工作环境 </li>
+<li>任务控制块：保存任务的属性</li>
+</ul>
 <p>uC/OS-II 的任务有两种：</p>
-<blockquote>
-<p>用户任务：由应用程序设计者编写的任务<br>系统任务：系统提供的任务 </p>
-</blockquote>
+<ul>
+<li>用户任务：由应用程序设计者编写的任务</li>
+<li>系统任务：系统提供的任务 </li>
+</ul>
 <p>预定义了两个系统任务：<em>空闲任务</em>和<em>统计任务</em>。系统在某个时间内无用户任务可运行而处于空闲状态，为使 CPU 在没有用户任务可执行时有事可做，uC/OS-II 提供了空闲任务。统计任务每秒计算一次 CPU 在单位时间内被使用的时间，并把计算结果以百分比的形式存放在变量 OSCPUsage 中，以便应用程序通过访问它来了解 CPU 的利用率。</p>
 <p>任务的5种状态：睡眠状态、就绪状态、运行状态、等待状态、中断服务状态</p>
 <figure class="image-bubble">
@@ -220,7 +223,7 @@
             </figure>
 
 <p>uC/OS-II 最多可以对 <em>64</em> 个任务进行管理，其中系统任务（预留）8 个，用户任务 56 个</p>
-<p>每个任务都必须具有一个唯一的优先级别，0～63 共 64 个优先级别，数字越小，优先级别越高。</p>
+<p>每个任务都必须具有一个唯一的优先级别，0～63 共 64 个优先级别，数字越小，优先级别越高</p>
 <p>在文件 OS_CFG.H 中常数 OS_LOWEST_PRIO 表示最低优先级 </p>
 <p>任务个数：OS_LOWEST_PRIO + 1，其中 OS_LOWEST_PRIO 自动赋给空闲任务，OS_LOWEST_PRIO－1 自动赋给统计任务（存在的话）</p>
 <figure class="image-bubble">
@@ -260,9 +263,10 @@
 
 <h4 id="任务控制块及其链表"><a href="#任务控制块及其链表" class="headerlink" title="任务控制块及其链表"></a>任务控制块及其链表</h4><p>任务控制块（OS_TCB）：用来记录任务的堆栈指针、任务的当前状态、任务的优先级别等一系列与任务管理有关的属性的表 </p>
 <p>用两条链表来管理任务控制块：</p>
-<blockquote>
-<p>空任务控制块链表：应用程序调用函数 OSInit() 对 uC/OS-II 系统进行初始化时建立的单向链表<br>任务控制块链表：应用程序调用 OSTaskCreate() 创建任务时建立的双向链表</p>
-</blockquote>
+<ul>
+<li>空任务控制块链表：应用程序调用函数 OSInit() 对 uC/OS-II 系统进行初始化时建立的单向链表 </li>
+<li>任务控制块链表：应用程序调用 OSTaskCreate() 创建任务时建立的双向链表</li>
+</ul>
 <p>OSTCBInit() 的主要任务如下：</p>
 <ul>
 <li>为被创建任务从空任务控制块链表获取一个任务控制块；</li>
@@ -295,7 +299,7 @@
                 <div class="image-caption">例 2-5</div>
             </figure>
 
-<p><em>简单点的方法：不需要把 49 化成二进制再分别取高低三位，直接用 49 / 8 = 6…1 可知应该在 OSRdyTbl[6] 的 D1 位上置 1，同时要把变量 OSRdyGrp 的 D6 位置 1。又如书 P74 例 3-5 给的优先级别 prio = 30 ,用同样方法 30 / 8 = 3…6 可知应该在 OSRdyTbl[3] 的 D6 位上置 1，同时要把变量 OSRdyGrp 的 D3 位置 1。</em> </p>
+<p><em>简单点的方法</em>：不需要把 49 化成二进制再分别取高低三位，直接用 49 / 8 = 6…1 可知应该在 OSRdyTbl[6] 的 D1 位上置 1，同时要把变量 OSRdyGrp 的 D6 位置 1。又如书 P74 例 3-5 给的优先级别 prio = 30 ,用同样方法 30 / 8 = 3…6 可知应该在 OSRdyTbl[3] 的 D6 位上置 1，同时要把变量 OSRdyGrp 的 D3 位置 1。 </p>
 <p>OSMapTbl[ ] 是为加快运算速度定义的一个数组，它的各元素值为： </p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">OSMapTbl[<span class="number">0</span>] = <span class="number">00000001B</span>;</span><br><span class="line">OSMapTbl[<span class="number">1</span>] = <span class="number">00000010B</span>; </span><br><span class="line">OSMapTbl[<span class="number">2</span>] = <span class="number">00000100B</span>; </span><br><span class="line">OSMapTbl[<span class="number">3</span>] = <span class="number">00001000B</span>; </span><br><span class="line">OSMapTbl[<span class="number">4</span>] = <span class="number">00010000B</span>; </span><br><span class="line">OSMapTbl[<span class="number">5</span>] = <span class="number">00100000B</span>; </span><br><span class="line">OSMapTbl[<span class="number">6</span>] = <span class="number">01000000B</span>; </span><br><span class="line">OSMapTbl[<span class="number">7</span>] = <span class="number">10000000B</span>;</span><br></pre></td></tr></table></figure>
 
@@ -345,9 +349,10 @@
 <p>⑦ D6=1,D5=0,D4=0,D3=0,D2=0,D1=0,D0=0时<br>表明OSRdyTbl[6]中有任务就绪，OSRdyTbl[6]中的任务优先级为48-55，则y应该为6，OSRdyGrp取值为64、192，故数组 OSUnMapTbl中下标能被64整除且不能被128整除的数组元素值都应该为6；</p>
 <p>⑧ D7=1,D6=0,D5=0,D4=0,D3=0,D2=0,D1=0,D0=0时<br>表明OSRdyTbl[7]中有任务就绪，OSRdyTbl[7]中的任务优先级为56-63，则y应该为7，OSRdyGrp取值为128，故数组OSUnMapTbl中下标为128的数组元素值应该为7；</p>
 <p>调度器有两种：</p>
-<blockquote>
-<p>任务级调度器：OSSched() 函数<br>中断级调度器：OSIntExit() 函数 </p>
-</blockquote>
+<ul>
+<li>任务级调度器：OSSched() 函数 </li>
+<li>中断级调度器：OSIntExit() 函数 </li>
+</ul>
 <p>任务调度主要工作有两项： </p>
 <ul>
 <li>在任务就绪表中查找具有最高优先级别的就绪任务 </li>
@@ -464,7 +469,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2020-05-05T11:59:48.456Z" itemprop="dateUpdated">2020-05-05 19:59:48</time>
+    最后更新时间：<time datetime="2020-05-05T12:26:00.118Z" itemprop="dateUpdated">2020-05-05 20:26:00</time>
 </span><br>
 
 
