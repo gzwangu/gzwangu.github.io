@@ -39,7 +39,7 @@
 <meta property="og:image" content="https://gzwangu.github.io/images/uCOS-II%E7%9F%A5%E8%AF%86%E7%82%B9/%E4%BE%8B2-72.png">
 <meta property="og:image" content="https://gzwangu.github.io/images/uCOS-II%E7%9F%A5%E8%AF%86%E7%82%B9/OSTaskSuspendResume.png">
 <meta property="article:published_time" content="2020-05-04T01:35:59.000Z">
-<meta property="article:modified_time" content="2020-05-05T12:26:00.118Z">
+<meta property="article:modified_time" content="2020-05-06T12:10:09.036Z">
 <meta property="article:author" content="gzwang">
 <meta property="article:tag" content="操作系统">
 <meta property="article:tag" content="uC&#x2F;OS-II">
@@ -173,7 +173,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#第一章-嵌入式实时操作系统的基本概念"><span class="post-toc-number">1.</span> <span class="post-toc-text">第一章 嵌入式实时操作系统的基本概念</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#第二章-uC-OS-II-中的任务（重点）"><span class="post-toc-number">2.</span> <span class="post-toc-text">第二章 uC&#x2F;OS-II 中的任务（重点）</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#任务的基本概念"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">任务的基本概念</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#任务堆栈"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">任务堆栈</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#任务控制块及其链表"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">任务控制块及其链表</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#任务就绪表及任务调度"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">任务就绪表及任务调度</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#任务的创建"><span class="post-toc-number">2.5.</span> <span class="post-toc-text">任务的创建</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#任务的挂起和恢复"><span class="post-toc-number">2.6.</span> <span class="post-toc-text">任务的挂起和恢复</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#其他任务管理函数"><span class="post-toc-number">2.7.</span> <span class="post-toc-text">其他任务管理函数</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#uC-OS-II的初始化和任务的启动"><span class="post-toc-number">2.8.</span> <span class="post-toc-text">uC&#x2F;OS-II的初始化和任务的启动</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#第三章"><span class="post-toc-number">3.</span> <span class="post-toc-text">第三章</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#第一章-嵌入式实时操作系统的基本概念"><span class="post-toc-number">1.</span> <span class="post-toc-text">第一章 嵌入式实时操作系统的基本概念</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#第二章-uC-OS-II-中的任务（重点）"><span class="post-toc-number">2.</span> <span class="post-toc-text">第二章 uC&#x2F;OS-II 中的任务（重点）</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#任务的基本概念"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">任务的基本概念</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#任务堆栈"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">任务堆栈</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#任务控制块及其链表"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">任务控制块及其链表</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#任务就绪表及任务调度"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">任务就绪表及任务调度</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#任务的创建"><span class="post-toc-number">2.5.</span> <span class="post-toc-text">任务的创建</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#任务的挂起和恢复"><span class="post-toc-number">2.6.</span> <span class="post-toc-text">任务的挂起和恢复</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#其他任务管理函数"><span class="post-toc-number">2.7.</span> <span class="post-toc-text">其他任务管理函数</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#uC-OS-II的初始化和任务的启动"><span class="post-toc-number">2.8.</span> <span class="post-toc-text">uC&#x2F;OS-II的初始化和任务的启动</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#第三章-uC-OS-II的中断和时钟"><span class="post-toc-number">3.</span> <span class="post-toc-text">第三章 uC&#x2F;OS-II的中断和时钟</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#第四章-任务的同步与通信"><span class="post-toc-number">4.</span> <span class="post-toc-text">第四章 任务的同步与通信</span></a></li></ol>
         </nav>
     </aside>
 
@@ -430,6 +430,7 @@
 <li>把被删除任务的任务控制块从任务控制块链表中删除，并归还给空任务控制块链表，然后在任务就绪表中把该任务的就绪状态置为0，于是该任务就不能再被调度了 </li>
 <li>可以通过调用 OSTaskDel() 来删除任务自身或除了空闲任务之外的其它任务 </li>
 <li>删除任务自己时，函数参数为：OS_PRIO_SELF</li>
+<li>被动删除的任务，往往存在<em>动态分配资源丢失!!</em></li>
 </ul>
 <p>一般删除任务的方法</p>
 <ul>
@@ -457,8 +458,41 @@
 <li>uC/OS-II 进行任务管理是从调用函数 OSStart() 开始的</li>
 <li>调用函数 OSStart() 至少建立一个用户任务  </li>
 </ul>
-<h3 id="第三章"><a href="#第三章" class="headerlink" title="第三章"></a>第三章</h3><p>任务就绪表相关操作（相对难一点的）<br>优先级反转，过程，怎么解决</p>
-<p>ossched  任务调度<br>时钟中断服务子程序  ostimetike<br>有函数实现过程<br>内存创建使用<br>信号量集的请求发送</p>
+<h3 id="第三章-uC-OS-II的中断和时钟"><a href="#第三章-uC-OS-II的中断和时钟" class="headerlink" title="第三章 uC/OS-II的中断和时钟"></a>第三章 uC/OS-II的中断和时钟</h3><p><strong>中断响应过程</strong></p>
+<ul>
+<li>系统接收到中断请求后，这时如果CPU处于中断允许状态（即中断是开放的），系统就会中止正在运行的当前任务，而按照中断向量的指向转而去运行中断服务子程序；</li>
+<li>当中断服务子程序的运行结束后，系统将会根据情况返回到被中止的任务继续运行或者转向运行另一个具有更高优先级别的就绪任务。</li>
+</ul>
+<p><strong>临界段</strong><br>在应用程序中经常有些代码段必须不受任何干扰地连续运行，这样的代码段叫做临界段</p>
+<p><strong>时钟中断</strong></p>
+<ul>
+<li>uC/OS-II 用硬件定时器产生周期为毫秒级的周期性中断来实现时钟，最小时钟单位叫<em>时钟节拍</em></li>
+<li>时钟节拍中断服务程序 OSTickISR（）</li>
+<li>调用时钟节拍服务函数 OSTimeTick（）完成：<ul>
+<li>给计数器 OSTime 加 1</li>
+<li>遍历所有 TCB，将它们的 OSTCBDly 减 1</li>
+<li>若 OSTCBDly 为 0，且任务未被挂起，将其置为就绪态并相应的修改就绪表</li>
+</ul>
+</li>
+</ul>
+<p><strong>延时函数</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">OSTimeDly(INT16U ticks);   <span class="comment">//参数 ticks 以时钟节拍数为单位的延时时间</span></span><br><span class="line"></span><br><span class="line">OSTimeDlyHMSM( </span><br><span class="line">		INT8U hours,    <span class="comment">//时</span></span><br><span class="line">		INT8U minutes,  <span class="comment">//分</span></span><br><span class="line">		INT8U seconds,  <span class="comment">//秒</span></span><br><span class="line">		INT8U milli,    <span class="comment">//毫秒</span></span><br><span class="line">		)；</span><br><span class="line"></span><br><span class="line">INT8U OSTimeDlyResume（INT8U prio）;  <span class="comment">//取消任务延时</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="第四章-任务的同步与通信"><a href="#第四章-任务的同步与通信" class="headerlink" title="第四章 任务的同步与通信"></a>第四章 任务的同步与通信</h3><p><strong>任务同步</strong><br>为实现任务间的合作和无冲突运行，各任务间需建立制约关系。有两种制约关系：</p>
+<ul>
+<li>直接制约关系：源于任务间的合作</li>
+<li>间接制约关系：源于对资源的共享/竞争</li>
+</ul>
+<p>任务间这种制约性的合作运行机制叫做任务间的<em>同步</em>，系统中的同步是依靠任务间互发消息来保证的！</p>
+<p><strong>事件</strong><br>在 uC/OS-II 中，使用信号量、邮箱（消息邮箱）和消息队列这些被称为<strong>事件</strong>的中间环节来实现任务之间的通信。</p>
+<ul>
+<li><em>信号量</em> 是一类事件，使用它是为了建立一个标志来表示某共享资源被占用的情况</li>
+<li>用来传递消息缓冲区指针的数据结构叫做<em>消息邮箱</em></li>
+<li>可传递多个消息的数据结构叫做<em>消息队列</em></li>
+</ul>
+<p><strong>事件控制块</strong></p>
+<p>任务就绪表相关操作（相对难一点的）<br>优先级反转，过程，怎么解决</p>
+<p>ossched  任务调度<br>时钟中断服务子程序  ostimetick<br>有函数实现过程<br>内存创建使用<br>信号量集的请求发送</p>
 <p>程序分析<br>第四章例9<br>第五章例1</p>
 <p>第二章 40-50</p>
 
@@ -469,7 +503,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2020-05-05T12:26:00.118Z" itemprop="dateUpdated">2020-05-05 20:26:00</time>
+    最后更新时间：<time datetime="2020-05-06T12:10:09.036Z" itemprop="dateUpdated">2020-05-06 20:10:09</time>
 </span><br>
 
 
