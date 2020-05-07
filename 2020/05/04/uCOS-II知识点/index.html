@@ -20,7 +20,7 @@
     <meta name="theme-color" content="#3F51B5">
     
     
-    <meta name="keywords" content="操作系统,uC/OS-II,知识点">
+    <meta name="keywords" content="知识点,操作系统,uC/OS-II">
     <meta name="description" content="第一章 嵌入式实时操作系统的基本概念第一章都是些基本概念知识，比如：什么是嵌入式操作系统，嵌入式操作系统是支持嵌入式系统工作的操作系统，一般用于比较复杂的嵌入式系统软件开发中；什么又是嵌入式实时操作系统，大多嵌入式系统应用在实时环境中，因此嵌入式操作系统跟实时（Real-Time）操作系统密切联系在一起；典型嵌入式操作系统有哪些，主要有VxWorks、Windows CE、Palm OS、QNX、">
 <meta property="og:type" content="article">
 <meta property="og:title" content="uCOS-II知识点">
@@ -38,12 +38,14 @@
 <meta property="og:image" content="https://gzwangu.github.io/images/uCOS-II%E7%9F%A5%E8%AF%86%E7%82%B9/%E4%BE%8B2-71.jpg">
 <meta property="og:image" content="https://gzwangu.github.io/images/uCOS-II%E7%9F%A5%E8%AF%86%E7%82%B9/%E4%BE%8B2-72.png">
 <meta property="og:image" content="https://gzwangu.github.io/images/uCOS-II%E7%9F%A5%E8%AF%86%E7%82%B9/OSTaskSuspendResume.png">
+<meta property="og:image" content="https://gzwangu.github.io/images/uCOS-II%E7%9F%A5%E8%AF%86%E7%82%B9/ECB.png">
+<meta property="og:image" content="https://gzwangu.github.io/images/uCOS-II%E7%9F%A5%E8%AF%86%E7%82%B9/priority_inversion.png">
 <meta property="article:published_time" content="2020-05-04T01:35:59.000Z">
-<meta property="article:modified_time" content="2020-05-07T08:27:29.104Z">
+<meta property="article:modified_time" content="2020-05-07T11:21:19.059Z">
 <meta property="article:author" content="gzwang">
+<meta property="article:tag" content="知识点">
 <meta property="article:tag" content="操作系统">
 <meta property="article:tag" content="uC&#x2F;OS-II">
-<meta property="article:tag" content="知识点">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://gzwangu.github.io/images/uCOS-II%E7%9F%A5%E8%AF%86%E7%82%B9/task_state_transition.png">
     
@@ -490,7 +492,62 @@
 <li>用来传递消息缓冲区指针的数据结构叫做<em>消息邮箱</em></li>
 <li>可传递多个消息的数据结构叫做<em>消息队列</em></li>
 </ul>
-<p><strong>事件控制块</strong></p>
+<p><strong>事件控制块</strong><br>uC/OS-II 使用 <em>事件控制块</em> ECB 的数据结构来描述诸如信号量、邮箱（消息邮箱）和消息队列这类事件</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="\images\uCOS-II知识点\ECB.png" alt="事件控制块 ECB" title="">
+                </div>
+                <div class="image-caption">事件控制块 ECB</div>
+            </figure>
+
+<p>采用类似于任务就绪表的 <em>任务等待表</em> 来完成对等待事件的任务的记录与排序</p>
+<ul>
+<li>等待时限记录在 TCB 成员 OSTCBDly 中；</li>
+<li>当有任务的时限已到时，将其从任务等待表中删除，并设置任务就续表，使其进入就绪状态；</li>
+</ul>
+<p>空事件控制块链表：uC/OS-II 初始化时，函数 OSInit() 创建 OS_MAX_EVENTS 个空事件控制块并借用成员 OSEventPtr 将它们链接成一个单向链表</p>
+<ul>
+<li>当新创建一个事件时，从该空事件控制块链表取下一个空 ECB 并对其初始化</li>
+<li>当删除一个事件时，将事件的 ECB 归还给空事件控制块链表</li>
+</ul>
+<p><strong>信号量及其操作</strong><br>信号量两部分组成：</p>
+<ul>
+<li>信号量计数器 </li>
+<li>任务等待表</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">![priority _inversion](D:\Blog\source\images\uCOS-II知识点\priority _inversion.png)<span class="comment">// 创建信号量 </span></span><br><span class="line"><span class="function">OS_EVENT * <span class="title">OSSemCreate</span><span class="params">(</span></span></span><br><span class="line"><span class="function"><span class="params">		       INT16U cnt <span class="comment">// 信号量计数器初值</span></span></span></span><br><span class="line"><span class="function"><span class="params">		       )</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 请求信号量</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">OSSemPend</span> <span class="params">(OS_EVENT *pevent,  <span class="comment">//信号量的指针</span></span></span></span><br><span class="line"><span class="function"><span class="params">                INT16U timeout,   <span class="comment">//等待时限</span></span></span></span><br><span class="line"><span class="function"><span class="params">                INT8U *err  	<span class="comment">//错误信息</span></span></span></span><br><span class="line"><span class="function"><span class="params">               )</span></span>;    </span><br><span class="line"><span class="comment">// 信号量请求函数 OSSemAccept() 允许任务在信号量无效时不进入等待状态而继续运行</span></span><br><span class="line"><span class="function">INT16U <span class="title">OSSemAccept</span><span class="params">(</span></span></span><br><span class="line"><span class="function"><span class="params">		   OS_EVENT * pevent <span class="comment">//信号量的指针</span></span></span></span><br><span class="line"><span class="function"><span class="params">		   )</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 发送信号量</span></span><br><span class="line"><span class="function">INT8U <span class="title">OSSemPost</span><span class="params">(</span></span></span><br><span class="line"><span class="function"><span class="params">		OS_EVENT * pevent <span class="comment">//信号量的指针</span></span></span></span><br><span class="line"><span class="function"><span class="params">		)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p><strong>优先级反转</strong></p>
+<ul>
+<li>定义：在可剥夺型内核中，当某任务以独占方式共享资源时，会出现低优先级任务先于高优先级任务而被运行的现 象，这叫做优先级反转</li>
+<li>产生优先级反转的原因：一个低优先级的任务在获得了信号量使用共享资源时，被具有较高优先级的任务打断而不能释放信号量，从而使正在等待这个信号量的更高优先级的任务因得不到信号量而被迫处于等待状态。在这个等待期间，就让优先级别低于它而高于占据信号量的任务的任务先运行</li>
+<li>对系统的影响：优先级反转极大的恶化了高优先级任务的运行环境，是实时系统所无法容忍的</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="\images\uCOS-II知识点\priority_inversion.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <p>任务就绪表相关操作（相对难一点的）<br>优先级反转，过程，怎么解决</p>
 <p>ossched  任务调度<br>时钟中断服务子程序  ostimetick<br>有函数实现过程<br>内存创建使用<br>信号量集的请求发送</p>
 <p>程序分析<br>第四章例9<br>第五章例1</p>
@@ -503,7 +560,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2020-05-07T08:27:29.104Z" itemprop="dateUpdated">2020-05-07 16:27:29</time>
+    最后更新时间：<time datetime="2020-05-07T11:21:19.059Z" itemprop="dateUpdated">2020-05-07 19:21:19</time>
 </span><br>
 
 
