@@ -61,9 +61,9 @@
       <category term="课程学习" scheme="https://gzwangu.github.io/categories/%E8%AF%BE%E7%A8%8B%E5%AD%A6%E4%B9%A0/"/>
     
     
-      <category term="知识点" scheme="https://gzwangu.github.io/tags/%E7%9F%A5%E8%AF%86%E7%82%B9/"/>
-    
       <category term="操作系统" scheme="https://gzwangu.github.io/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
+    
+      <category term="知识点" scheme="https://gzwangu.github.io/tags/%E7%9F%A5%E8%AF%86%E7%82%B9/"/>
     
       <category term="uC/OS-II" scheme="https://gzwangu.github.io/tags/uC-OS-II/"/>
     
@@ -121,11 +121,11 @@
       <category term="课程实验" scheme="https://gzwangu.github.io/categories/%E8%AF%BE%E7%A8%8B%E5%AE%9E%E9%AA%8C/"/>
     
     
-      <category term="C" scheme="https://gzwangu.github.io/tags/C/"/>
-    
       <category term="操作系统" scheme="https://gzwangu.github.io/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
     
       <category term="uC/OS-II" scheme="https://gzwangu.github.io/tags/uC-OS-II/"/>
+    
+      <category term="C" scheme="https://gzwangu.github.io/tags/C/"/>
     
   </entry>
   

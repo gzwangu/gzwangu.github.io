@@ -49,9 +49,9 @@
       
         <tags>
             
-            <tag> 知识点 </tag>
-            
             <tag> 操作系统 </tag>
+            
+            <tag> 知识点 </tag>
             
             <tag> uC/OS-II </tag>
             
@@ -107,11 +107,11 @@
       
         <tags>
             
-            <tag> C </tag>
-            
             <tag> 操作系统 </tag>
             
             <tag> uC/OS-II </tag>
+            
+            <tag> C </tag>
             
         </tags>
       
