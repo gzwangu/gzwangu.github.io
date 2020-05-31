@@ -44,8 +44,9 @@
 <meta property="og:image" content="https://gzwangu.github.io/images/uCOS-II%E7%9F%A5%E8%AF%86%E7%82%B9/%E4%BE%8B5-1.png">
 <meta property="og:image" content="https://gzwangu.github.io/images/uCOS-II%E7%9F%A5%E8%AF%86%E7%82%B9/%E4%BE%8B5-11.jpg">
 <meta property="og:image" content="https://gzwangu.github.io/images/uCOS-II%E7%9F%A5%E8%AF%86%E7%82%B9/%E4%BE%8B5-2.png">
+<meta property="og:image" content="https://gzwangu.github.io/images/uCOS-II%E7%9F%A5%E8%AF%86%E7%82%B9/%E4%BE%8B6-1.png">
 <meta property="article:published_time" content="2020-05-04T01:35:59.000Z">
-<meta property="article:modified_time" content="2020-05-19T08:23:04.085Z">
+<meta property="article:modified_time" content="2020-05-31T08:35:14.655Z">
 <meta property="article:author" content="gzwang">
 <meta property="article:tag" content="知识点">
 <meta property="article:tag" content="操作系统">
@@ -179,7 +180,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#第一章-嵌入式实时操作系统的基本概念"><span class="post-toc-number">1.</span> <span class="post-toc-text">第一章 嵌入式实时操作系统的基本概念</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#第二章-uC-OS-II-中的任务（重点）"><span class="post-toc-number">2.</span> <span class="post-toc-text">第二章 uC&#x2F;OS-II 中的任务（重点）</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#任务的基本概念"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">任务的基本概念</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#任务堆栈"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">任务堆栈</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#任务控制块及其链表"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">任务控制块及其链表</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#任务就绪表及任务调度"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">任务就绪表及任务调度</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#任务的创建"><span class="post-toc-number">2.5.</span> <span class="post-toc-text">任务的创建</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#任务的挂起和恢复"><span class="post-toc-number">2.6.</span> <span class="post-toc-text">任务的挂起和恢复</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#其他任务管理函数"><span class="post-toc-number">2.7.</span> <span class="post-toc-text">其他任务管理函数</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#uC-OS-II的初始化和任务的启动"><span class="post-toc-number">2.8.</span> <span class="post-toc-text">uC&#x2F;OS-II的初始化和任务的启动</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#第三章-uC-OS-II的中断和时钟"><span class="post-toc-number">3.</span> <span class="post-toc-text">第三章 uC&#x2F;OS-II的中断和时钟</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#第四章-任务的同步与通信"><span class="post-toc-number">4.</span> <span class="post-toc-text">第四章 任务的同步与通信</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#第五章-信号量集"><span class="post-toc-number">5.</span> <span class="post-toc-text">第五章 信号量集</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#第一章-嵌入式实时操作系统的基本概念"><span class="post-toc-number">1.</span> <span class="post-toc-text">第一章 嵌入式实时操作系统的基本概念</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#第二章-uC-OS-II-中的任务（重点）"><span class="post-toc-number">2.</span> <span class="post-toc-text">第二章 uC&#x2F;OS-II 中的任务（重点）</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#任务的基本概念"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">任务的基本概念</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#任务堆栈"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">任务堆栈</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#任务控制块及其链表"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">任务控制块及其链表</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#任务就绪表及任务调度"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">任务就绪表及任务调度</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#任务的创建"><span class="post-toc-number">2.5.</span> <span class="post-toc-text">任务的创建</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#任务的挂起和恢复"><span class="post-toc-number">2.6.</span> <span class="post-toc-text">任务的挂起和恢复</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#其他任务管理函数"><span class="post-toc-number">2.7.</span> <span class="post-toc-text">其他任务管理函数</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#uC-OS-II的初始化和任务的启动"><span class="post-toc-number">2.8.</span> <span class="post-toc-text">uC&#x2F;OS-II的初始化和任务的启动</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#第三章-uC-OS-II的中断和时钟"><span class="post-toc-number">3.</span> <span class="post-toc-text">第三章 uC&#x2F;OS-II的中断和时钟</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#第四章-任务的同步与通信"><span class="post-toc-number">4.</span> <span class="post-toc-text">第四章 任务的同步与通信</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#第五章-信号量集"><span class="post-toc-number">5.</span> <span class="post-toc-text">第五章 信号量集</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#第六章-内存的动态分配"><span class="post-toc-number">6.</span> <span class="post-toc-text">第六章 内存的动态分配</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#第七章-在51单片机上移植-uCOS-II"><span class="post-toc-number">7.</span> <span class="post-toc-text">第七章 在51单片机上移植 uCOS-II</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#第八章-在ARM7上移植uCOS-II"><span class="post-toc-number">8.</span> <span class="post-toc-text">第八章 在ARM7上移植uCOS-II</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#干货"><span class="post-toc-number">9.</span> <span class="post-toc-text">干货</span></a></li></ol>
         </nav>
     </aside>
 
@@ -454,15 +455,17 @@
 <li>创建空闲任务OSTaskIdle，并赋之以最低优先级和永远的就绪状态</li>
 <li>如果常数 OS_TASK_STAT_EN = 1，则以优先级别为 OS_LOWEST_PRIO - 1 来创建统计任务 </li>
 <li>OSInit() 对数据结构初始化 <ul>
-<li>主要是创建包括空任务控制快链表在内的 5 个空数据缓冲区 </li>
+<li>主要是创建包括空任务控制快链表在内的 5 个空数据缓冲区 <ul>
+<li>空任务控制块链表</li>
+<li>空队列控制块链表</li>
+<li>空事件控制块链表</li>
+<li>空标志组链表</li>
+<li>空内存控制块链表</li>
+</ul>
+</li>
 <li>创建数组 OSTCBPrioTbl[OS_LOWEST_PRIO+1]</li>
 </ul>
 </li>
-</ul>
-<p>uC/OS-II 的启动</p>
-<ul>
-<li>uC/OS-II 进行任务管理是从调用函数 OSStart() 开始的</li>
-<li>调用函数 OSStart() 至少建立一个用户任务  </li>
 </ul>
 <h1 id="第三章-uC-OS-II的中断和时钟"><a href="#第三章-uC-OS-II的中断和时钟" class="headerlink" title="第三章 uC/OS-II的中断和时钟"></a>第三章 uC/OS-II的中断和时钟</h1><p><strong>中断响应过程</strong></p>
 <ul>
@@ -601,14 +604,72 @@
                 <div class="image-caption">例 5 - 2</div>
             </figure>
 
-<p>有空再更。。</p>
-<p>任务组成<br>两种系统任务<br>64个任务<br>任务5中状态<br>OS_LOWEST_PRIO<br>堆栈增长方向，影响OSTaskCreate函数任务堆栈栈顶指针参数  P66<br>OSTCBPrioTbl数组：以任务的优先级为下标，保存任务的任务控制块指针的数组<br>任务就绪表操作：登记、注销、最高优先级就绪任务查找<br>为什么管理64个任务：OSRdyTbl[ ] 有8个数组元素，每个元素都是8位二进制数，可表示8个任务的就绪状态，所以系统最多可以管理8x8=64个任务<br>OSSched() 函数代码加黑部分 P77<br>任务切换7个步 P79<br>挂起自身  OXFF<br>删除任务过程：提出删除任务请求的任务调用请求删除任务函数，改变联络信号值，当被删除任务查到信号值改变，会在适当的时候删除自身。<br>初始化5个链表：空任务控制块链表、空事件控制块链表、空队列控制块链表、空标志组链表、空内存控制块链表</p>
-<p>OSTimeTick 做的三件事  PPT上有，书上说了2件<br>OSTimeTick 代码懂  能写出来<br>两个延时函数  OSTimeDly 和 OSTimeDlyHMSM</p>
-<p>事件（信号量、消息邮箱、消息队列）的操作（创建、请求、发送）  能看懂代码<br>优先级反转：定义、过程、解决方法（使用互斥信号量）<br>例8  例9   会解释  时间轴法</p>
+<h1 id="第六章-内存的动态分配"><a href="#第六章-内存的动态分配" class="headerlink" title="第六章 内存的动态分配"></a>第六章 内存的动态分配</h1><p><strong>内存的两级管理</strong><br>把一个连续的内存空间分成若干个分区，每个分区又分成了若干大小相等的内存块来管理</p>
+<p><strong>动态内存的管理</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建动态内存分区</span></span><br><span class="line"><span class="function">OS_MEM * <span class="title">OSMemCreate</span><span class="params">(</span></span></span><br><span class="line"><span class="function"><span class="params">                    <span class="keyword">void</span> * addr, <span class="comment">//内存分区的起始地址</span></span></span></span><br><span class="line"><span class="function"><span class="params">                    INT32U nblks, <span class="comment">//分区中内存块的数目</span></span></span></span><br><span class="line"><span class="function"><span class="params">                    INT32U blksize, <span class="comment">//每个内存块的字节数</span></span></span></span><br><span class="line"><span class="function"><span class="params">                    INT8U * err <span class="comment">//错误信息</span></span></span></span><br><span class="line"><span class="function"><span class="params">                    )</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 请求获得一个内存块</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> * <span class="title">OSMemGet</span><span class="params">(</span></span></span><br><span class="line"><span class="function"><span class="params">                OS_MEM * pmem, <span class="comment">//内存分区的指针</span></span></span></span><br><span class="line"><span class="function"><span class="params">                INT8U * err <span class="comment">//错误信息</span></span></span></span><br><span class="line"><span class="function"><span class="params">                )</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 释放一个内存块</span></span><br><span class="line"><span class="function">INT8U <span class="title">OSMemPut</span><span class="params">(</span></span></span><br><span class="line"><span class="function"><span class="params">                OS_MEM * pmem, <span class="comment">//内存块所属内存分区的指针</span></span></span></span><br><span class="line"><span class="function"><span class="params">                <span class="keyword">void</span> * pblk <span class="comment">//待释放内存块的指针</span></span></span></span><br><span class="line"><span class="function"><span class="params">                )</span></span>;</span><br></pre></td></tr></table></figure>
+
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="\images\uCOS-II知识点\例6-1.png" alt="例 6 - 1" title="">
+                </div>
+                <div class="image-caption">例 6 - 1</div>
+            </figure>
+
+<h1 id="第七章-在51单片机上移植-uCOS-II"><a href="#第七章-在51单片机上移植-uCOS-II" class="headerlink" title="第七章 在51单片机上移植 uCOS-II"></a>第七章 在51单片机上移植 uCOS-II</h1><p><strong>可重入函数</strong><br>在多任务操作系统中，系统提供的函数应该能允许同时被多个任务所调用，而不会通过函数中变量的耦合引起任务之间的互相干扰。</p>
+<p><strong>系统堆栈</strong><br>片内RAM中的公用堆栈，只存放运行的任务堆栈</p>
+<p><strong>任务堆栈映象</strong><br>片外RAM中用来存放任务堆栈内容的区域</p>
+<p><strong>系统堆栈与任务堆栈映象的关系</strong></p>
+<ul>
+<li>51 单片机要求堆栈必须设置在片内RAM中，51单片机的片内 RAM 极其有限，不可能把应用程序中所有任务的任务堆栈都设置在片内RAM中</li>
+<li>解决办法：把应用程序中各个任务堆栈的内容存放在片外RAM中的任务堆栈映象中，而只在片内 RAM 中设置一个公用的系统堆栈</li>
+</ul>
+<h1 id="第八章-在ARM7上移植uCOS-II"><a href="#第八章-在ARM7上移植uCOS-II" class="headerlink" title="第八章 在ARM7上移植uCOS-II"></a>第八章 在ARM7上移植uCOS-II</h1><p><strong>工作模式的选择映像</strong></p>
+<p>系统模式和用户模式</p>
+<p><strong>处理器相关的移植文件</strong></p>
+<ul>
+<li>OS_CPU.H</li>
+<li>OS_CPU_C.C</li>
+<li>OS_CPU_A.S</li>
+</ul>
+<p>如果你看到这，恭喜这本书的主要内容已经掌握了，考试肯定不是问题，下面分享下重要！</p>
+<h1 id="干货"><a href="#干货" class="headerlink" title="干货"></a>干货</h1><p><strong>这是老师给的知识点总结：</strong></p>
+<p>第2章 uC/OS-II中的任务<br>1、任务的基本概念<br>2、任务堆栈<br>3、任务控制块<br>4、任务就续表及其操作<br>5、任务调度、任务切换<br>6、任务调度器函数OSSched()<br>7、任务创建<br>8、任务的挂起和恢复<br>9、请求删除任务函数<br>10、任务初始化</p>
+<p>第3章 uC/OS-II的中断和时钟<br>1、中断响应过程<br>2、临界段的概念<br>3、时钟中断<br>4、延时函数</p>
+<p>第4章 任务的同步与通信<br>1、任务同步<br>2、事件<br>3、事件控制块<br>4、事件的操作（创建、发送、请求）<br>5、优先级反转<br>6、相关例题（例8、例9）</p>
+<p>第5章 信号量集<br>1、信号量集<br>2、信号量集的操作（创建、请求和发送）<br>3、相关例题（例1）</p>
+<p>第6章 内存的动态分配<br>1、内存的管理<br>2、内存分区的组织<br>3、动态内存的管理（创建、请求、释放）（例1、例2）</p>
+<p>第7章 在51单片机上移植uCOS-II<br>1、可重入函数<br>2、系统堆栈和任务堆栈</p>
+<p>第8章 在ARM7上移植uCOS-II<br>1、工作模式的选择映像<br>2、与处理器相关的移植文件</p>
+<p><strong>在此基础上本人详细的罗列了一些考点：</strong></p>
+<p>任务组成<br>两种系统任务<br>64个任务<br>任务5中状态<br>OS_LOWEST_PRIO<br>堆栈增长方向，影响 OSTaskCreate 函数任务堆栈栈顶指针参数  P66<br>OSTCBPrioTbl 数组：以任务的优先级为下标，保存任务的任务控制块指针的数组<br>任务就绪表操作：登记、注销、最高优先级就绪任务查找  会写<br>为什么管理64个任务：OSRdyTbl[ ] 有8个数组元素，每个元素都是8位二进制数，可表示8个任务的就绪状态，所以系统最多可以管理8x8=64个任务<br>OSSched() 函数代码加黑部分要会写 P77<br>任务切换7个步 P79<br>挂起自身  OXFF<br>删除任务过程：提出删除任务请求的任务调用请求删除任务函数，改变联络信号值，当被删除任务查到信号值改变，会在适当的时候删除自身。<br>初始化5个链表：空任务控制块链表、空事件控制块链表、空队列控制块链表、空标志组链表、空内存控制块链表</p>
+<p>中断响应过程<br>OSTimeTick 做的三件事  PPT上有，书上说了 2 件，其实也是 3 件<br>OSTimeTick 代码懂且能写出来<br>两个延时函数  OSTimeDly 和 OSTimeDlyHMSM</p>
+<p>事件（信号量、消息邮箱、消息队列）的操作（创建、请求、发送）  能看懂代码<br>优先级反转：定义、过程、解决方法（使用互斥信号量）<br>例8  例9   会分析解释  时间轴法</p>
 <p>信号量集的操作<br>例1  会分析解释</p>
 <p>内存二级管理<br>例1、2  看懂会写吧</p>
 <p>可重入函数定义<br>系统/任务堆栈</p>
 <p>用户模式/系统模式<br>3个移植文件：OS_CPU.H、OS_CPU_C.C、OS_CPU_A.S</p>
+<p><strong>最后个干货，2020 年 中国矿业大学嵌入式操作系统 A 卷：</strong></p>
+<p>一、简答题（50分）</p>
+<ol>
+<li>任务的分类</li>
+<li>可以管理多少任务？从 OSRdyTbl[ ] 解释之</li>
+<li>给一个 prio = 29，注销操作，哪一位置 0</li>
+<li>中断响应过程</li>
+<li>能否使用全局变量来实现任务间的通信? 如果可以，有什么缺点?</li>
+</ol>
+<p>二、程序填空（20分，会给注释）</p>
+<ol>
+<li>任务的创建源代码</li>
+<li>OSSched() 函数</li>
+<li>OSTimeTick() 函数</li>
+<li>写信号量集的请求的例子</li>
+</ol>
+<p>三、综合（30分，都是书上的例子）</p>
+<ol>
+<li>任务挂起与恢复</li>
+<li>消息队列</li>
+</ol>
 
         </div>
 
@@ -617,7 +678,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2020-05-19T08:23:04.085Z" itemprop="dateUpdated">2020-05-19 16:23:04</time>
+    最后更新时间：<time datetime="2020-05-31T08:35:14.655Z" itemprop="dateUpdated">2020-05-31 16:35:14</time>
 </span><br>
 
 
