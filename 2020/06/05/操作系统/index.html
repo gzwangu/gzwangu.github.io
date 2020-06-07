@@ -29,8 +29,10 @@
 <meta property="og:description" content="概论操作系统的定义操作系统（OS ）是管理计算机硬件与软件资源的计算机程序。 操作系统的功能 进程管理——进程线程的状态、控制、同步互斥、通信调度等 存储管理——分配&#x2F;回收、地址转换、存储保护等 设备管理——设备驱动、分配回收、缓冲技术等 文件管理——文件目录、文件操作、磁盘空间、文件存取控制  操作系统的特征 并发性并发性是两个或多个事件在同一时间间隔内发生的、同时处于活动状态的特性。 共享性主">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://gzwangu.github.io/images/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/Process-tristate.png">
+<meta property="og:image" content="https://gzwangu.github.io/images/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/Process-five-states.png">
+<meta property="og:image" content="https://gzwangu.github.io/images/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/Process-seven-states.png">
 <meta property="article:published_time" content="2020-06-05T14:47:39.000Z">
-<meta property="article:modified_time" content="2020-06-06T15:10:17.854Z">
+<meta property="article:modified_time" content="2020-06-07T09:08:19.891Z">
 <meta property="article:author" content="gzwang">
 <meta property="article:tag" content="知识点">
 <meta property="article:tag" content="操作系统">
@@ -163,7 +165,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#概论"><span class="post-toc-number">1.</span> <span class="post-toc-text">概论</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#操作系统的定义"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">操作系统的定义</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#操作系统的功能"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">操作系统的功能</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#操作系统的特征"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">操作系统的特征</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#操作系统的分类"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">操作系统的分类</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#进程管理"><span class="post-toc-number">2.</span> <span class="post-toc-text">进程管理</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#程序的执行方式"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">程序的执行方式</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#进程的特征与控制"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">进程的特征与控制</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#进程状态及转换"><span class="post-toc-number">2.2.1.</span> <span class="post-toc-text">进程状态及转换</span></a></li></ol></li></ol></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#概论"><span class="post-toc-number">1.</span> <span class="post-toc-text">概论</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#操作系统的定义"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">操作系统的定义</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#操作系统的功能"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">操作系统的功能</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#操作系统的特征"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">操作系统的特征</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#操作系统的分类"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">操作系统的分类</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#进程管理"><span class="post-toc-number">2.</span> <span class="post-toc-text">进程管理</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#程序的执行"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">程序的执行</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#进程的特征与控制"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">进程的特征与控制</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#进程状态及转换"><span class="post-toc-number">2.2.1.</span> <span class="post-toc-text">进程状态及转换</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#进程控制块-PCB"><span class="post-toc-number">2.2.2.</span> <span class="post-toc-text">进程控制块 PCB</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#进程控制"><span class="post-toc-number">2.2.3.</span> <span class="post-toc-text">进程控制</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#进程的互斥与同步"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">进程的互斥与同步</span></a></li></ol></li></ol>
         </nav>
     </aside>
 
@@ -212,7 +214,7 @@
 <li>分布式操作系统</li>
 </ol>
 <h1 id="进程管理"><a href="#进程管理" class="headerlink" title="进程管理"></a>进程管理</h1><p>进程就是正在运行的程序及其占用的系统资源，是系统进行资源分配、保护和调度的基本单位。</p>
-<h2 id="程序的执行方式"><a href="#程序的执行方式" class="headerlink" title="程序的执行方式"></a>程序的执行方式</h2><p><strong>程序的顺序执行</strong></p>
+<h2 id="程序的执行"><a href="#程序的执行" class="headerlink" title="程序的执行"></a>程序的执行</h2><p><strong>程序的顺序执行</strong></p>
 <p>一个具有独立功能的程序独占处理器直至最终结束的过程称为程序的顺序执行。</p>
 <p>顺序执行有如下三个特点：</p>
 <ul>
@@ -247,9 +249,47 @@
                 <div class="image-caption">进程三态模型</div>
             </figure>
 
-<p>就绪状态——进程在内存中已经具备执行的条件，等待分配 CPU。</p>
-<p>运行状态——进程占用 CPU 并正在执行。</p>
-<p>阻塞状态——也成为等待状态。</p>
+<p><strong>就绪状态</strong>——进程在内存中已经具备执行的条件，等待分配 CPU。<em>就绪队列</em></p>
+<p><strong>运行状态</strong>——进程占用 CPU 并正在执行。</p>
+<p><strong>阻塞状态</strong>——也成为等待状态。<em>阻塞队列</em></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="\images\操作系统\Process-five-states.png" alt="进程五态模型" title="">
+                </div>
+                <div class="image-caption">进程五态模型</div>
+            </figure>
+
+<p><strong>新建状态</strong>——进程被创建时所处的状态。</p>
+<p><strong>终止状态</strong>——进程正常结束或出现严重错误时，会被操作系统终止或被其它有终止权的进程终止。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="\images\操作系统\Process-seven-states.png" alt="进程七态模型" title="">
+                </div>
+                <div class="image-caption">进程七态模型</div>
+            </figure>
+
+<p><strong>挂起就绪</strong>——进程具备运行条件，但目前不在内存中，需要被系统调入内存才能运行。</p>
+<p><strong>挂起阻塞</strong>——进程在等待某一事件或条件并且该进程目前不在内存中。</p>
+<h3 id="进程控制块-PCB"><a href="#进程控制块-PCB" class="headerlink" title="进程控制块 PCB"></a>进程控制块 PCB</h3><p>描述和控制进程运行的数据结构——进程控制块（进程描述符）</p>
+<p>PCB 是进程存在的<code>唯一标志</code></p>
+<ol>
+<li>进程标识信息——内部标识符和外部标识符 </li>
+<li>现场信息——进程运行时 CPU 的即时状态即各寄存器的值</li>
+<li>控制信息——操作系统控制进程需要的信息</li>
+</ol>
+<h3 id="进程控制"><a href="#进程控制" class="headerlink" title="进程控制"></a>进程控制</h3><p>核心态（内核态）和用户态，也称为管态和目态</p>
+<p><strong>进程控制</strong>——系统对进程生命周期的各个环节进行控制</p>
+<p>进程控制通常由原语完成。<strong>原语</strong>是由若干条指令所组成，用来实现某个特定功能，在执行过程中不可被中断的程序段。</p>
+<p>原语是不可分割的执行单位，原语的执行不可能是并发的。</p>
+<ol>
+<li>创建进程</li>
+<li>撤消与终止进程</li>
+<li>阻塞与唤醒进程</li>
+<li>挂起与激活进程</li>
+</ol>
+<h2 id="进程的互斥与同步"><a href="#进程的互斥与同步" class="headerlink" title="进程的互斥与同步"></a>进程的互斥与同步</h2><p>并发运行的多个进程之间存在两种基本关系——竞争和协作</p>
 
         </div>
 
@@ -258,7 +298,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2020-06-06T15:10:17.854Z" itemprop="dateUpdated">2020-06-06 23:10:17</time>
+    最后更新时间：<time datetime="2020-06-07T09:08:19.891Z" itemprop="dateUpdated">2020-06-07 17:08:19</time>
 </span><br>
 
 
