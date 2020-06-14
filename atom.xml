@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://gzwangu.github.io/"/>
-  <updated>2020-06-14T12:44:24.470Z</updated>
+  <updated>2020-06-14T13:35:13.155Z</updated>
   <id>https://gzwangu.github.io/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>计算机网络</title>
+    <link href="https://gzwangu.github.io/2020/06/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+    <id>https://gzwangu.github.io/2020/06/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/</id>
+    <published>2020-06-14T12:46:38.000Z</published>
+    <updated>2020-06-14T13:35:13.155Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>从互联网的工作方式上看，可以划分为两大块：边缘部分和核心部分</p><p>电路交换分为三个阶段：建立连接、通信、释放连接</p><p>分组交换的主要特点：</p><ul><li>采用存储转发技术</li><li>在发送端，先把较长的报文划分成较短的、固定长度的数据段</li><li>一个数据段前面添加上首部构成分组</li></ul><p>报文交换：基于存储转发原理</p><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="\images\计算机网络\Three-exchanges.png" alt="三种交换的比较" title="">                </div>                <div class="image-caption">三种交换的比较</div>            </figure><p>计算机网络的性能指标：</p><ul><li>速率</li><li>带宽</li><li>吞吐量</li><li>时延</li><li>时延带宽积</li><li>往返时间 RTT</li><li>利用率</li></ul><p>网络协议三要素：</p><ul><li>语法</li><li>语义</li><li>同步</li></ul><p>五层协议的体系结构</p><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="\images\计算机网络\Five-layer-agreement.png" alt="五层协议的体系结构" title="">                </div>                <div class="image-caption">五层协议的体系结构</div>            </figure><h1 id="物理层"><a href="#物理层" class="headerlink" title="物理层"></a>物理层</h1>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;概述&quot;&gt;&lt;a href=&quot;#概述&quot; class=&quot;headerlink&quot; title=&quot;概述&quot;&gt;&lt;/a&gt;概述&lt;/h1&gt;&lt;p&gt;从互联网的工作方式上看，可以划分为两大块：边缘部分和核心部分&lt;/p&gt;
+&lt;p&gt;电路交换分为三个阶段：建立连接、通信、释放连接&lt;/p&gt;
+&lt;p&gt;分
+      
+    
+    </summary>
+    
+    
+      <category term="课程学习" scheme="https://gzwangu.github.io/categories/%E8%AF%BE%E7%A8%8B%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="知识点" scheme="https://gzwangu.github.io/tags/%E7%9F%A5%E8%AF%86%E7%82%B9/"/>
+    
+      <category term="计算机网络" scheme="https://gzwangu.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+    
+  </entry>
   
   <entry>
     <title>操作系统</title>
