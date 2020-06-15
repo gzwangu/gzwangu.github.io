@@ -40,8 +40,11 @@
 <meta property="og:image" content="https://gzwangu.github.io/images/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/Secondary-page-table.jpg">
 <meta property="og:image" content="https://gzwangu.github.io/images/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/Segment-storage.png">
 <meta property="og:image" content="https://gzwangu.github.io/images/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/Segment-page-storage.png">
+<meta property="og:image" content="https://gzwangu.github.io/images/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/FIFO.png">
+<meta property="og:image" content="https://gzwangu.github.io/images/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/OPT.png">
+<meta property="og:image" content="https://gzwangu.github.io/images/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/LRU.png">
 <meta property="article:published_time" content="2020-06-05T14:47:39.000Z">
-<meta property="article:modified_time" content="2020-06-14T12:44:24.470Z">
+<meta property="article:modified_time" content="2020-06-15T13:06:40.156Z">
 <meta property="article:author" content="gzwang">
 <meta property="article:tag" content="知识点">
 <meta property="article:tag" content="操作系统">
@@ -174,7 +177,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#概论"><span class="post-toc-number">1.</span> <span class="post-toc-text">概论</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#操作系统的定义"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">操作系统的定义</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#操作系统的功能"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">操作系统的功能</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#操作系统的特征"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">操作系统的特征</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#操作系统的分类"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">操作系统的分类</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#进程管理"><span class="post-toc-number">2.</span> <span class="post-toc-text">进程管理</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#程序的执行"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">程序的执行</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#进程的特征与控制"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">进程的特征与控制</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#进程状态及转换"><span class="post-toc-number">2.2.1.</span> <span class="post-toc-text">进程状态及转换</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#进程控制块-PCB"><span class="post-toc-number">2.2.2.</span> <span class="post-toc-text">进程控制块 PCB</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#进程控制"><span class="post-toc-number">2.2.3.</span> <span class="post-toc-text">进程控制</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#进程的互斥与同步"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">进程的互斥与同步</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#临界资源与临界区"><span class="post-toc-number">2.3.1.</span> <span class="post-toc-text">临界资源与临界区</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#进程同步机制"><span class="post-toc-number">2.3.2.</span> <span class="post-toc-text">进程同步机制</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#进程同步经典问题"><span class="post-toc-number">2.3.3.</span> <span class="post-toc-text">进程同步经典问题</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#进程通信"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">进程通信</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#进程调度"><span class="post-toc-number">2.5.</span> <span class="post-toc-text">进程调度</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#进程调度模型"><span class="post-toc-number">2.5.1.</span> <span class="post-toc-text">进程调度模型</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#调度算法选择-评价准则"><span class="post-toc-number">2.5.2.</span> <span class="post-toc-text">调度算法选择&#x2F;评价准则</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#调度算法"><span class="post-toc-number">2.5.3.</span> <span class="post-toc-text">调度算法</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#死锁"><span class="post-toc-number">2.6.</span> <span class="post-toc-text">死锁</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#线程与进程"><span class="post-toc-number">2.7.</span> <span class="post-toc-text">线程与进程</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#内存管理"><span class="post-toc-number">3.</span> <span class="post-toc-text">内存管理</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#内存管理概述"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">内存管理概述</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#计算机存储系统的结构"><span class="post-toc-number">3.1.1.</span> <span class="post-toc-text">计算机存储系统的结构</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#地址的表示与地址转换"><span class="post-toc-number">3.1.2.</span> <span class="post-toc-text">地址的表示与地址转换</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#内存管理的功能"><span class="post-toc-number">3.1.3.</span> <span class="post-toc-text">内存管理的功能</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#覆盖与交换技术"><span class="post-toc-number">3.1.4.</span> <span class="post-toc-text">覆盖与交换技术</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#分区内存管理"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">分区内存管理</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#页式存储管理"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">页式存储管理</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#快表"><span class="post-toc-number">3.3.1.</span> <span class="post-toc-text">快表</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#多级页表"><span class="post-toc-number">3.3.2.</span> <span class="post-toc-text">多级页表</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#段式存储管理"><span class="post-toc-number">3.4.</span> <span class="post-toc-text">段式存储管理</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#虚拟存储技术"><span class="post-toc-number">3.5.</span> <span class="post-toc-text">虚拟存储技术</span></a></li></ol></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#概论"><span class="post-toc-number">1.</span> <span class="post-toc-text">概论</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#操作系统的定义"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">操作系统的定义</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#操作系统的功能"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">操作系统的功能</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#操作系统的特征"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">操作系统的特征</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#操作系统的分类"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">操作系统的分类</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#进程管理"><span class="post-toc-number">2.</span> <span class="post-toc-text">进程管理</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#程序的执行"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">程序的执行</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#进程的特征与控制"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">进程的特征与控制</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#进程状态及转换"><span class="post-toc-number">2.2.1.</span> <span class="post-toc-text">进程状态及转换</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#进程控制块-PCB"><span class="post-toc-number">2.2.2.</span> <span class="post-toc-text">进程控制块 PCB</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#进程控制"><span class="post-toc-number">2.2.3.</span> <span class="post-toc-text">进程控制</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#进程的互斥与同步"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">进程的互斥与同步</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#临界资源与临界区"><span class="post-toc-number">2.3.1.</span> <span class="post-toc-text">临界资源与临界区</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#进程同步机制"><span class="post-toc-number">2.3.2.</span> <span class="post-toc-text">进程同步机制</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#进程同步经典问题"><span class="post-toc-number">2.3.3.</span> <span class="post-toc-text">进程同步经典问题</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#进程通信"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">进程通信</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#进程调度"><span class="post-toc-number">2.5.</span> <span class="post-toc-text">进程调度</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#进程调度模型"><span class="post-toc-number">2.5.1.</span> <span class="post-toc-text">进程调度模型</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#调度算法选择-评价准则"><span class="post-toc-number">2.5.2.</span> <span class="post-toc-text">调度算法选择&#x2F;评价准则</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#调度算法"><span class="post-toc-number">2.5.3.</span> <span class="post-toc-text">调度算法</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#死锁"><span class="post-toc-number">2.6.</span> <span class="post-toc-text">死锁</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#线程与进程"><span class="post-toc-number">2.7.</span> <span class="post-toc-text">线程与进程</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#内存管理"><span class="post-toc-number">3.</span> <span class="post-toc-text">内存管理</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#内存管理概述"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">内存管理概述</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#计算机存储系统的结构"><span class="post-toc-number">3.1.1.</span> <span class="post-toc-text">计算机存储系统的结构</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#地址的表示与地址转换"><span class="post-toc-number">3.1.2.</span> <span class="post-toc-text">地址的表示与地址转换</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#内存管理的功能"><span class="post-toc-number">3.1.3.</span> <span class="post-toc-text">内存管理的功能</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#覆盖与交换技术"><span class="post-toc-number">3.1.4.</span> <span class="post-toc-text">覆盖与交换技术</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#分区内存管理"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">分区内存管理</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#页式存储管理"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">页式存储管理</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#快表"><span class="post-toc-number">3.3.1.</span> <span class="post-toc-text">快表</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#多级页表"><span class="post-toc-number">3.3.2.</span> <span class="post-toc-text">多级页表</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#段式存储管理"><span class="post-toc-number">3.4.</span> <span class="post-toc-text">段式存储管理</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#虚拟存储技术"><span class="post-toc-number">3.5.</span> <span class="post-toc-text">虚拟存储技术</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#请求分页虚拟存储管理"><span class="post-toc-number">3.6.</span> <span class="post-toc-text">请求分页虚拟存储管理</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#硬件支持"><span class="post-toc-number">3.6.1.</span> <span class="post-toc-text">硬件支持</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#页面分配策略与页面调度算法"><span class="post-toc-number">3.6.2.</span> <span class="post-toc-text">页面分配策略与页面调度算法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#页面置换算法"><span class="post-toc-number">3.6.3.</span> <span class="post-toc-text">页面置换算法</span></a></li></ol></li></ol></li></ol>
         </nav>
     </aside>
 
@@ -632,6 +635,63 @@
 <p>逻辑地址分 3 个部分：段号、段内页号和页内位移，其形式为：对于用户来说，虚拟地址应该由段号 s 和段内位移 d’ 组成，用户看不到如何分页。而是由操作系统自动把 d’解释成两部分：段内页号 p 和页内位移 d，也就是说，d’ = p × 块长+ d。 </p>
 <h2 id="虚拟存储技术"><a href="#虚拟存储技术" class="headerlink" title="虚拟存储技术"></a>虚拟存储技术</h2><p>将外存作为内存的扩充，作业运行不需要将作业的全部信息放入内存，将暂时将不运行的作业信息放在外存，通过内存与外存之间的对换，使系统逐步将作业信息放入内存，最终达到能够运行整个作业，从逻辑上扩充内存的目的。</p>
 <p>虚拟存储技术的<strong>实现基础</strong>是内存的分页或分段管理，采用的是进程的分页或分段在内存与外存之间对换。</p>
+<h2 id="请求分页虚拟存储管理"><a href="#请求分页虚拟存储管理" class="headerlink" title="请求分页虚拟存储管理"></a>请求分页虚拟存储管理</h2><h3 id="硬件支持"><a href="#硬件支持" class="headerlink" title="硬件支持"></a>硬件支持</h3><ol>
+<li>请求分页的页表机制</li>
+<li>缺页中断机构</li>
+<li>地址转换机构 </li>
+</ol>
+<h3 id="页面分配策略与页面调度算法"><a href="#页面分配策略与页面调度算法" class="headerlink" title="页面分配策略与页面调度算法"></a>页面分配策略与页面调度算法</h3><p><strong>1.页面分配策略</strong></p>
+<p>通常分为固定分配和可变分配两种不同的方式</p>
+<ol>
+<li>固定分配方式：<ul>
+<li>进程平均分配法</li>
+<li>进程按比例分配法</li>
+<li>进程优先权分配法</li>
+</ul>
+</li>
+<li>可变分配方式</li>
+</ol>
+<p><strong>2.页面调入策略</strong></p>
+<ol>
+<li>请求页（demand paging）调入</li>
+<li>预先页（prepaging）调入 </li>
+</ol>
+<p><strong>3.页面置换策略</strong></p>
+<ol>
+<li>全局置换</li>
+<li>局部置换</li>
+</ol>
+<h3 id="页面置换算法"><a href="#页面置换算法" class="headerlink" title="页面置换算法"></a>页面置换算法</h3><ol>
+<li><p>先进先出（FIFO）页面置换算法</p>
+<p>总是选择最先进入内存的页面或驻留时间最长的页面先淘汰<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="\images\操作系统\FIFO.png" alt="FIFO 页面置换算法" title="">
+                </div>
+                <div class="image-caption">FIFO 页面置换算法</div>
+            </figure></p>
+</li>
+<li><p>最佳（OPT）页面置换算法</p>
+<p>在选择页面置换时应该考虑该页面将来使用的情况，将来最长时间不用的页面被淘汰。在进程采用固定页面分配的情况下，最佳页面置换算法具有最低的缺页率<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="\images\操作系统\OPT.png" alt="OPT 页面置换算法" title="">
+                </div>
+                <div class="image-caption">OPT 页面置换算法</div>
+            </figure></p>
+</li>
+<li><p>LRU 页面置换算法</p>
+<p>系统须维护一个页面淘汰队列，该队列中存放当前在内存中的页号，每当访问一页时就调整一次，使队尾总指向最近访问的页，而队列头部就是最近最少用的页，发生缺页中断时总淘汰队列头所指示的页；而执行一次页面访问后，需要从队列中把该页调整到队列尾<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="\images\操作系统\LRU.png" alt="LRU 页面置换算法" title="">
+                </div>
+                <div class="image-caption">LRU 页面置换算法</div>
+            </figure></p>
+</li>
+<li><p>时钟（clock）置换算法</p>
+</li>
+</ol>
 
         </div>
 
@@ -640,7 +700,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2020-06-14T12:44:24.470Z" itemprop="dateUpdated">2020-06-14 20:44:24</time>
+    最后更新时间：<time datetime="2020-06-15T13:06:40.156Z" itemprop="dateUpdated">2020-06-15 21:06:40</time>
 </span><br>
 
 
