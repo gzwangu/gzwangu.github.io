@@ -30,8 +30,13 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://gzwangu.github.io/images/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/Three-exchanges.png">
 <meta property="og:image" content="https://gzwangu.github.io/images/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/Five-layer-agreement.png">
+<meta property="og:image" content="https://gzwangu.github.io/images/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/Encoding.png">
+<meta property="og:image" content="https://gzwangu.github.io/images/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/FDM.png">
+<meta property="og:image" content="https://gzwangu.github.io/images/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/TDM.png">
+<meta property="og:image" content="https://gzwangu.github.io/images/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/TDM1.png">
+<meta property="og:image" content="https://gzwangu.github.io/images/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/STDM.png">
 <meta property="article:published_time" content="2020-06-14T12:46:38.000Z">
-<meta property="article:modified_time" content="2020-06-14T13:35:13.155Z">
+<meta property="article:modified_time" content="2020-06-17T03:28:50.460Z">
 <meta property="article:author" content="gzwang">
 <meta property="article:tag" content="知识点">
 <meta property="article:tag" content="计算机网络">
@@ -164,7 +169,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#概述"><span class="post-toc-number">1.</span> <span class="post-toc-text">概述</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#物理层"><span class="post-toc-number">2.</span> <span class="post-toc-text">物理层</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#概述"><span class="post-toc-number">1.</span> <span class="post-toc-text">概述</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#物理层"><span class="post-toc-number">2.</span> <span class="post-toc-text">物理层</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#基本概念"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">基本概念</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#数据通信的基础知识"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">数据通信的基础知识</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#物理层下面的传输媒体"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">物理层下面的传输媒体</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#信道复用技术"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">信道复用技术</span></a></li></ol></li></ol>
         </nav>
     </aside>
 
@@ -232,7 +237,84 @@
                 <div class="image-caption">五层协议的体系结构</div>
             </figure>
 
-<h1 id="物理层"><a href="#物理层" class="headerlink" title="物理层"></a>物理层</h1>
+<h1 id="物理层"><a href="#物理层" class="headerlink" title="物理层"></a>物理层</h1><h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><p>物理层考虑的是怎样才能在连接各种计算机的传输媒体上<em>传输数据比特流</em>，而不是指具体的<em>传输媒体</em>，尽可能地屏蔽掉不同传输媒体和通信手段的差异。</p>
+<ul>
+<li>机械特性</li>
+<li>电气特性</li>
+<li>功能特性</li>
+<li>过程特性</li>
+</ul>
+<h2 id="数据通信的基础知识"><a href="#数据通信的基础知识" class="headerlink" title="数据通信的基础知识"></a>数据通信的基础知识</h2><p>一个数据通信系统包括三大部分：源系统（或发送端、发送方）、传输系统（或传输网络）和目的系统（或接收端、接收方）</p>
+<p>单向通信（单工通信）——只能有一个方向的通信而没有反方向的交互<br>双向交替通信（半双工通信）——通信的双方都可以发送信息，但不能双方同时发送(当然也就不能同时接收)<br>双向同时通信（全双工通信）——通信的双方可以同时发送和接收信息</p>
+<p>基带信号（即基本频带信号）—— 来自信源的信号</p>
+<p>调制分为两大类：</p>
+<ul>
+<li>基带调制——仅对基带信号的波形进行变换，使它能够与信道特性相适应<br>变换后的信号仍然是基带信号。把这种过程称为编码 (coding)</li>
+<li>带通调制——使用载波进行调制，把基带信号的频率范围搬移到较高的频段，并转换为模拟信号<br>经过载波调制后的信号称为<em>带通信号</em> </li>
+</ul>
+<p>常用编码方式</p>
+<ul>
+<li>不归零制：正电平代表 1，负电平代表 0</li>
+<li>归零制：正脉冲代表 1，负脉冲代表 0</li>
+<li>曼彻斯特编码：位周期中心的向上跳变代表 0，位周期中心的向下跳变代表 1。也可反过来定义</li>
+<li>差分曼彻斯特编码：在每一位的中心处始终都有跳变。位开始边界有跳变代表 0，而位开始边界没有跳变代表 1<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="\images\计算机网络\Encoding.png" alt="数字信号常用的编码方式" title="">
+                </div>
+                <div class="image-caption">数字信号常用的编码方式</div>
+            </figure></li>
+</ul>
+<p>限制码元在信道上的传输速率的因素有两个：</p>
+<ul>
+<li>信道能够通过的频率范围<br>在任何信道中，码元传输的速率是有上限的，否则就会出现码间串扰的问题，使接收端对码元的判决（即识别）成为不可能。</li>
+<li>信噪比<br>信噪比就是信号的平均功率和噪声的平均功率之比。常记为 S/N，并用分贝 (dB) 作为度量单位。即：信噪比(dB) = 10 log10(S/N)    (dB)<br>信道的极限信息传输速率 C 可表达为：C = W log2(1+S/N)    (bit/s)<br>其中：W 为信道的带宽（以 Hz 为单位）；S 为信道内所传信号的平均功率；N 为信道内部的高斯噪声功率。  </li>
+</ul>
+<p>香农公式表明：信道的带宽或信道中的信噪比越大，则信息的极限传输速率就越高；只要信息传输速率低于信道的极限信息传输速率，就一定可以找到某种办法来实现无差错的传输。 </p>
+<h2 id="物理层下面的传输媒体"><a href="#物理层下面的传输媒体" class="headerlink" title="物理层下面的传输媒体"></a>物理层下面的传输媒体</h2><p>导引型传输媒体：</p>
+<ol>
+<li>双绞线</li>
+<li>同轴电缆</li>
+<li>光缆</li>
+</ol>
+<p>非导引型传输媒体——自由空间</p>
+<h2 id="信道复用技术"><a href="#信道复用技术" class="headerlink" title="信道复用技术"></a>信道复用技术</h2><p>信道复用技术——使用一个共享信道进行通信</p>
+<p><strong>1.频分复用</strong></p>
+<p>频分复用的所有用户在同样的时间占用不同的带宽资源<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="\images\计算机网络\FDM.png" alt="频分复用" title="">
+                </div>
+                <div class="image-caption">频分复用</div>
+            </figure></p>
+<p><strong>2.时分复用</strong></p>
+<p>时分复用的所有用户在不同的时间占用同样的频带宽度<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="\images\计算机网络\TDM.png" alt="时分复用" title="">
+                </div>
+                <div class="image-caption">时分复用</div>
+            </figure></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="\images\计算机网络\TDM1.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<p><strong>3.统计时分复用</strong> </p>
+<p>统计时分复用是一种改良的时分复用<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="\images\计算机网络\STDM.png" alt="统计时分复用" title="">
+                </div>
+                <div class="image-caption">统计时分复用</div>
+            </figure></p>
+<p><strong>4.波分复用</strong></p>
+<p>波分复用就是光的频分复用。使用一根光纤来同时传输多个光载波信号。</p>
+<p><strong>5.码分复用</strong></p>
+
         </div>
 
         <blockquote class="post-copyright">
@@ -240,7 +322,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2020-06-14T13:35:13.155Z" itemprop="dateUpdated">2020-06-14 21:35:13</time>
+    最后更新时间：<time datetime="2020-06-17T03:28:50.460Z" itemprop="dateUpdated">2020-06-17 11:28:50</time>
 </span><br>
 
 
