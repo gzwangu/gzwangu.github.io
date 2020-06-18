@@ -43,8 +43,10 @@
 <meta property="og:image" content="https://gzwangu.github.io/images/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/PPP.png">
 <meta property="og:image" content="https://gzwangu.github.io/images/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/CSMACD.png">
 <meta property="og:image" content="https://gzwangu.github.io/images/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/Contention-period.png">
+<meta property="og:image" content="https://gzwangu.github.io/images/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/MAC.png">
+<meta property="og:image" content="https://gzwangu.github.io/images/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/VLAN.png">
 <meta property="article:published_time" content="2020-06-14T12:46:38.000Z">
-<meta property="article:modified_time" content="2020-06-17T10:20:19.032Z">
+<meta property="article:modified_time" content="2020-06-18T12:50:46.174Z">
 <meta property="article:author" content="gzwang">
 <meta property="article:tag" content="知识点">
 <meta property="article:tag" content="计算机网络">
@@ -177,7 +179,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#概述"><span class="post-toc-number">1.</span> <span class="post-toc-text">概述</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#物理层"><span class="post-toc-number">2.</span> <span class="post-toc-text">物理层</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#基本概念"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">基本概念</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#数据通信的基础知识"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">数据通信的基础知识</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#物理层下面的传输媒体"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">物理层下面的传输媒体</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#信道复用技术"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">信道复用技术</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#数据链路层"><span class="post-toc-number">3.</span> <span class="post-toc-text">数据链路层</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#点对点信道的数据链路层"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">点对点信道的数据链路层</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#数据链路和帧"><span class="post-toc-number">3.1.1.</span> <span class="post-toc-text">数据链路和帧</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#三个基本问题"><span class="post-toc-number">3.1.2.</span> <span class="post-toc-text">三个基本问题</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#点对点协议-PPP"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">点对点协议 PPP</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#广播信道的数据链路层"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">广播信道的数据链路层</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#CSMA-CD-协议"><span class="post-toc-number">3.3.1.</span> <span class="post-toc-text">CSMA&#x2F;CD 协议</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#使用集线器的星形拓扑"><span class="post-toc-number">3.3.2.</span> <span class="post-toc-text">使用集线器的星形拓扑</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#以太网的-MAC-层"><span class="post-toc-number">3.3.3.</span> <span class="post-toc-text">以太网的 MAC 层</span></a></li></ol></li></ol></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#概述"><span class="post-toc-number">1.</span> <span class="post-toc-text">概述</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#物理层"><span class="post-toc-number">2.</span> <span class="post-toc-text">物理层</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#基本概念"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">基本概念</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#数据通信的基础知识"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">数据通信的基础知识</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#物理层下面的传输媒体"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">物理层下面的传输媒体</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#信道复用技术"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">信道复用技术</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#数据链路层"><span class="post-toc-number">3.</span> <span class="post-toc-text">数据链路层</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#点对点信道的数据链路层"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">点对点信道的数据链路层</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#数据链路和帧"><span class="post-toc-number">3.1.1.</span> <span class="post-toc-text">数据链路和帧</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#三个基本问题"><span class="post-toc-number">3.1.2.</span> <span class="post-toc-text">三个基本问题</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#点对点协议-PPP"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">点对点协议 PPP</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#广播信道的数据链路层"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">广播信道的数据链路层</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#CSMA-CD-协议"><span class="post-toc-number">3.3.1.</span> <span class="post-toc-text">CSMA&#x2F;CD 协议</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#使用集线器的星形拓扑"><span class="post-toc-number">3.3.2.</span> <span class="post-toc-text">使用集线器的星形拓扑</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#以太网的-MAC-层"><span class="post-toc-number">3.3.3.</span> <span class="post-toc-text">以太网的 MAC 层</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#扩展的以太网"><span class="post-toc-number">3.4.</span> <span class="post-toc-text">扩展的以太网</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#网络层"><span class="post-toc-number">4.</span> <span class="post-toc-text">网络层</span></a></li></ol>
         </nav>
     </aside>
 
@@ -414,7 +416,7 @@
 
 <p>二进制指数类型退避算法：</p>
 <ol>
-<li>基本退避时间取为争用期 51.2 us</li>
+<li>基本退避时间取为争用期 51.2 us（最短帧长64 B = 512 bit）</li>
 <li>从整数集合[0,1,…, (2^k - 1)]中随机地取出一个数，记为 r。重传所需的时延就是 r 倍的基本退避时间，其中 k = Min[重传次数, 10]</li>
 <li>当 k &lt;= 10 时，参数 k 等于重传次数，当重传达 16 次仍不能成功时即丢弃该帧，并向高层报告</li>
 </ol>
@@ -436,9 +438,54 @@
 <h3 id="使用集线器的星形拓扑"><a href="#使用集线器的星形拓扑" class="headerlink" title="使用集线器的星形拓扑"></a>使用集线器的星形拓扑</h3><p>集线器的一些特点：</p>
 <ul>
 <li>使用集线器的以太网在逻辑上仍是一个总线网，各工作站使用的还是 CSMA/CD 协议，并共享逻辑上的总线</li>
-<li>集线器很像一个多接口的转发器，工作在物理层</li>
+<li>集线器很像一个多接口的转发器，工作在<em>物理层</em></li>
 </ul>
-<h3 id="以太网的-MAC-层"><a href="#以太网的-MAC-层" class="headerlink" title="以太网的 MAC 层"></a>以太网的 MAC 层</h3>
+<h3 id="以太网的-MAC-层"><a href="#以太网的-MAC-层" class="headerlink" title="以太网的 MAC 层"></a>以太网的 MAC 层</h3><p>硬件地址又称为物理地址或 MAC 地址</p>
+<p><strong>MAC 帧的格式</strong> <figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="\images\计算机网络\MAC.png" alt="以太网 V 2的 MAC 帧格式" title="">
+                </div>
+                <div class="image-caption">以太网 V 2的 MAC 帧格式</div>
+            </figure></p>
+<p>类型字段用来标志上一层使用的是什么协议</p>
+<p>无效的 MAC 帧:</p>
+<ul>
+<li>帧的长度不是整数个字节</li>
+<li>用收到的帧检验序列 FCS 查出有差错</li>
+<li>数据字段的长度不在 46 ~ 1500 字节之间</li>
+<li>有效的 MAC 帧长度为 64 ~ 1518 字节之间</li>
+</ul>
+<h2 id="扩展的以太网"><a href="#扩展的以太网" class="headerlink" title="扩展的以太网"></a>扩展的以太网</h2><p><strong>1.网桥</strong></p>
+<ul>
+<li>它根据 MAC 帧的目的地址对收到的帧进行转发和过滤 </li>
+<li>工作在数据链路层</li>
+<li>当网桥收到一个帧时，并不是向所有的接口转发此帧，而是先检查此帧的目的 MAC 地址，然后再确定将该帧转发到哪一个接口，或把它丢弃</li>
+</ul>
+<p><strong>2.交换机</strong></p>
+<ul>
+<li>以太网交换机实质上就是一个多接口的网桥</li>
+<li>根据 MAC 地址转发</li>
+<li>全双工方式工作在数据链路层</li>
+<li>以太网交换机具有并行性，用户独享带宽</li>
+<li><em>存储转发</em> 方式和<em>直通</em> (cut-through) 方式</li>
+<li><em>自学习功能</em></li>
+</ul>
+<p><strong>3.集线器</strong></p>
+<ul>
+<li>多个端口的转发器</li>
+<li>半双工方式工作在物理层</li>
+<li>工作原理广播形式</li>
+<li>用户共享带宽</li>
+</ul>
+<p><strong>虚拟局域网</strong>——VLAN 是由一些局域网网段构成的与物理位置无关的逻辑组<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="\images\计算机网络\VLAN.png" alt="三个虚拟局域网" title="">
+                </div>
+                <div class="image-caption">三个虚拟局域网</div>
+            </figure></p>
+<h1 id="网络层"><a href="#网络层" class="headerlink" title="网络层"></a>网络层</h1>
         </div>
 
         <blockquote class="post-copyright">
@@ -446,7 +493,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2020-06-17T10:20:19.032Z" itemprop="dateUpdated">2020-06-17 18:20:19</time>
+    最后更新时间：<time datetime="2020-06-18T12:50:46.174Z" itemprop="dateUpdated">2020-06-18 20:50:46</time>
 </span><br>
 
 
