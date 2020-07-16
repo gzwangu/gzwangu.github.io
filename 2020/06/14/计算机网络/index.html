@@ -45,8 +45,12 @@
 <meta property="og:image" content="https://gzwangu.github.io/images/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/Contention-period.png">
 <meta property="og:image" content="https://gzwangu.github.io/images/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/MAC.png">
 <meta property="og:image" content="https://gzwangu.github.io/images/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/VLAN.png">
+<meta property="og:image" content="https://gzwangu.github.io/images/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/IP.png">
+<meta property="og:image" content="https://gzwangu.github.io/images/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/IP-classification.png">
+<meta property="og:image" content="https://gzwangu.github.io/images/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/IP-composition.png">
+<meta property="og:image" content="https://gzwangu.github.io/images/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/Subnetting.png">
 <meta property="article:published_time" content="2020-06-14T12:46:38.000Z">
-<meta property="article:modified_time" content="2020-07-14T12:18:12.161Z">
+<meta property="article:modified_time" content="2020-07-16T09:52:02.007Z">
 <meta property="article:author" content="gzwang">
 <meta property="article:tag" content="知识点">
 <meta property="article:tag" content="计算机网络">
@@ -179,7 +183,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#概述"><span class="post-toc-number">1.</span> <span class="post-toc-text">概述</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#物理层"><span class="post-toc-number">2.</span> <span class="post-toc-text">物理层</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#基本概念"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">基本概念</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#数据通信的基础知识"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">数据通信的基础知识</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#物理层下面的传输媒体"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">物理层下面的传输媒体</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#信道复用技术"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">信道复用技术</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#数据链路层"><span class="post-toc-number">3.</span> <span class="post-toc-text">数据链路层</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#点对点信道的数据链路层"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">点对点信道的数据链路层</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#数据链路和帧"><span class="post-toc-number">3.1.1.</span> <span class="post-toc-text">数据链路和帧</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#三个基本问题"><span class="post-toc-number">3.1.2.</span> <span class="post-toc-text">三个基本问题</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#点对点协议-PPP"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">点对点协议 PPP</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#广播信道的数据链路层"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">广播信道的数据链路层</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#CSMA-CD-协议"><span class="post-toc-number">3.3.1.</span> <span class="post-toc-text">CSMA&#x2F;CD 协议</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#使用集线器的星形拓扑"><span class="post-toc-number">3.3.2.</span> <span class="post-toc-text">使用集线器的星形拓扑</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#以太网的-MAC-层"><span class="post-toc-number">3.3.3.</span> <span class="post-toc-text">以太网的 MAC 层</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#扩展的以太网"><span class="post-toc-number">3.4.</span> <span class="post-toc-text">扩展的以太网</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#网络层"><span class="post-toc-number">4.</span> <span class="post-toc-text">网络层</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#网际协议-IP"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">网际协议 IP</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#分类的-IP-地址"><span class="post-toc-number">4.1.1.</span> <span class="post-toc-text">分类的 IP 地址</span></a></li></ol></li></ol></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#概述"><span class="post-toc-number">1.</span> <span class="post-toc-text">概述</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#物理层"><span class="post-toc-number">2.</span> <span class="post-toc-text">物理层</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#基本概念"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">基本概念</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#数据通信的基础知识"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">数据通信的基础知识</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#物理层下面的传输媒体"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">物理层下面的传输媒体</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#信道复用技术"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">信道复用技术</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#数据链路层"><span class="post-toc-number">3.</span> <span class="post-toc-text">数据链路层</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#点对点信道的数据链路层"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">点对点信道的数据链路层</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#数据链路和帧"><span class="post-toc-number">3.1.1.</span> <span class="post-toc-text">数据链路和帧</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#三个基本问题"><span class="post-toc-number">3.1.2.</span> <span class="post-toc-text">三个基本问题</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#点对点协议-PPP"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">点对点协议 PPP</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#广播信道的数据链路层"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">广播信道的数据链路层</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#CSMA-CD-协议"><span class="post-toc-number">3.3.1.</span> <span class="post-toc-text">CSMA&#x2F;CD 协议</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#使用集线器的星形拓扑"><span class="post-toc-number">3.3.2.</span> <span class="post-toc-text">使用集线器的星形拓扑</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#以太网的-MAC-层"><span class="post-toc-number">3.3.3.</span> <span class="post-toc-text">以太网的 MAC 层</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#扩展的以太网"><span class="post-toc-number">3.4.</span> <span class="post-toc-text">扩展的以太网</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#网络层"><span class="post-toc-number">4.</span> <span class="post-toc-text">网络层</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#网际协议-IP"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">网际协议 IP</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#分类的-IP-地址"><span class="post-toc-number">4.1.1.</span> <span class="post-toc-text">分类的 IP 地址</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#IP-地址与硬件地址"><span class="post-toc-number">4.1.2.</span> <span class="post-toc-text">IP 地址与硬件地址</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#划分子网和构造超网"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">划分子网和构造超网</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#ICMP"><span class="post-toc-number">4.3.</span> <span class="post-toc-text">ICMP</span></a></li></ol></li></ol>
         </nav>
     </aside>
 
@@ -505,7 +509,58 @@
 <li>网际控制报文协议 ICMP</li>
 <li>网际组管理协议 IGMP</li>
 </ul>
-<h3 id="分类的-IP-地址"><a href="#分类的-IP-地址" class="headerlink" title="分类的 IP 地址"></a>分类的 IP 地址</h3>
+<h3 id="分类的-IP-地址"><a href="#分类的-IP-地址" class="headerlink" title="分类的 IP 地址"></a>分类的 IP 地址</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="\images\计算机网络\IP.png" alt="IP地址结构" title="">
+                </div>
+                <div class="image-caption">IP地址结构</div>
+            </figure>
+
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="\images\计算机网络\IP-classification.png" alt="各类 IP 地址" title="">
+                </div>
+                <div class="image-caption">各类 IP 地址</div>
+            </figure>
+
+<h3 id="IP-地址与硬件地址"><a href="#IP-地址与硬件地址" class="headerlink" title="IP 地址与硬件地址"></a>IP 地址与硬件地址</h3><ul>
+<li>硬件地址是数据链路层和物理层使用的地址</li>
+<li>IP 地址是网络层和以上各层使用的地址，是一种逻辑地址（IP 地址是用软件实现的）</li>
+</ul>
+<p>地址解析协议 ARP ——从网络层使用的 IP 地址，解析出在数据链路层使用的硬件地址</p>
+<p>一个 IP 数据报由首部和数据两部分组成，首部的前一部分是固定长度，共 20 字节。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="\images\计算机网络\IP-composition.png" alt="IP数据报组成" title="">
+                </div>
+                <div class="image-caption">IP数据报组成</div>
+            </figure>
+
+<h2 id="划分子网和构造超网"><a href="#划分子网和构造超网" class="headerlink" title="划分子网和构造超网"></a>划分子网和构造超网</h2><p>子网掩码——将 IP 地址的主机号进行子网划分。把子网掩码和 IP 地址进行逐位的与运算，就立即得出网络地址。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="\images\计算机网络\Subnetting.png" alt="划分子网" title="">
+                </div>
+                <div class="image-caption">划分子网</div>
+            </figure>
+
+<p><strong>CIDR</strong> 使用“斜线记法”，它又称为 CIDR 记法，即在 IP 地址面加上一个斜线“/”，然后写上网络前缀所占的位数。例如： 220.78.168.0 / 24</p>
+<h2 id="ICMP"><a href="#ICMP" class="headerlink" title="ICMP"></a>ICMP</h2><ul>
+<li>为了更有效地转发 IP 数据报和提高交付成功的机会，在网际层使用了网际控制报文协议 ICMP</li>
+<li>ICMP 不是高层协议，而是 IP 层的协议</li>
+</ul>
+<p>ICMP 差错报告报文共有 4 种 </p>
+<ol>
+<li>终点不可达 </li>
+<li>时间超过 </li>
+<li>参数问题 </li>
+<li>改变路由（重定向）</li>
+</ol>
+
         </div>
 
         <blockquote class="post-copyright">
@@ -513,7 +568,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2020-07-14T12:18:12.161Z" itemprop="dateUpdated">2020-07-14 20:18:12</time>
+    最后更新时间：<time datetime="2020-07-16T09:52:02.007Z" itemprop="dateUpdated">2020-07-16 17:52:02</time>
 </span><br>
 
 
