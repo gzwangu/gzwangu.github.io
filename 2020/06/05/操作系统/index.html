@@ -45,7 +45,7 @@
 <meta property="og:image" content="https://gzwangu.github.io/images/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/LRU.png">
 <meta property="og:image" content="https://gzwangu.github.io/images/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/Tertiary-index-eg.png">
 <meta property="article:published_time" content="2020-06-05T14:47:39.000Z">
-<meta property="article:modified_time" content="2020-07-08T00:44:36.543Z">
+<meta property="article:modified_time" content="2020-07-29T11:34:11.527Z">
 <meta property="article:author" content="gzwang">
 <meta property="article:tag" content="知识点">
 <meta property="article:tag" content="操作系统">
@@ -238,7 +238,7 @@
 <p><strong>程序的并发执行与并行执行</strong></p>
 <p>并行是指多个事件在同一时刻发生，而并发是指多个事件在同一时期内发生。</p>
 <p>并行是并发的特例，程序并行执行的硬件前提是系统中有多个 CPU。</p>
-<p><code>并发的本质</code>是一个 CPU 在多个程序运行过程中的时分复用。</p>
+<p>并发的本质是一个 CPU 在多个程序运行过程中的时分复用。</p>
 <p>并发执行的特性有以下三点：</p>
 <ul>
 <li>间断性</li>
@@ -386,9 +386,9 @@
 </ol>
 <h2 id="进程调度"><a href="#进程调度" class="headerlink" title="进程调度"></a>进程调度</h2><p>两种基本的进程调度方式，抢占方式和非抢占方式，也称剥夺式（preemptive）和非剥夺式（non_preemptive）调度</p>
 <h3 id="进程调度模型"><a href="#进程调度模型" class="headerlink" title="进程调度模型"></a>进程调度模型</h3><ul>
-<li>高级调度（High-Level Scheduling)，又称为作业调度 </li>
-<li>中级调度（Intermediate-Level Scheduling)，又称为平衡调度 </li>
-<li>低级调度 (Low-Level Scheduling)：又称为进程调度 <figure class="image-bubble">
+<li>高级调度（High-Level Scheduling)，又称为作业调度，它决定把后备作业调入内存运行； </li>
+<li>中级调度（Intermediate-Level Scheduling)，又称为平衡调度，在虚拟存储器中引入，在内、外存对换区进行进程对换；</li>
+<li>低级调度 (Low-Level Scheduling)：又称为进程调度，它决定就绪队列的某进程获得CPU； <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
                     <img src="\images\操作系统\Three-level-scheduling.png" alt="三级调度模型" title="">
@@ -404,7 +404,9 @@
 <li>平均作业周转时间 T = (ΣTi) / n</li>
 <li>平均作业带权周转时间W = (ΣWi) / n</li>
 </ul>
-<h3 id="调度算法"><a href="#调度算法" class="headerlink" title="调度算法"></a>调度算法</h3><ol>
+<h3 id="调度算法"><a href="#调度算法" class="headerlink" title="调度算法"></a>调度算法</h3><p>非剥夺方式：先来先服务、短作业优先、高响应比优先</p>
+<p>剥夺方式：最短剩余时间优先、优先权、时间片轮转</p>
+<ol>
 <li><p>先来先服务（First-Come First-Served，FCFS）——按进程就绪的先后顺序来调度，到达得越早，就越先执行</p>
 <ul>
 <li>获得CPU的进程，未遇到其它情况时，一直运行下去</li>
@@ -525,21 +527,22 @@
 <li>不剥夺条件</li>
 <li>环路等待条件</li>
 </ol>
-<p><code>银行家算法</code>的思路：</p>
+<p><strong>银行家算法</strong>的思路：</p>
 <ol>
 <li>在某一时刻，各进程已获得所需的部分资源。有一进程提出新的资源请求，系统将剩余资源试探性地分配给该进程。</li>
 <li>如果此时剩余资源能够满足余下的某些进程的需求，则将剩余资源分配给能充分满足的、资源需求缺口最大的进程，运行结束后释放的资源再并入系统的剩余资源集合。</li>
 <li>反复执行第 2 步，直到所有的进程都能够获得所需而运行结束。说明第1步的进程请求是可行的，系统处于安全状态，相应的进程执行序列称为系统的安全序列。如果所有的进程都试探过而不能将资源分配给进程，即不存在安全序列，则系统是不安全的。</li>
 </ol>
 <h2 id="线程与进程"><a href="#线程与进程" class="headerlink" title="线程与进程"></a>线程与进程</h2><ul>
-<li>进程是运行中的程序，线程是进程的内部的一个执行序列</li>
+<li>进程是程序在某个数据集合上的一次执行过程，线程是进程内部的一个执行序列</li>
 <li>进程是资源分配的最小单位，线程是 CPU 调度的最小单位</li>
 <li>一个进程可以包含若干个线程</li>
-<li>进程间切换代价大，线程间切换代价小</li>
-<li>进程拥有资源多，线程拥有资源少</li>
 <li>多个线程共享进程的资源，使用相同的地址空间</li>
+<li>进程间切换代价大，线程间切换代价小</li>
+<li>进程拥有资源多，线程不拥有自己的资源或只有必要的资源</li>
 </ul>
-<h1 id="内存管理"><a href="#内存管理" class="headerlink" title="内存管理"></a>内存管理</h1><h2 id="内存管理概述"><a href="#内存管理概述" class="headerlink" title="内存管理概述"></a>内存管理概述</h2><p>计算机的存储系统主要包括内存储器和外存储器</p>
+<h1 id="内存管理"><a href="#内存管理" class="headerlink" title="内存管理"></a>内存管理</h1><p><strong>MMU</strong> 内存管理单元，也称作分页内存管理单元，把虚拟地址转换成物理地址。<strong>TLB</strong> 是一块高速缓存，缓存虚拟地址和其映射的物理地址，减少CPU访问物理内存的次数，用于改进虚拟地址到物理地址转换速度。</p>
+<h2 id="内存管理概述"><a href="#内存管理概述" class="headerlink" title="内存管理概述"></a>内存管理概述</h2><p>计算机的存储系统主要包括内存储器和外存储器</p>
 <ul>
 <li>内存储器（Memory）即俗称的内存或主存</li>
 <li>外存储器也叫辅助存储器</li>
@@ -610,6 +613,8 @@
                 <div class="image-caption">二级页表结构</div>
             </figure>
 
+<p><strong>缺页中断</strong>指的是在进程运行过程中，发现所访问的页不在内存中时，CPU的内存管理单元发出的中断。与一般中断：CPU 检测中断时间不同，CPU 可多次处理。</p>
+<p><strong>缺页中断处理流程</strong>是：先查看内存是否有空闲块，若有则按该页在外存中的地址将该页找出并装入内存，在页表中填上它占用的块号且修改标志位。若内存已没有空闲块，则必须先淘汰已在内存中的某一页，再将所需的页装入，对页表和内存分配表作相应的修改。淘汰某页时，要查看该页的修改位来判断该页是否修改过，若该页在执行过程中没有被修改过，那么不必重新写回到存储器中，而已修改过的页调出时必须再将该页写回到外存中。</p>
 <h2 id="段式存储管理"><a href="#段式存储管理" class="headerlink" title="段式存储管理"></a>段式存储管理</h2><p>分段式存储管理是以段为单位进行内存分配，逻辑地址空间是一个二维空间，分为段号和段内偏移两部分。</p>
 <figure class="image-bubble">
                 <div class="img-lightbox">
@@ -634,7 +639,7 @@
             </figure>
 
 <p>逻辑地址分 3 个部分：段号、段内页号和页内位移，其形式为：对于用户来说，虚拟地址应该由段号 s 和段内位移 d’ 组成，用户看不到如何分页。而是由操作系统自动把 d’解释成两部分：段内页号 p 和页内位移 d，也就是说，d’ = p × 块长+ d。 </p>
-<h2 id="虚拟存储技术"><a href="#虚拟存储技术" class="headerlink" title="虚拟存储技术"></a>虚拟存储技术</h2><p>将外存作为内存的扩充，作业运行不需要将作业的全部信息放入内存，将暂时将不运行的作业信息放在外存，通过内存与外存之间的对换，使系统逐步将作业信息放入内存，最终达到能够运行整个作业，从逻辑上扩充内存的目的。</p>
+<h2 id="虚拟存储技术"><a href="#虚拟存储技术" class="headerlink" title="虚拟存储技术"></a>虚拟存储技术</h2><p>将作业不执行的部分暂时存放在外存，待到进程需要时，再将其从外存调入内存。将外存作为内存的补充，从逻辑上扩充内存。</p>
 <p>虚拟存储技术的<strong>实现基础</strong>是内存的分页或分段管理，采用的是进程的分页或分段在内存与外存之间对换。</p>
 <h2 id="请求分页虚拟存储管理"><a href="#请求分页虚拟存储管理" class="headerlink" title="请求分页虚拟存储管理"></a>请求分页虚拟存储管理</h2><h3 id="硬件支持"><a href="#硬件支持" class="headerlink" title="硬件支持"></a>硬件支持</h3><ol>
 <li>请求分页的页表机制</li>
@@ -662,7 +667,8 @@
 <li>全局置换</li>
 <li>局部置换</li>
 </ol>
-<h3 id="页面置换算法"><a href="#页面置换算法" class="headerlink" title="页面置换算法"></a>页面置换算法</h3><ol>
+<h3 id="页面置换算法"><a href="#页面置换算法" class="headerlink" title="页面置换算法"></a>页面置换算法</h3><p>先进先出、最佳页面、最近最久未使用、时钟置换算法</p>
+<ol>
 <li><p>先进先出（FIFO）页面置换算法</p>
 <p>总是选择最先进入内存的页面或驻留时间最长的页面先淘汰<figure class="image-bubble">
                 <div class="img-lightbox">
@@ -816,7 +822,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2020-07-08T00:44:36.543Z" itemprop="dateUpdated">2020-07-08 08:44:36</time>
+    最后更新时间：<time datetime="2020-07-29T11:34:11.527Z" itemprop="dateUpdated">2020-07-29 19:34:11</time>
 </span><br>
 
 
