@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://gzwangu.github.io/"/>
-  <updated>2020-07-29T06:52:59.768Z</updated>
+  <updated>2020-08-01T03:24:52.638Z</updated>
   <id>https://gzwangu.github.io/</id>
   
   <author>
@@ -17,11 +17,41 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>C++中sort()函数强大功能</title>
+    <link href="https://gzwangu.github.io/2020/08/01/C-%E4%B8%ADsort-%E5%87%BD%E6%95%B0%E5%BC%BA%E5%A4%A7%E5%8A%9F%E8%83%BD/"/>
+    <id>https://gzwangu.github.io/2020/08/01/C-%E4%B8%ADsort-%E5%87%BD%E6%95%B0%E5%BC%BA%E5%A4%A7%E5%8A%9F%E8%83%BD/</id>
+    <published>2020-08-01T02:22:14.000Z</published>
+    <updated>2020-08-01T03:24:52.638Z</updated>
+    
+    <content type="html"><![CDATA[<p>最近在刷王道考研机试指南（机试小白），惊奇的发现 sort() 函数功能不是简单排个序。</p><p>sort()函数原型：</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sort(start,<span class="built_in">end</span>,cmp);</span><br><span class="line"><span class="comment">// start表示要排序数组的起始地址</span></span><br><span class="line"><span class="comment">// end表示数组结束地址的下一位</span></span><br><span class="line"><span class="comment">// cmp用于规定排序的方法，可不填，默认升序</span></span><br></pre></td></tr></table></figure><p>sort() 函数包含在头文件为 <strong># include&lt;algorithm&gt;</strong> 的 c++ 标准库中</p><p>一般我就使用两个参数的，第三个参数默认从小到大排序。例如对数组 a[n] 排序：sort(a,a+n);</p><p>sort() 函数的强大之处是在它的第三个参数排序方法，<strong>可以任意的设定自己的规则，使排序对象按照自己指定的规则进行排序</strong>。</p><p><strong>cmp 函数定义规则</strong>：当 cmp 的返回值为 true 时，即表示 cmp 函数的第一个参数将会排在第二个参数之前，反之，第一个参数将会排在第二个参数之后。</p><p><strong>例 2.2 成绩排序</strong>：有 N 个学生的数据，将学生数据按成绩高低排序，如果成绩相同则按姓名字符的字母序排序，如果姓名的字母序也相同则按照学生的年龄排序，并输出N个学生排序后的信息。</p><p>输入：测试数据有多组，每组输入第- 行有一个整数 N (N&lt;=1000) ,接下来的N行包括N个学生的数据。每个学生的数据包括姓名(长度不超过 100 的字符串)、年龄(整型数)、成绩(小于等于 100 的正数)。</p><p>输出：将学生信息按成绩进行排序，成绩相同的则按姓名的字母序进行排序。然后输出学生信息，按照如下格式：姓名 年龄 成绩</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># <span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt; // 万能头文件</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Stu</span>&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"><span class="keyword">char</span> name[<span class="number">100</span>];</span><br><span class="line"><span class="keyword">int</span> age;</span><br><span class="line"><span class="keyword">int</span> grade;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp</span><span class="params">(Stu a,Stu b)</span></span>&#123;</span><br><span class="line"><span class="keyword">if</span>(a.grade!=b.grade)</span><br><span class="line"><span class="keyword">return</span> a.grade&lt;b.grade;  <span class="comment">// 分数不一样</span></span><br><span class="line"><span class="keyword">int</span> tmp = <span class="built_in">strcmp</span>(a.name,b.name); <span class="comment">// 以下分数相同 </span></span><br><span class="line"><span class="keyword">if</span>(tmp!=<span class="number">0</span>) <span class="keyword">return</span> tmp&lt;<span class="number">0</span>;<span class="comment">// 姓名字母序不同 </span></span><br><span class="line"><span class="keyword">else</span> <span class="keyword">return</span> a.age&lt;b.age;<span class="comment">// 姓名字母序相同、年龄不同 </span></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"><span class="built_in">cin</span>&gt;&gt;n;</span><br><span class="line">Stu s[n];</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)</span><br><span class="line"><span class="built_in">cin</span>&gt;&gt;s[i].name&gt;&gt;s[i].age&gt;&gt;s[i].grade;</span><br><span class="line">sort(s,s+n,cmp);</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)</span><br><span class="line"><span class="built_in">cout</span>&lt;&lt;s[i].name&lt;&lt;<span class="string">" "</span>&lt;&lt;s[i].age&lt;&lt;<span class="string">" "</span>&lt;&lt;s[i].grade&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;最近在刷王道考研机试指南（机试小白），惊奇的发现 sort() 函数功能不是简单排个序。&lt;/p&gt;
+&lt;p&gt;sort()函数原型：&lt;/p&gt;
+&lt;figure class=&quot;highlight c++&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;spa
+      
+    
+    </summary>
+    
+    
+      <category term="OJ" scheme="https://gzwangu.github.io/categories/OJ/"/>
+    
+    
+      <category term="C++" scheme="https://gzwangu.github.io/tags/C/"/>
+    
+      <category term="排序" scheme="https://gzwangu.github.io/tags/%E6%8E%92%E5%BA%8F/"/>
+    
+  </entry>
+  
+  <entry>
     <title>数学建模之预测模型</title>
     <link href="https://gzwangu.github.io/2020/07/29/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E4%B9%8B%E9%A2%84%E6%B5%8B%E6%A8%A1%E5%9E%8B/"/>
     <id>https://gzwangu.github.io/2020/07/29/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E4%B9%8B%E9%A2%84%E6%B5%8B%E6%A8%A1%E5%9E%8B/</id>
     <published>2020-07-29T05:29:09.000Z</published>
-    <updated>2020-07-29T06:52:59.768Z</updated>
+    <updated>2020-08-01T02:25:24.221Z</updated>
     
     <content type="html"><![CDATA[<p>在数学建模中，常常会涉及一些预测类问题。预测方法种类繁多，从经典的单耗法、弹性系数法、统计分析法，到现在的灰色预测法、专家系统法和模糊数学法、甚至刚刚兴起的神经元网络法、优选组合法和小波分析法等200余种算法。下面将简要介绍几类预测方法：灰色预测模型、微分方程模型、差分方程模型、马尔可夫预测、插值与拟合、时间序列预测、神经元网络。</p><table><thead><tr><th>模型名称</th><th>模型简介</th><th>优点</th><th>缺点</th></tr></thead><tbody><tr><td>灰色预测模型</td><td>该模型使用的不是原始数据的序列，而是生成的数据序列。核心体系是Grey Model，即对原始数据作累加生成（或其他处理生成）得到近似的指数规律再进行建模的方法。</td><td>在处理较少的特征值数据，不需要数据的样本空间足够大，就能解决历史数据少、序列的完整性以及可靠性低的问题，能将无规律的原始数据进行生成得到规律较强的生成序列。</td><td>只适用于中短期的预测，只适合近似于指数增长的预测</td></tr><tr><td>微分方程模型</td><td>因果预测模型，大多为物理、几何方面的典型问题，其基本规律随着时间的增长呈指数增长，根据变量个数确定微分方程模型。</td><td>适用于短、中、长期的预测，既能反映内部规律以及事物的内在关系，也能够分析两个因素之间的相关关系，精度高便与改进。如传染病的预测模型、经济增长（或人口）的预测模型、Lanchester 战争预测模型。</td><td>由于反映的内部规律，方程建立与局部规律的独立性为假定基础，长期预测的偏差性较大，且微分方程的解比较难以得到。</td></tr><tr><td>差分方程模型</td><td>利用差分方程建模研究实际问题，常常需要根据统计数据用最小二乘法来拟合出差分方程的系数。</td><td>差分方程代替微分方程描述，在方程中避免了导函数，可以用迭代的方式求解。适用于商品销售量的预测、投资保险收益率的预测。</td><td>精度较低（用割线代替切线）</td></tr><tr><td>马尔可夫预测</td><td>某一系统在已知情况下，系统未来时刻的情况只与现在时刻有关，与历史数据无关的情况。</td><td>对过程的状态预测效果良好，可考虑用于生产现场危险状态的预测。研究一个商店的未来某一时刻的销售额，当现在时刻的累计销售额已知。</td><td>不适宜用于系统中长期预测</td></tr><tr><td>插值与拟合</td><td>适用于物体轨迹图像的模型。例如，导弹的运动轨迹测量的预测分析。</td><td>分为曲面拟合和曲线拟合，拟合就是要找出一种方法（函数）使得得到的仿真曲线（曲面）最大程度的接近原来的曲线（曲线），甚至重合。这个拟合的好坏程度可以用一个指标来判断。</td><td></td></tr><tr><td>时间序列预测</td><td>根据客观事物发展的这种连续规律性，运用过去的历史数据，通过统计分析，进一步推测市场未来的发展趋势。时间序列在时间序列分析预测法处于核心位置</td><td>一般用ARMA模型拟合时间序列，预测该时间序列未来值。Daniel 检验平稳性。自动回归 AR(Auto regressive)和移动平均 MA(Moving Average)预测模型。</td><td>经济类问题，从长期看具有一定的规律，而短期可能受到宏观调控、市场现时期的需求供应变化使得预测困难。</td></tr><tr><td>神经元网络</td><td>在控制与优化、预测与管理、模式识别与图像处理、通信等方面有十分广泛的应用。常用的是 BP 神经网络和径向基函数神经网络。</td><td>多层前向 BP 网络适用于求解内部机制复杂的问题，有一定的推广、概括能力。预测某水库的年径流量和因子特征值</td><td>多层前向BP网络学习速度较慢，训练失败的可能性较大。</td></tr></tbody></table>]]></content>
     
@@ -38,11 +68,7 @@
       <category term="数学建模" scheme="https://gzwangu.github.io/categories/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/"/>
     
     
-      <category term="数学建模" scheme="https://gzwangu.github.io/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/"/>
-    
-      <category term="预测" scheme="https://gzwangu.github.io/tags/%E9%A2%84%E6%B5%8B/"/>
-    
-      <category term="模型" scheme="https://gzwangu.github.io/tags/%E6%A8%A1%E5%9E%8B/"/>
+      <category term="预测模型" scheme="https://gzwangu.github.io/tags/%E9%A2%84%E6%B5%8B%E6%A8%A1%E5%9E%8B/"/>
     
   </entry>
   
