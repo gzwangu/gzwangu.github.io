@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://gzwangu.github.io/"/>
-  <updated>2020-06-06T11:43:20.585Z</updated>
+  <updated>2020-08-10T14:30:35.071Z</updated>
   <id>https://gzwangu.github.io/</id>
   
   <author>
@@ -17,39 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Hello World</title>
-    <link href="https://gzwangu.github.io/2020/08/06/hello-world/"/>
-    <id>https://gzwangu.github.io/2020/08/06/hello-world/</id>
-    <published>2020-08-06T07:30:12.808Z</published>
-    <updated>2020-06-06T11:43:20.585Z</updated>
-    
-    <content type="html"><![CDATA[<p>hello everybody!  </p><p>关于我</p><p>CUMT 2017级信科专业</p><p>菜鸡一枚，爱好和平</p><p>有相关问题请Q：<a href="mailto:651406060@qq.com">651406060@qq.com</a></p><p>开始搞事情！</p><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/images/hello-world/go.jpg" alt="go" title="">                </div>                <div class="image-caption">go</div>            </figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;hello everybody!  &lt;/p&gt;
-&lt;p&gt;关于我&lt;/p&gt;
-&lt;p&gt;CUMT 2017级信科专业&lt;/p&gt;
-&lt;p&gt;菜鸡一枚，爱好和平&lt;/p&gt;
-&lt;p&gt;有相关问题请Q：&lt;a href=&quot;mailto:651406060@qq.com&quot;&gt;651406060@qq.com&lt;/a
-      
-    
-    </summary>
-    
-    
-    
-      <category term="关于我" scheme="https://gzwangu.github.io/tags/%E5%85%B3%E4%BA%8E%E6%88%91/"/>
-    
-  </entry>
-  
-  <entry>
     <title>C++中sort()函数强大功能</title>
     <link href="https://gzwangu.github.io/2020/08/01/C-%E4%B8%ADsort-%E5%87%BD%E6%95%B0%E5%BC%BA%E5%A4%A7%E5%8A%9F%E8%83%BD/"/>
     <id>https://gzwangu.github.io/2020/08/01/C-%E4%B8%ADsort-%E5%87%BD%E6%95%B0%E5%BC%BA%E5%A4%A7%E5%8A%9F%E8%83%BD/</id>
     <published>2020-08-01T02:22:14.000Z</published>
-    <updated>2020-08-01T07:49:06.515Z</updated>
+    <updated>2020-08-10T14:30:35.071Z</updated>
     
     <content type="html"><![CDATA[<p>最近在刷王道考研机试指南（机试小白），惊奇的发现 sort() 函数功能不是简单排个序。</p><p>sort()函数原型：</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sort(start,<span class="built_in">end</span>,cmp);</span><br><span class="line"><span class="comment">// start表示要排序数组的起始地址</span></span><br><span class="line"><span class="comment">// end表示数组结束地址的下一位</span></span><br><span class="line"><span class="comment">// cmp用于规定排序的方法，可不填，默认升序</span></span><br></pre></td></tr></table></figure><p>sort() 函数包含在头文件为 <strong># include&lt;algorithm&gt;</strong> 的 c++ 标准库中</p><p>一般我就使用两个参数的，第三个参数默认从小到大排序。例如对数组 a[n] 排序：sort(a,a+n);</p><p>sort() 函数的强大之处是在它的第三个参数排序方法，<strong>可以任意的设定自己的规则，使排序对象按照自己指定的规则进行排序</strong>。</p><p><strong>cmp 函数定义规则</strong>：当 cmp 的返回值为 true 时，即表示 cmp 函数的第一个参数将会排在第二个参数之前，反之，第一个参数将会排在第二个参数之后。</p><p><strong>例 2.2 成绩排序</strong>：有 N 个学生的数据，将学生数据按成绩高低排序，如果成绩相同则按姓名字符的字母序排序，如果姓名的字母序也相同则按照学生的年龄排序，并输出N个学生排序后的信息。</p><p>输入：测试数据有多组，每组输入第- 行有一个整数 N (N&lt;=1000) ,接下来的N行包括N个学生的数据。每个学生的数据包括姓名(长度不超过 100 的字符串)、年龄(整型数)、成绩(小于等于 100 的正数)。</p><p>输出：将学生信息按成绩进行排序，成绩相同的则按姓名的字母序进行排序。然后输出学生信息，按照如下格式：姓名 年龄 成绩</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># <span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt; // 万能头文件</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Stu</span>&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"><span class="keyword">char</span> name[<span class="number">100</span>];</span><br><span class="line"><span class="keyword">int</span> age;</span><br><span class="line"><span class="keyword">int</span> grade;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp</span><span class="params">(Stu a,Stu b)</span></span>&#123;</span><br><span class="line"><span class="keyword">if</span>(a.grade!=b.grade)</span><br><span class="line"><span class="keyword">return</span> a.grade&lt;b.grade;  <span class="comment">// 分数不一样</span></span><br><span class="line"><span class="keyword">int</span> tmp = <span class="built_in">strcmp</span>(a.name,b.name); <span class="comment">// 以下分数相同 </span></span><br><span class="line"><span class="keyword">if</span>(tmp!=<span class="number">0</span>) <span class="keyword">return</span> tmp&lt;<span class="number">0</span>;<span class="comment">// 姓名字母序不同 </span></span><br><span class="line"><span class="keyword">else</span> <span class="keyword">return</span> a.age&lt;b.age;<span class="comment">// 姓名字母序相同、年龄不同 </span></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"><span class="built_in">cin</span>&gt;&gt;n;</span><br><span class="line">Stu s[n];</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)</span><br><span class="line"><span class="built_in">cin</span>&gt;&gt;s[i].name&gt;&gt;s[i].age&gt;&gt;s[i].grade;</span><br><span class="line">sort(s,s+n,cmp);</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)</span><br><span class="line"><span class="built_in">cout</span>&lt;&lt;s[i].name&lt;&lt;<span class="string">" "</span>&lt;&lt;s[i].age&lt;&lt;<span class="string">" "</span>&lt;&lt;s[i].grade&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
     
@@ -71,6 +43,8 @@
       <category term="C++" scheme="https://gzwangu.github.io/tags/C/"/>
     
       <category term="排序" scheme="https://gzwangu.github.io/tags/%E6%8E%92%E5%BA%8F/"/>
+    
+      <category term="算法" scheme="https://gzwangu.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
@@ -365,6 +339,36 @@
       <category term="C51" scheme="https://gzwangu.github.io/tags/C51/"/>
     
       <category term="单片机" scheme="https://gzwangu.github.io/tags/%E5%8D%95%E7%89%87%E6%9C%BA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="https://gzwangu.github.io/2020/01/07/hello-world/"/>
+    <id>https://gzwangu.github.io/2020/01/07/hello-world/</id>
+    <published>2020-01-07T12:40:41.000Z</published>
+    <updated>2020-08-10T14:33:02.404Z</updated>
+    
+    <content type="html"><![CDATA[<p>hello everybody!  </p><p>关于我</p><p>CUMT 2017级信科专业</p><p>菜鸡一枚，爱好和平</p><p>有相关问题请Q：<a href="mailto:651406060@qq.com">651406060@qq.com</a></p><p>开始搞事情！</p><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/images/hello-world/go.jpg" alt="go" title="">                </div>                <div class="image-caption">go</div>            </figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;hello everybody!  &lt;/p&gt;
+&lt;p&gt;关于我&lt;/p&gt;
+&lt;p&gt;CUMT 2017级信科专业&lt;/p&gt;
+&lt;p&gt;菜鸡一枚，爱好和平&lt;/p&gt;
+&lt;p&gt;有相关问题请Q：&lt;a href=&quot;mailto:651406060@qq.com&quot;&gt;651406060@qq.com&lt;/a
+      
+    
+    </summary>
+    
+    
+      <category term="关于我" scheme="https://gzwangu.github.io/categories/%E5%85%B3%E4%BA%8E%E6%88%91/"/>
+    
+    
+      <category term="自我介绍" scheme="https://gzwangu.github.io/tags/%E8%87%AA%E6%88%91%E4%BB%8B%E7%BB%8D/"/>
     
   </entry>
   

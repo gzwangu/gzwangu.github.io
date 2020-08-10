@@ -4,25 +4,6 @@
   
     
     <entry>
-      <title>Hello World</title>
-      <link href="/2020/08/06/hello-world/"/>
-      <url>/2020/08/06/hello-world/</url>
-      
-        <content type="html"><![CDATA[<p>hello everybody!  </p><p>关于我</p><p>CUMT 2017级信科专业</p><p>菜鸡一枚，爱好和平</p><p>有相关问题请Q：<a href="mailto:651406060@qq.com">651406060@qq.com</a></p><p>开始搞事情！</p><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/images/hello-world/go.jpg" alt="go" title="">                </div>                <div class="image-caption">go</div>            </figure>]]></content>
-      
-      
-      
-        <tags>
-            
-            <tag> 关于我 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>C++中sort()函数强大功能</title>
       <link href="/2020/08/01/C-%E4%B8%ADsort-%E5%87%BD%E6%95%B0%E5%BC%BA%E5%A4%A7%E5%8A%9F%E8%83%BD/"/>
       <url>/2020/08/01/C-%E4%B8%ADsort-%E5%87%BD%E6%95%B0%E5%BC%BA%E5%A4%A7%E5%8A%9F%E8%83%BD/</url>
@@ -42,6 +23,8 @@
             <tag> C++ </tag>
             
             <tag> 排序 </tag>
+            
+            <tag> 算法 </tag>
             
         </tags>
       
@@ -320,6 +303,31 @@
             <tag> C51 </tag>
             
             <tag> 单片机 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Hello World</title>
+      <link href="/2020/01/07/hello-world/"/>
+      <url>/2020/01/07/hello-world/</url>
+      
+        <content type="html"><![CDATA[<p>hello everybody!  </p><p>关于我</p><p>CUMT 2017级信科专业</p><p>菜鸡一枚，爱好和平</p><p>有相关问题请Q：<a href="mailto:651406060@qq.com">651406060@qq.com</a></p><p>开始搞事情！</p><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/images/hello-world/go.jpg" alt="go" title="">                </div>                <div class="image-caption">go</div>            </figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 关于我 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 自我介绍 </tag>
             
         </tags>
       
