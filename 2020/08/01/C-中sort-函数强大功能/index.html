@@ -21,15 +21,15 @@
     
     
     <meta name="keywords" content="C++,排序,算法">
-    <meta name="description" content="最近在刷王道考研机试指南（机试小白），惊奇的发现 sort() 函数功能不是简单排个序。 sort()函数原型： 1234sort(start,end,cmp);&#x2F;&#x2F; start表示要排序数组的起始地址&#x2F;&#x2F; end表示数组结束地址的下一位&#x2F;&#x2F; cmp用于规定排序的方法，可不填，默认升序  sort() 函数包含在头文件为 # include&lt;algorithm&gt; 的 c++ 标准库中">
+    <meta name="description" content="最近在刷王道考研机试指南（机试小白），惊奇的发现 sort() 函数功能不是简单排个序。 sort()函数原型： 1234sort(start,end,cmp);&#x2F;&#x2F; start表示要排序数组的起始地址&#x2F;&#x2F; end表示数组结束地址的下一位&#x2F;&#x2F; cmp用于规定排序的方法，可不填，默认升序  sort() 函数包含在头文件为 #include &lt;algorithm&gt; 的 c++ 标准库中">
 <meta property="og:type" content="article">
 <meta property="og:title" content="C++中sort()函数强大功能">
 <meta property="og:url" content="https://gzwangu.github.io/2020/08/01/C-%E4%B8%ADsort-%E5%87%BD%E6%95%B0%E5%BC%BA%E5%A4%A7%E5%8A%9F%E8%83%BD/index.html">
 <meta property="og:site_name" content="Gzwang&#39;s Blog">
-<meta property="og:description" content="最近在刷王道考研机试指南（机试小白），惊奇的发现 sort() 函数功能不是简单排个序。 sort()函数原型： 1234sort(start,end,cmp);&#x2F;&#x2F; start表示要排序数组的起始地址&#x2F;&#x2F; end表示数组结束地址的下一位&#x2F;&#x2F; cmp用于规定排序的方法，可不填，默认升序  sort() 函数包含在头文件为 # include&lt;algorithm&gt; 的 c++ 标准库中">
+<meta property="og:description" content="最近在刷王道考研机试指南（机试小白），惊奇的发现 sort() 函数功能不是简单排个序。 sort()函数原型： 1234sort(start,end,cmp);&#x2F;&#x2F; start表示要排序数组的起始地址&#x2F;&#x2F; end表示数组结束地址的下一位&#x2F;&#x2F; cmp用于规定排序的方法，可不填，默认升序  sort() 函数包含在头文件为 #include &lt;algorithm&gt; 的 c++ 标准库中">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-08-01T02:22:14.000Z">
-<meta property="article:modified_time" content="2020-08-10T14:30:35.071Z">
+<meta property="article:modified_time" content="2020-08-10T14:37:39.786Z">
 <meta property="article:author" content="gzwang">
 <meta property="article:tag" content="C++">
 <meta property="article:tag" content="排序">
@@ -185,7 +185,7 @@
 <p>sort()函数原型：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sort(start,<span class="built_in">end</span>,cmp);</span><br><span class="line"><span class="comment">// start表示要排序数组的起始地址</span></span><br><span class="line"><span class="comment">// end表示数组结束地址的下一位</span></span><br><span class="line"><span class="comment">// cmp用于规定排序的方法，可不填，默认升序</span></span><br></pre></td></tr></table></figure>
 
-<p>sort() 函数包含在头文件为 <strong># include&lt;algorithm&gt;</strong> 的 c++ 标准库中</p>
+<p>sort() 函数包含在头文件为 <strong>#include &lt;algorithm&gt;</strong> 的 c++ 标准库中</p>
 <p>一般我就使用两个参数的，第三个参数默认从小到大排序。例如对数组 a[n] 排序：sort(a,a+n);</p>
 <p>sort() 函数的强大之处是在它的第三个参数排序方法，<strong>可以任意的设定自己的规则，使排序对象按照自己指定的规则进行排序</strong>。</p>
 <p><strong>cmp 函数定义规则</strong>：当 cmp 的返回值为 true 时，即表示 cmp 函数的第一个参数将会排在第二个参数之前，反之，第一个参数将会排在第二个参数之后。</p>
@@ -202,7 +202,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2020-08-10T14:30:35.071Z" itemprop="dateUpdated">2020-08-10 22:30:35</time>
+    最后更新时间：<time datetime="2020-08-10T14:37:39.786Z" itemprop="dateUpdated">2020-08-10 22:37:39</time>
 </span><br>
 
 
