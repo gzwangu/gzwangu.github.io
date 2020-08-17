@@ -219,6 +219,10 @@
             
             <tag> Web </tag>
             
+            <tag> 门禁系统 </tag>
+            
+            <tag> 人脸识别 </tag>
+            
         </tags>
       
     </entry>
@@ -277,6 +281,8 @@
             
             <tag> VHDL </tag>
             
+            <tag> 数字秒表 </tag>
+            
         </tags>
       
     </entry>
@@ -303,6 +309,8 @@
             <tag> C51 </tag>
             
             <tag> 单片机 </tag>
+            
+            <tag> 双机通信 </tag>
             
         </tags>
       
