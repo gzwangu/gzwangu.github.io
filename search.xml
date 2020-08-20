@@ -4,6 +4,37 @@
   
     
     <entry>
+      <title>C++字符串、字符数组长度</title>
+      <link href="/2020/08/20/C-%E5%AD%97%E7%AC%A6%E4%B8%B2%E3%80%81%E5%AD%97%E7%AC%A6%E6%95%B0%E7%BB%84%E9%95%BF%E5%BA%A6/"/>
+      <url>/2020/08/20/C-%E5%AD%97%E7%AC%A6%E4%B8%B2%E3%80%81%E5%AD%97%E7%AC%A6%E6%95%B0%E7%BB%84%E9%95%BF%E5%BA%A6/</url>
+      
+        <content type="html"><![CDATA[<p>在 C++ 中常用的获取字符串长度或者字符串数组长度的函数有：</p><ul><li>length()</li><li>size()</li><li>strlen()</li><li>sizeof()</li></ul><p>str.length() 和 str.size() 用来求字符串（<strong>string 类型</strong>）的长度。</p><p>strlen(str) 是用于求<strong>字符数组</strong>的长度，其参数是char*。当数组名作为参数传入时，实际上数组就退化成指针了。</p><p>sizeof(str) 是运算符，在头文件中 typedef 为 unsigned int，其值在编译时即计算好了，参数可以是数组、指针、类型、对象、函数等。由于在编译时计算，因此 <strong>sizeof() 不能用来返回动态分配的内存空间的大小</strong>。</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">string</span> s1 = <span class="string">"01234"</span>;</span><br><span class="line"><span class="keyword">char</span> s2[<span class="number">10</span>] = <span class="string">"0123456"</span>;</span><br><span class="line"><span class="built_in">cout</span>&lt;&lt;s1.length()&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line"><span class="built_in">cout</span>&lt;&lt;s1.<span class="built_in">size</span>()&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line"><span class="built_in">cout</span>&lt;&lt;<span class="built_in">strlen</span>(s2)&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line"><span class="built_in">cout</span>&lt;&lt;<span class="keyword">sizeof</span>(s2)&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line"><span class="built_in">cout</span>&lt;&lt;<span class="keyword">sizeof</span>(s1)&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line"><span class="comment">// 输出</span></span><br><span class="line"><span class="number">5</span></span><br><span class="line"><span class="number">5</span></span><br><span class="line"><span class="number">7</span></span><br><span class="line"><span class="number">10</span></span><br><span class="line"><span class="number">8</span></span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> OJ </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> C++ </tag>
+            
+            <tag> 字符串 </tag>
+            
+            <tag> 字符数组 </tag>
+            
+            <tag> 长度 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>C++中sort()函数强大功能</title>
       <link href="/2020/08/01/C-%E4%B8%ADsort-%E5%87%BD%E6%95%B0%E5%BC%BA%E5%A4%A7%E5%8A%9F%E8%83%BD/"/>
       <url>/2020/08/01/C-%E4%B8%ADsort-%E5%87%BD%E6%95%B0%E5%BC%BA%E5%A4%A7%E5%8A%9F%E8%83%BD/</url>
