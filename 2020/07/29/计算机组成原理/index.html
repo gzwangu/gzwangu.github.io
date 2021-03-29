@@ -1,0 +1,110 @@
+<!DOCTYPE html><html lang="zh-Hans"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="计算机组成原理"><meta name="keywords" content="知识点,计算机组成原理"><meta name="author" content="gzwang"><meta name="copyright" content="gzwang"><title>计算机组成原理 | Gzwang's Blog</title><link rel="shortcut icon" href="/melody-favicon.ico"><link rel="stylesheet" href="/css/index.css?version=1.9.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css?version=1.9.0"><meta name="format-detection" content="telephone=no"><meta http-equiv="x-dns-prefetch-control" content="on"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  hexoVersion: '5.4.0'
+} </script><meta name="generator" content="Hexo 5.4.0"></head><body><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar" data-display="true"><div class="toggle-sidebar-info text-center"><span data-toggle="切换文章详情">切换站点概览</span><hr></div><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar"></div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA"><span class="toc-number">1.</span> <span class="toc-text">计算机系统概论</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%BF%90%E7%AE%97%E6%96%B9%E6%B3%95%E5%92%8C%E8%BF%90%E7%AE%97%E5%99%A8"><span class="toc-number">2.</span> <span class="toc-text">运算方法和运算器</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A4%9A%E5%B1%82%E6%AC%A1%E7%9A%84%E5%AD%98%E5%82%A8%E5%99%A8"><span class="toc-number">3.</span> <span class="toc-text">多层次的存储器</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%8C%87%E4%BB%A4%E7%B3%BB%E7%BB%9F"><span class="toc-number">4.</span> <span class="toc-text">指令系统</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%AD%E5%A4%AE%E5%A4%84%E7%90%86%E5%99%A8"><span class="toc-number">5.</span> <span class="toc-text">中央处理器</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%80%BB%E7%BA%BF%E7%B3%BB%E7%BB%9F"><span class="toc-number">6.</span> <span class="toc-text">总线系统</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E7%B3%BB%E7%BB%9F"><span class="toc-number">7.</span> <span class="toc-text">输入输出系统</span></a></li></ol></div></div><div class="author-info hide"><div class="author-info__avatar text-center"><img src="https://gzwangu.github.io/img/avatar.jpg"></div><div class="author-info__name text-center">gzwang</div><div class="author-info__description text-center">Study and Life growth record</div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">文章</span><span class="pull-right">15</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">标签</span><span class="pull-right">28</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">分类</span><span class="pull-right">7</span></a></div></div></div><div id="content-outer"><div class="no-bg" id="top-container"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">Gzwang's Blog</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus">   <a class="site-page" href="/">Home</a><a class="site-page" href="/archives">Archives</a><a class="site-page" href="/tags">Tags</a><a class="site-page" href="/categories">Categories</a></span><span class="pull-right"></span></div><div id="post-info"><div id="post-title">计算机组成原理</div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-07-29</time><span class="post-meta__separator">|</span><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/%E8%AF%BE%E7%A8%8B%E5%AD%A6%E4%B9%A0/">课程学习</a><div class="post-meta-wordcount"><span>字数总计: </span><span class="word-count">1.1k</span><span class="post-meta__separator">|</span><span>阅读时长: 3 分钟</span></div></div></div></div><div class="layout" id="content-inner"><article id="post"><div class="article-container" id="post-content"><h1 id="计算机系统概论"><a href="#计算机系统概论" class="headerlink" title="计算机系统概论"></a>计算机系统概论</h1><p>计算机的基本组成：</p>
+<ul>
+<li>存储器——存放程序(指令)和数据</li>
+<li>运算器——算术和逻辑运算</li>
+<li>控制器——从内存中取出解题步骤加以分析，然后执行某种操作</li>
+<li>输入输出设备——实现计算程序和原始数据的输入输出</li>
+</ul>
+<p><img src="%5Cimages%5C%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%5CBasic-composition.png" alt="计算机的基本组成"></p>
+<h1 id="运算方法和运算器"><a href="#运算方法和运算器" class="headerlink" title="运算方法和运算器"></a>运算方法和运算器</h1><ol>
+<li><p>原码</p>
+<p>原码就是符号位加上真值的绝对值, 即用第一位表示符号, 其余位表示值。</p>
+<p>[+1]原 = 0000 0001</p>
+<p>[-1]原 = 1000 0001</p>
+</li>
+<li><p>反码</p>
+<p>正数的反码是其本身；负数的反码是在其原码的基础上, 符号位不变，其余各个位取反。</p>
+<p>[+1] = [00000001]原 = [00000001]反</p>
+<p>[-1] = [10000001]原 = [11111110]反</p>
+</li>
+<li><p>补码</p>
+<p>正数的补码就是其本身；负数的补码是在其原码的基础上, 符号位不变, 其余各位取反, 最后+1(即在反码的基础上+1)</p>
+<p>[+1] = [00000001]原 = [00000001]反 = [00000001]补</p>
+<p>[-1] = [10000001]原 = [11111110]反 = [11111111]补</p>
+</li>
+</ol>
+<h1 id="多层次的存储器"><a href="#多层次的存储器" class="headerlink" title="多层次的存储器"></a>多层次的存储器</h1><p>多级存储器体系结构：高速缓冲存储器、主存储器和外存储器</p>
+<p><img src="%5Cimages%5C%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%5CHierarchical-structure.png" alt="存储器的分级结构"></p>
+<p><strong>Cache</strong> 是一种高速缓冲存储器，缓存地址(虚拟地址或者物理地址)和数据，解决CPU和主存之间速度不匹配。</p>
+<p>三种<strong>地址映象</strong>：</p>
+<ul>
+<li>全相联方式——Cache 利用率高，块冲突率低。地址变换复杂，需要较多的硬件（适用于小容量的Cache）</li>
+<li>直接相连——地址变换速度快。Cache 利用率低，块冲突率高（适用于大容量的Cache）</li>
+<li>组相联——折中方式</li>
+</ul>
+<h1 id="指令系统"><a href="#指令系统" class="headerlink" title="指令系统"></a>指令系统</h1><p>指令系统：又称指令集（Instruction Set）是计算机体系结构设计的核心，是计算机软、硬件接口，是用机器语言、汇编语言编写程序的用户所能看到的计算机的基本属性（CISC 和 RISC）</p>
+<p>指令的一般<strong>结构形式</strong>：操作码字段 | 地址码字段</p>
+<ul>
+<li>操作码字段：表示指令的操作特性与功能</li>
+<li>地址码字段：通常用于指定参与操作的操作数地址</li>
+</ul>
+<p>操作数<strong>寻址方式</strong></p>
+<ol>
+<li>隐含寻址</li>
+<li>立即寻址</li>
+<li>直接寻址</li>
+<li>间接寻址</li>
+<li>寄存器寻址和寄存器间接寻址</li>
+<li>偏移寻址（相对寻址、基址寻址、变址寻址）</li>
+<li>段寻址方式</li>
+<li>堆栈寻址方式</li>
+</ol>
+<h1 id="中央处理器"><a href="#中央处理器" class="headerlink" title="中央处理器"></a>中央处理器</h1><p><strong>五级流水CPU</strong>：将计算机指令处理过程拆分为多个步骤，并通过多个硬件处理单元并行执行来加快指令执行速度。</p>
+<ol>
+<li>取指令（IF）</li>
+<li>指令译码（ID）</li>
+<li>执行运算（EX）</li>
+<li>数据内存访问（MEM）</li>
+<li>结果写回（WB）</li>
+</ol>
+<p><strong>相关冲突</strong>：资源相关、数据相关、控制相关</p>
+<p><strong>多核 CPU</strong> 是一枚处理器中集成多个完整的计算引擎(内核)。多核 cpu 和单核 cpu 对于进程来说都是并发，并不是并行。但多核 cpu 每一个核心都可以独立执行一个线程，所以多核 cpu 可以真正实现多线程的并行。</p>
+<p><strong>乱序执行</strong>是指CPU采用了将多条指令不按程序规定的顺序分发给各相应电路单元处理的技术。</p>
+<p><strong>多发射</strong>是一个时钟周期内，从存储器内取出多条指令。</p>
+<p><strong>超标量</strong>是每个时钟周期内能启动多条指令。</p>
+<h1 id="总线系统"><a href="#总线系统" class="headerlink" title="总线系统"></a>总线系统</h1><ol>
+<li>内部总线——CPU 内部连接各寄存器及运算部件之间的总线</li>
+<li>系统总线——CPU 同计算机系统的其他高速功能部件(存储器、通道等)间互相连接的总线</li>
+<li>I/O总线——中、低速 I/0 设备间互相连接的总线</li>
+</ol>
+<p>按照信号类型可分为数据总线、控制总线和地址总线。数据线和地址线常采用多路复用方式。</p>
+<p><strong>仲裁方式</strong>分为集中式仲裁和分布式仲裁</p>
+<ul>
+<li>集中式仲裁<ol>
+<li>链式查询方式</li>
+<li>计数器定时查询方式</li>
+<li>独立请求方式</li>
+</ol>
+</li>
+<li>分布式仲裁</li>
+</ul>
+<h1 id="输入输出系统"><a href="#输入输出系统" class="headerlink" title="输入输出系统"></a>输入输出系统</h1><p>信息交换方式：</p>
+<ul>
+<li>程序查询方式</li>
+<li>程序中断方式</li>
+<li>直接内存访问（DMA）方式</li>
+<li>通道方式</li>
+</ul>
+<p><strong>中断</strong>是指计算机在执行程序过程中，当出现异常或特殊请求时，计算机停止现行程序的运行，转去处理这些异常或特殊请求，处理结束后，再返回现行程序的间断处，继续执行原程序。</p>
+<p>中断服务程序的基本流程：</p>
+<ol>
+<li>保护现场</li>
+<li>中断服务</li>
+<li>恢复现场</li>
+<li>中断返回</li>
+</ol>
+</div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">gzwang</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://gzwangu.github.io/2020/07/29/计算机组成原理/">https://gzwangu.github.io/2020/07/29/计算机组成原理/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://gzwangu.github.io">Gzwang's Blog</a>！</span></div></div><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%9F%A5%E8%AF%86%E7%82%B9/">知识点</a><a class="post-meta__tags" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/">计算机组成原理</a></div><nav id="pagination"><div class="prev-post pull-left"><a href="/2020/07/29/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E4%B9%8B%E9%A2%84%E6%B5%8B%E6%A8%A1%E5%9E%8B/"><i class="fa fa-chevron-left">  </i><span>数学建模之预测模型</span></a></div><div class="next-post pull-right"><a href="/2020/06/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"><span>计算机网络</span><i class="fa fa-chevron-right"></i></a></div></nav></div></div><footer><div class="layout" id="footer"><div class="copyright">&copy;2020 - 2021 By gzwang</div><div class="framework-info"><span>驱动 - </span><a target="_blank" rel="noopener" href="http://hexo.io"><span>Hexo</span></a><span class="footer-separator">|</span><span>主题 - </span><a target="_blank" rel="noopener" href="https://github.com/Molunerfinn/hexo-theme-melody"><span>Melody</span></a></div><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_page_pv"><i class="fa fa-file"></i><span id="busuanzi_value_page_pv"></span><span></span></span></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="https://cdn.jsdelivr.net/npm/animejs@latest/anime.min.js"></script><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js"></script><script src="/js/utils.js?version=1.9.0"></script><script src="/js/fancybox.js?version=1.9.0"></script><script src="/js/sidebar.js?version=1.9.0"></script><script src="/js/copy.js?version=1.9.0"></script><script src="/js/fireworks.js?version=1.9.0"></script><script src="/js/transition.js?version=1.9.0"></script><script src="/js/scroll.js?version=1.9.0"></script><script src="/js/head.js?version=1.9.0"></script><script>if(/Android|webOS|iPhone|iPod|iPad|BlackBerry/i.test(navigator.userAgent)) {
+  $('#nav').addClass('is-mobile')
+  $('footer').addClass('is-mobile')
+  $('#top-container').addClass('is-mobile')
+}</script></body></html>
