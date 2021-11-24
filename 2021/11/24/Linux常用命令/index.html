@@ -1,0 +1,231 @@
+<!DOCTYPE html><html lang="zh-Hans"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="Linux常用命令"><meta name="keywords" content="Linux"><meta name="author" content="gzwang"><meta name="copyright" content="gzwang"><title>Linux常用命令 | Rubina の blog</title><link rel="shortcut icon" href="/melody-favicon.ico"><link rel="stylesheet" href="/css/index.css?version=1.9.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css?version=1.9.0"><meta name="format-detection" content="telephone=no"><meta http-equiv="x-dns-prefetch-control" content="on"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容:${query}"}},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  hexoVersion: '5.4.0'
+} </script><meta name="generator" content="Hexo 5.4.0"></head><body><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar" data-display="true"><div class="toggle-sidebar-info text-center"><span data-toggle="切换文章详情">切换站点概览</span><hr></div><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar"></div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E4%B8%80"><span class="toc-number">1.</span> <span class="toc-text">实验一</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#CentOS%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85"><span class="toc-number">1.1.</span> <span class="toc-text">CentOS系统安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#FirewallD%E9%98%B2%E7%81%AB%E5%A2%99%E9%85%8D%E7%BD%AE"><span class="toc-number">1.2.</span> <span class="toc-text">FirewallD防火墙配置</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E4%BA%8C"><span class="toc-number">2.</span> <span class="toc-text">实验二</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E7%AB%A0"><span class="toc-number">2.1.</span> <span class="toc-text">第三章</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E7%AB%A0"><span class="toc-number">2.2.</span> <span class="toc-text">第四章</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%94%E7%AB%A0"><span class="toc-number">2.3.</span> <span class="toc-text">第五章</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E4%B8%89"><span class="toc-number">3.</span> <span class="toc-text">实验三</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%83%E7%AB%A0"><span class="toc-number">3.1.</span> <span class="toc-text">第七章</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E5%85%AB%E7%AB%A0"><span class="toc-number">3.2.</span> <span class="toc-text">第八章</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B9%9D%E7%AB%A0"><span class="toc-number">3.3.</span> <span class="toc-text">第九章</span></a></li></ol></li></ol></div></div><div class="author-info hide"><div class="author-info__avatar text-center"><img src="https://gzwangu.github.io/img/avatar.jpg"></div><div class="author-info__name text-center">gzwang</div><div class="author-info__description text-center">Study and Life growth record</div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">文章</span><span class="pull-right">20</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">标签</span><span class="pull-right">29</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">分类</span><span class="pull-right">9</span></a></div><hr><div class="author-info-links"><div class="author-info-links__title text-center">Links</div><a class="author-info-links__name text-center" target="_blank" rel="noopener" href="https://crownz.run/">crownZ</a><a class="author-info-links__name text-center" target="_blank" rel="noopener" href="https://blog.zyuanlee.cn/">Pandalzy</a><a class="author-info-links__name text-center" target="_blank" rel="noopener" href="https://blog.zguolee.cn/">Lee</a></div></div></div><div id="content-outer"><div class="no-bg" id="top-container"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">Rubina の blog</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus">   <a class="site-page" href="/">Home</a><a class="site-page" href="/archives">Archives</a><a class="site-page" href="/tags">Tags</a><a class="site-page" href="/categories">Categories</a></span><span class="pull-right"><a class="site-page social-icon search"><i class="fa fa-search"></i><span> 搜索</span></a></span></div><div id="post-info"><div id="post-title">Linux常用命令</div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2021-11-24</time><span class="post-meta__separator">|</span><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/Linux/">Linux</a><div class="post-meta-wordcount"><span>字数总计: </span><span class="word-count">1.9k</span><span class="post-meta__separator">|</span><span>阅读时长: 6 分钟</span></div></div></div></div><div class="layout" id="content-inner"><article id="post"><div class="article-container" id="post-content"><p>南京大学软件学院研一《高级Linux系统》课程实验</p>
+<h1 id="实验一"><a href="#实验一" class="headerlink" title="实验一"></a>实验一</h1><p>1、按以下磁盘分区规划安装CentOS 7.x：</p>
+<p>/分区：40GB；</p>
+<p>/boot分区：1GB；</p>
+<p>SWAP分区：2GB。</p>
+<p>2、配置FirewallD防火墙，在public区域中添加http服务，5801端口（TCP协议），并保证firewalld服务是启动的。</p>
+<h2 id="CentOS系统安装"><a href="#CentOS系统安装" class="headerlink" title="CentOS系统安装"></a>CentOS系统安装</h2><p>宿主机：Windows 10 64位家庭中文版；Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz  2.90 GHz；12.0 GB RAM；硬盘 1T<br>虚拟机：VMware Workstation 16 Pro<br>ISO镜像：<a target="_blank" rel="noopener" href="http://mirrors.nju.edu.cn/centos/7.9.2009/isos/x86_64/">CentOS-7-x86_64-DVD-2009</a><br>安装CentOS-7之前，需要创建新的虚拟机</p>
+<p><img src="101.png"></p>
+<p>选择自定义(高级)，点击下一步</p>
+<p><img src="102.png"></p>
+<p>选择虚拟机硬件兼容性，默认最新</p>
+<p><img src="103.png"></p>
+<p>在新建虚拟机安装向导里选择稍后安装操作系统</p>
+<p><img src="104.png"></p>
+<p>客户机操作系统选择Linux，版本选择CentOS 7 64位</p>
+<p><img src="105.png"></p>
+<p>给虚拟机起名，并选择安装位置</p>
+<p><img src="106.png"></p>
+<p>根据电脑CPU性能为虚拟机选择处理器数量和每个处理器的内核数</p>
+<p><img src="107.png"></p>
+<p>设置虚拟机内存大小，这里设置4GB</p>
+<p><img src="108.png"></p>
+<p>选择虚拟机与真机网络连接方式，选择使用网络地址转换(NAT)</p>
+<p><img src="109.png"></p>
+<p>选择I/O控制器类型，默认即可</p>
+<p><img src="110.png"></p>
+<p>默认选择SCSI(S)磁盘类型</p>
+<p><img src="111.png"></p>
+<p>选择使用哪个磁盘，创建新虚拟磁盘</p>
+<p><img src="112.png"></p>
+<p>选择磁盘大小，设置50GB，不要勾选立即分配所有磁盘空间</p>
+<p><img src="113.png"></p>
+<p>指定存储磁盘的文件，默认即可</p>
+<p><img src="114.png"></p>
+<p>完成创建虚拟机向导</p>
+<p><img src="115.png"></p>
+<p>打开新创建的虚拟机里的编辑虚拟机设置，找到CD/DVD(IDE)一栏，点击使用ISO镜像文件，把本地光盘镜像挂载上</p>
+<p><img src="116.png"></p>
+<p><img src="117.png"></p>
+<p>点击开启此虚拟机，开始安装CentOS 7系统</p>
+<p><img src="118.png"></p>
+<p>选择第一项Install CentOS 7，直接安装CentOS 7等待即可</p>
+<p><img src="119.png"></p>
+<p>选择安装语言，简体中文</p>
+<p><img src="120.png"></p>
+<p>安装信息摘要</p>
+<p><img src="121.png"></p>
+<p>时间和日期设置为亚洲地区，上海城市</p>
+<p><img src="122.png"></p>
+<p>选择汉语键盘布局，点击完成即可</p>
+<p><img src="123.png"></p>
+<p>软件选择GNOME桌面</p>
+<p><img src="124.png"></p>
+<p>点击安装位置，选择我要配置分区，点击完成</p>
+<p><img src="125.png"></p>
+<p><img src="126.png"></p>
+<p>点击加号，选择/boot，给boot分区分1GB，点击添加挂载点</p>
+<p><img src="127.png"></p>
+<p>设置SWAP分区2GB</p>
+<p><img src="128.png"></p>
+<p>设置/分区40GB</p>
+<p><img src="129.png"></p>
+<p>按照上面步骤都分区完毕，点击完成，弹出更改摘要，点击接受更改</p>
+<p><img src="130.png"></p>
+<p>点击网络和主机名，先打开网卡获取到IP地址，再更改主机名</p>
+<p><img src="131.png"></p>
+<p>最后点击开始安装</p>
+<p><img src="132.png"></p>
+<p>设置ROOT密码</p>
+<p><img src="133.png"></p>
+<p>创建用户</p>
+<p><img src="134.png"></p>
+<p>等待系统安装完毕重启系统即可</p>
+<p><img src="135.png"></p>
+<p>初始设置里接受许可证，完成配置</p>
+<p><img src="136.png"></p>
+<p>安装成功界面如下</p>
+<p><img src="137.png"></p>
+<h2 id="FirewallD防火墙配置"><a href="#FirewallD防火墙配置" class="headerlink" title="FirewallD防火墙配置"></a>FirewallD防火墙配置</h2><p>配置FirewallD防火墙，依次点击应用程序—&gt;杂项—防火墙</p>
+<p><img src="138.png"></p>
+<p>配置选择永久，区域选择public，服务里勾选http</p>
+<p><img src="139.png"></p>
+<p>点击端口—&gt;添加，配置5801端口（TCP协议）</p>
+<p><img src="140.png"></p>
+<p>重启后查看防火墙状态、5801端口和public区域的详细信息</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">systemctl status firewalld </span><br><span class="line">firewall-cmd --query-port=5801/tcp</span><br><span class="line">firewall-cmd --list-all</span><br></pre></td></tr></table></figure>
+
+<p><img src="141.png"></p>
+<p>最后设置防火墙开机启动</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl enable firewalld</span><br></pre></td></tr></table></figure>
+
+<p><img src="142.png"></p>
+<h1 id="实验二"><a href="#实验二" class="headerlink" title="实验二"></a>实验二</h1><h2 id="第三章"><a href="#第三章" class="headerlink" title="第三章"></a>第三章</h2><p>1、使用shutdown命令设定在30分钟之后关闭计算机。</p>
+<ul>
+<li>shutdown -h +30</li>
+</ul>
+<p><img src="201.png"></p>
+<p>2、使用命令将“cat /etc/inittab”设置为别名name，然后再取消别名。</p>
+<ul>
+<li>alias name=’cat /etc/inittab’</li>
+<li>unalias name</li>
+</ul>
+<p><img src="202.png"></p>
+<p>3、使用echo命令和输出重定向创建文本文件/root/nn，内容是Hello，然后再使用追加重定向输入内容为Linux。</p>
+<ul>
+<li>echo Hello&gt; /root/nn</li>
+<li>echo Linux &gt;&gt; /root/nn</li>
+</ul>
+<p><img src="203.png"></p>
+<p>4、使用管道方式分页显示/var目录下的内容。</p>
+<ul>
+<li>ls /var |more</li>
+</ul>
+<p><img src="204.png"></p>
+<p>5、使用cat命令显示文件/etc/passwd和/etc/shadow，只有正确显示第一个文件时才显示第二个文件。</p>
+<ul>
+<li>cat /etc/passwd &amp;&amp; cat /etc/shadow</li>
+</ul>
+<p><img src="205.png"></p>
+<p>6、使用vi编辑器创建文本文件/root/v，文件内容为hell，最后保存退出。</p>
+<ul>
+<li>vi  /root/v</li>
+<li>a</li>
+<li>hell</li>
+<li>“ESC” Enter</li>
+<li>ZZ</li>
+</ul>
+<p><img src="206.png"></p>
+<p>系统默认进入到命令模式，按字母键“a”进入插入模式</p>
+<p><img src="207.png"></p>
+<p>在插入模式下进行文本编辑，内容为hell</p>
+<p><img src="208.png"></p>
+<p>编辑完成，按“Esc”键回到命令模式，再输入ZZ保存退出。</p>
+<p><img src="209.png"></p>
+<h2 id="第四章"><a href="#第四章" class="headerlink" title="第四章"></a>第四章</h2><p>1、使用命令切换到/etc目录，并显示当前工作目录路径。</p>
+<ul>
+<li>cd /etc</li>
+<li>pwd</li>
+</ul>
+<p><img src="210.png"></p>
+<p>2、使用命令显示/root目录下所有文件目录的详细信息，包括隐藏文件。</p>
+<ul>
+<li>ls -al /root</li>
+</ul>
+<p><img src="211.png"></p>
+<p>3、使用命令创建空文件/root/ab，并将该文件的时间记录更改为2019年8月8日8点8分。</p>
+<ul>
+<li>touch /root/ab</li>
+<li>touch -t 201908080808 /root/ab</li>
+</ul>
+<p><img src="212.png"></p>
+<p>4、使用命令创建具有默认权限为744的目录/root/ak，然后将/etc/inittab文件复制到该目录中，最后再将该目录及其目录下的文件一起删除。</p>
+<ul>
+<li>mkdir -m 744 /root/ak</li>
+<li>cp /etc/inittab /root/ak</li>
+<li>rm -rf /root/ak</li>
+</ul>
+<p><img src="213.png"></p>
+<p>5、统计文件/etc/inittab的行数、单词和字节数。</p>
+<ul>
+<li>wc /etc/inittab</li>
+</ul>
+<p><img src="214.png"></p>
+<p>6、使用命令创建/root/a文件的硬链接文件/root/b和软链接文件/root/c。</p>
+<ul>
+<li>ln /root/a /root/b</li>
+<li>ln -s /root/a /root/c</li>
+</ul>
+<p><img src="215.png"></p>
+<p>先创建空文件/root/a，再创建/root/a文件的硬链接文件/root/b和软链接文件/root/c。a和b文件inode相同，链接数2为硬链接文件，c文件inode不同于a、b，链接数1为软链接文件。</p>
+<h2 id="第五章"><a href="#第五章" class="headerlink" title="第五章"></a>第五章</h2><p>1、使用命令一次3行显示/etc/inittab文件内容。</p>
+<ul>
+<li>more -3 /etc/inittab</li>
+</ul>
+<p><img src="216.png"></p>
+<p>2、使用cat命令创建mm.txt文件，文件内容为Hello。</p>
+<ul>
+<li>cat &gt;mm.txt&lt;&lt;EOF</li>
+<li>Hello</li>
+<li>EOF</li>
+</ul>
+<p><img src="217.png"></p>
+<p>3、使用命令查找/etc目录下的文件fstab。</p>
+<ul>
+<li>find /etc -name fstab</li>
+</ul>
+<p><img src="218.png"></p>
+<p>4、使用命令将当前计算机的主机名修改为IT。</p>
+<ul>
+<li>hostname IT</li>
+</ul>
+<p><img src="219.png"></p>
+<p>5、使用命令显示公元2018年8月的月历。</p>
+<ul>
+<li>cal 8 2018</li>
+</ul>
+<p><img src="220.png"></p>
+<p>6、使用命令将当前计算机时间设置为2018年8月6日。</p>
+<ul>
+<li>date -s 180806</li>
+</ul>
+<p><img src="221.png"></p>
+<p>7、使用命令显示/etc/fstab文件的文件类型。</p>
+<ul>
+<li>ll /etc/fstab</li>
+</ul>
+<p><img src="222.png"></p>
+<p>8、使用命令显示/root目录的磁盘占用量。</p>
+<ul>
+<li>du -h /root</li>
+</ul>
+<p><img src="223.png"></p>
+<h1 id="实验三"><a href="#实验三" class="headerlink" title="实验三"></a>实验三</h1><h2 id="第七章"><a href="#第七章" class="headerlink" title="第七章"></a>第七章</h2><p>1、使用命令创建用户账户zhangsan，并设置其密码为111111，设置用户名全称为“张三”。<br>2、使用命令修改用户账户zhangsan的UID为1700，其Shell类型为/bin/ksh。<br>3、使用命令删除用户账户zhangsan，并且在删除该用户的同时一起删除其主目录。<br>4、使用命令创建组群group1，并且在创建时设置其GID为1800。<br>5、使用命令修改组群group1的新组群名称为“shanghai”。</p>
+<h2 id="第八章"><a href="#第八章" class="headerlink" title="第八章"></a>第八章</h2><p>1、对硬盘上的剩余空间进行分区，创建两个逻辑驱动器，容量分别为1GB和3GB。<br>2、对1GB分区创建文件系统为xfs，并将其以只读的方式挂载到/mnt/kk目录中。<br>3、修改/etc/fstab文件，使得1GB分区开机时自动挂载到/mnt/kk目录中。<br>4、在计算机上添加交换文件，文件大小为1GB。</p>
+<h2 id="第九章"><a href="#第九章" class="headerlink" title="第九章"></a>第九章</h2><p>1、使用rpm命令安装bind-chroot软件包，安装完毕后查看该软件包的描述信息。<br>2、使用rpm命令查询crontabs软件包所包含的文件列表。<br>3、使用rpm命令查询/etc/crontab文件属于哪个软件包。<br>4、在Linux系统上修改软件仓库为<a target="_blank" rel="noopener" href="https://mirrors.nju.edu.cn./">https://mirrors.nju.edu.cn。</a><br>5、使用yum命令安装samba软件包。<br>6、使用yum命令删除bind软件包。<br>7、归档/root/abc目录，生成文件为/root/abc.tar。<br>8、使用tar命令调用gzip压缩程序将/root/abc目录压缩成/root/abc.tar.gz文件。</p>
+</div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">gzwang</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://gzwangu.github.io/2021/11/24/Linux常用命令/">https://gzwangu.github.io/2021/11/24/Linux常用命令/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://gzwangu.github.io">Rubina の blog</a>！</span></div></div><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Linux/">Linux</a></div><nav id="pagination"><div class="next-post pull-right"><a href="/2021/10/21/C-%E4%B8%ADstring%E7%9A%84%E7%94%A8%E6%B3%95/"><span>C++中string的用法</span><i class="fa fa-chevron-right"></i></a></div></nav></div></div><footer><div class="layout" id="footer"><div class="copyright">&copy;2020 - 2021 By gzwang</div><div class="framework-info"><span>驱动 - </span><a target="_blank" rel="noopener" href="http://hexo.io"><span>Hexo</span></a><span class="footer-separator">|</span><span>主题 - </span><a target="_blank" rel="noopener" href="https://github.com/Molunerfinn/hexo-theme-melody"><span>Melody</span></a></div><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_page_pv"><i class="fa fa-file"></i><span id="busuanzi_value_page_pv"></span><span></span></span></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="https://cdn.jsdelivr.net/npm/animejs@latest/anime.min.js"></script><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js"></script><script src="/js/utils.js?version=1.9.0"></script><script src="/js/fancybox.js?version=1.9.0"></script><script src="/js/sidebar.js?version=1.9.0"></script><script src="/js/copy.js?version=1.9.0"></script><script src="/js/fireworks.js?version=1.9.0"></script><script src="/js/transition.js?version=1.9.0"></script><script src="/js/scroll.js?version=1.9.0"></script><script src="/js/head.js?version=1.9.0"></script><script src="/js/search/local-search.js"></script><script>if(/Android|webOS|iPhone|iPod|iPad|BlackBerry/i.test(navigator.userAgent)) {
+  $('#nav').addClass('is-mobile')
+  $('footer').addClass('is-mobile')
+  $('#top-container').addClass('is-mobile')
+}</script><div class="search-dialog" id="local-search"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章"></div></div></div><hr><div id="local-search-results"><div id="local-hits"></div><div id="local-stats"><div class="local-search-stats__hr" id="hr"><span>由</span> <a target="_blank" rel="noopener" href="https://github.com/wzpan/hexo-generator-search" style="color:#49B1F5;">hexo-generator-search</a>
+ <span>提供支持</span></div></div></div><span class="search-close-button"><i class="fa fa-times"></i></span></div><div class="search-mask"></div></body></html>
