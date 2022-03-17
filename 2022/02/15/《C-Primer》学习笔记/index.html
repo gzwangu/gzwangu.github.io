@@ -1,0 +1,274 @@
+<!DOCTYPE html><html lang="zh-Hans"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="《C++ Primer》学习笔记"><meta name="keywords" content="C++ Primer"><meta name="author" content="gzwang"><meta name="copyright" content="gzwang"><title>《C++ Primer》学习笔记 | Rubina の blog</title><link rel="shortcut icon" href="/melody-favicon.ico"><link rel="stylesheet" href="/css/index.css?version=1.9.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css?version=1.9.0"><meta name="format-detection" content="telephone=no"><meta http-equiv="x-dns-prefetch-control" content="on"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容:${query}"}},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  hexoVersion: '5.4.0'
+} </script><meta name="generator" content="Hexo 5.4.0"></head><body><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar" data-display="true"><div class="toggle-sidebar-info text-center"><span data-toggle="切换文章详情">切换站点概览</span><hr></div><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar"></div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BC%80%E5%A7%8B"><span class="toc-number">1.</span> <span class="toc-text">开始</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%98%E9%87%8F%E5%92%8C%E5%9F%BA%E6%9C%AC%E7%B1%BB%E5%9E%8B"><span class="toc-number">2.</span> <span class="toc-text">变量和基本类型</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%85%E7%BD%AE%E7%B1%BB%E5%9E%8B%E5%92%8C%E5%8F%98%E9%87%8F"><span class="toc-number">2.1.</span> <span class="toc-text">内置类型和变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#const%E9%99%90%E5%AE%9A%E7%AC%A6"><span class="toc-number">2.2.</span> <span class="toc-text">const限定符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%84%E7%90%86%E7%B1%BB%E5%9E%8B"><span class="toc-number">2.3.</span> <span class="toc-text">处理类型</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E3%80%81%E5%90%91%E9%87%8F%E5%92%8C%E6%95%B0%E7%BB%84"><span class="toc-number">3.</span> <span class="toc-text">字符串、向量和数组</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4%E5%A3%B0%E6%98%8E"><span class="toc-number">3.1.</span> <span class="toc-text">命名空间声明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#string"><span class="toc-number">3.2.</span> <span class="toc-text">string</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vector"><span class="toc-number">3.3.</span> <span class="toc-text">vector</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%AD%E4%BB%A3%E5%99%A8"><span class="toc-number">3.4.</span> <span class="toc-text">迭代器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E7%BB%84"><span class="toc-number">3.5.</span> <span class="toc-text">数组</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="toc-number">4.</span> <span class="toc-text">表达式</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AF%AD%E5%8F%A5"><span class="toc-number">5.</span> <span class="toc-text">语句</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%87%BD%E6%95%B0"><span class="toc-number">6.</span> <span class="toc-text">函数</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E5%9F%BA%E7%A1%80"><span class="toc-number">6.1.</span> <span class="toc-text">函数基础</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E6%95%B0%E4%BC%A0%E9%80%92"><span class="toc-number">6.2.</span> <span class="toc-text">参数传递</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#return%E8%AF%AD%E5%8F%A5"><span class="toc-number">6.3.</span> <span class="toc-text">return语句</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E9%87%8D%E8%BD%BD"><span class="toc-number">6.4.</span> <span class="toc-text">函数重载</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%89%B9%E6%AE%8A%E7%94%A8%E9%80%94%E8%AF%AD%E8%A8%80%E7%89%B9%E6%80%A7"><span class="toc-number">6.5.</span> <span class="toc-text">特殊用途语言特性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E6%8C%87%E9%92%88"><span class="toc-number">6.6.</span> <span class="toc-text">函数指针</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%B1%BB"><span class="toc-number">7.</span> <span class="toc-text">类</span></a></li></ol></div></div><div class="author-info hide"><div class="author-info__avatar text-center"><img src="https://gzwangu.github.io/img/avatar.jpg"></div><div class="author-info__name text-center">gzwang</div><div class="author-info__description text-center">Study and Life growth record</div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">文章</span><span class="pull-right">35</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">标签</span><span class="pull-right">38</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">分类</span><span class="pull-right">10</span></a></div><hr><div class="author-info-links"><div class="author-info-links__title text-center">Links</div><a class="author-info-links__name text-center" target="_blank" rel="noopener" href="https://crownz.run/">crownZ</a><a class="author-info-links__name text-center" target="_blank" rel="noopener" href="https://blog.zyuanlee.cn/">Pandalzy</a><a class="author-info-links__name text-center" target="_blank" rel="noopener" href="https://blog.zguolee.cn/">Lee</a></div></div></div><div id="content-outer"><div class="no-bg" id="top-container"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">Rubina の blog</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus">   <a class="site-page" href="/">Home</a><a class="site-page" href="/archives">Archives</a><a class="site-page" href="/tags">Tags</a><a class="site-page" href="/categories">Categories</a></span><span class="pull-right"><a class="site-page social-icon search"><i class="fa fa-search"></i><span> 搜索</span></a></span></div><div id="post-info"><div id="post-title">《C++ Primer》学习笔记</div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2022-02-15</time><span class="post-meta__separator">|</span><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/C/">C++</a><div class="post-meta-wordcount"><span>字数总计: </span><span class="word-count">6.2k</span><span class="post-meta__separator">|</span><span>阅读时长: 20 分钟</span></div></div></div></div><div class="layout" id="content-inner"><article id="post"><div class="article-container" id="post-content"><h1 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h1><p>C++ 在 C 语言的基础上添加了<strong>面向对象编程和泛型编程</strong></p>
+<ul>
+<li><p>C++继承了C 语言高效、简洁、快速和可移植性的传统。</p>
+</li>
+<li><p>C++面句对象的特性带来了全新的编程方法，这种方法是为应付复杂程度不断提商的现代编程任务而设计的。</p>
+</li>
+<li><p>C++的模板特性提供了一种全新的编程方法——泛型编程。</p>
+</li>
+</ul>
+<p>iostream 库包含两个基础类型 <strong>istream</strong> 和 <strong>ostream</strong>，分别表示输入流和输出流。标准输入 cin  是 istream 类型的对象，标准输出 cout  是 ostream 类型的对象， ostream 对象还有 <strong>cerr</strong>（警告和错误信息）和 <strong>clog</strong>（一般信息）。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">std::cout&lt;&lt;<span class="string">&quot;enter :&quot;</span>&lt;&lt;std::endl;</span><br></pre></td></tr></table></figure>
+
+<p>写入 endl 的效果是结束当前行，并将与设备关联的缓冲区(buffer)中的内容刷到设备中。</p>
+<h1 id="变量和基本类型"><a href="#变量和基本类型" class="headerlink" title="变量和基本类型"></a>变量和基本类型</h1><h2 id="内置类型和变量"><a href="#内置类型和变量" class="headerlink" title="内置类型和变量"></a>内置类型和变量</h2><p>算术类型的尺寸（所占比特数）在不同机器上有所差别，下表列出C++标准规定的最小尺寸。</p>
+<p><img src="arithmetic_type.png"></p>
+<p>类型选择经验建议：</p>
+<ul>
+<li>当明确知晓数值不可能为负时，选用无符号类型</li>
+<li>使用 int 执行整数运算</li>
+<li>在算术运算中不要使用 char 或 bool</li>
+<li>执行浮点数运算选用 double</li>
+</ul>
+<p><strong>初始化不是赋值,初始化的含义是创建变量时赋予其一个初始值，而赋值的含义是把对象的当前值擦除，而以一个新值来替代。</strong></p>
+<p>C++11新标准的一部分，用花括号来初始化变量得到了全面应用。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">int</span> a = &#123;<span class="number">0</span>&#125;;</span><br><span class="line"><span class="keyword">int</span> a&#123;<span class="number">0</span>&#125;;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">a</span><span class="params">(<span class="number">0</span>)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>定义于函数体内的内置类型变量将<strong>不被初始化</strong>，其值未定义。类的对象如果没有显式地初始化，则其值由类确定。</p>
+<p>如果想声明一个变量而非定义它，就在变量名前添加关键字 <strong>extern</strong>，而且不要显式地初始化变量：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">extern</span> <span class="keyword">int</span> i; <span class="comment">// 声明 i </span></span><br><span class="line"><span class="keyword">int</span> j;  <span class="comment">// 声明并定义 j</span></span><br><span class="line"><span class="keyword">extern</span> <span class="keyword">double</span> pi = <span class="number">3.14</span>; <span class="comment">// 定义 i </span></span><br></pre></td></tr></table></figure>
+
+<p><strong>变量能且只能被定义一次，但是可以被多次声明。</strong></p>
+<p><strong>引用（reference）</strong>为对象起了另外一个名字，引用类型引用(refers to)另外一种类型。通过将声明符写成 &amp;d 的形式来定义引用类型，其中 d 是声明的变量名:</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> val = <span class="number">1024</span>;</span><br><span class="line"><span class="keyword">int</span> &amp;refVal = val;</span><br><span class="line"><span class="keyword">int</span> &amp;refVal2;  <span class="comment">// 报错：引用必须初始化</span></span><br></pre></td></tr></table></figure>
+
+<p>引用并非对象，相反的，它只是为一个已经存在的对象所起的另外一个名字，所以不能定义引用的引用。</p>
+<p><strong>指针（pointer）</strong>是“指向（point to)”另外一种类型的复合类型。与引用类似，指针也实现了对其他对象的间接访问。然而指针与引用相比又有很多不同点。</p>
+<ul>
+<li><p>其一，指针本身就是一个对象，允许对指针赋值和拷贝，而且在指针的生命周期内它可以先后指向几个不同的对象。</p>
+</li>
+<li><p>其二，指针无须在定义时赋初值。和其他内置类型一样，在块作用域内定义的指针如果没有被初始化，也将拥有一个不确定的值。</p>
+</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> *ip1, *ip2;  <span class="comment">// ip1和ip2都是指向int型对象的指针</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>指针的类型要与它所指的对象严格匹配</strong>，但是有两个例外。</p>
+<ul>
+<li>允许一个指向常量的指针指向一个非常量</li>
+</ul>
+<p><strong>指针的值（即地址）</strong>应属于下列4种状态之一：</p>
+<ul>
+<li>指向一个对象</li>
+<li>指向紧邻对象所占空间的下一个位置</li>
+<li>空指针，意味着指针没有指向任何对象</li>
+<li>无效指针，上述情况之外的其他值</li>
+</ul>
+<p>当用到一个预处理变量时，预处理器会自动地将它替换为实际值，因此用NULL初始化指针和用0初始化指针是一样的。在新标准下，现在的C++程序最好使用nullptr，同时尽量避免使用NULL。</p>
+<p>void* 是一种特殊的指针类型，可用于存放任意对象的地址。一个void*指针存放着一个地址，这一点和其他指针类似。不同的是，我们对该地址中到底是个什么类型的对象并不了解：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">double</span> obj=<span class="number">3.14</span>, *pd = &amp;obj; </span><br><span class="line"><span class="keyword">void</span> *pv = &amp;obj; <span class="comment">// void* 能存放任意类型对象的地址</span></span><br><span class="line">pv = pd; <span class="comment">// pv可以存放任意类型的指针</span></span><br></pre></td></tr></table></figure>
+
+<p>利用void* 指针能做的事儿比较有限：拿它和别的指针比较、作为函数的输入或输出，或者赋给另外一个void* 指针。不能直接操作void* 指针所指的对象，因为我们并不知道这个对象到底是什么类型，也就无法确定能在这个对象上做哪些操作。</p>
+<p><strong>指向指针的指针</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> ival = <span class="number">1024</span>;</span><br><span class="line"><span class="keyword">int</span> *pi = &amp;ival; <span class="comment">// pi指向一个int型的数</span></span><br><span class="line"><span class="keyword">int</span> **ppi = &amp;pi; <span class="comment">// ppi指向一个int型的指针</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>指向指针的引用</strong></p>
+<p>引用本身不是一个对象，因此不能定义指向引用的指针。但指针是对象，所以存在对指针的引用：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> i = <span class="number">42</span>;</span><br><span class="line"><span class="keyword">int</span> *p;  <span class="comment">// p是一个int型指针</span></span><br><span class="line"><span class="keyword">int</span> *&amp;r = p;  <span class="comment">// r是一个对指针p的引用</span></span><br><span class="line">r = &amp;i;  <span class="comment">// 令p指向i</span></span><br><span class="line">*r = <span class="number">0</span>; <span class="comment">// i = 0</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>面对一条比较复杂的指针或引用的声明语句时，从右向左阅读有助于弄清楚它的真实含义。</strong></p>
+<h2 id="const限定符"><a href="#const限定符" class="headerlink" title="const限定符"></a>const限定符</h2><p>有时我们希望定义这样一种变量，它的值不能被改变。因为const对象一旦创建后其值就不能再改变，所以<strong>const对象必须初始化。</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> buff = <span class="number">512</span>;</span><br><span class="line">buff = <span class="number">1024</span>;  <span class="comment">// 错误，赋值引发错误</span></span><br></pre></td></tr></table></figure>
+
+<p>如果想在多个文件之间共享const对象，必须在变量的定义之前添加extern关键字。<br>可以把引用绑定到 const 对象上，就像绑定到其他对象上一样，我们称之为<strong>对常量的引用</strong>，简称<strong>常量引用</strong>。与普通引用不同的是，对常量的引用不能被用作修改它所绑定的对象：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> i = <span class="number">42</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> ci = <span class="number">1024</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> &amp;r1 = ci;  <span class="comment">//正确:引用及其对应的对象都是常量</span></span><br><span class="line">r1 = <span class="number">42</span>;  <span class="comment">//错误</span></span><br><span class="line"><span class="keyword">int</span> &amp;r2 = ci;  <span class="comment">//错误：试图让非常量引用指向一个常量对象</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> &amp;r3 = i; <span class="comment">//允许将const int&amp;绑定到一个普通int对象上</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> &amp;r3 = <span class="number">66</span>; <span class="comment">// 正确:r3是一个常量引用</span></span><br></pre></td></tr></table></figure>
+
+<p>与引用一样，也可以令指针指向常量或非常量，<strong>指向常量的指针</strong>(pointer to const)不能用于改变其所指对象的值。要想存放常量对象的地址，只能使用指向常量的指针：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">double</span> pi = <span class="number">3.14</span>;</span><br><span class="line"><span class="keyword">double</span> *ptr = &amp;pi;  <span class="comment">//错误：ptr是一个普通指针</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">double</span> *cptr = &amp;pi;  </span><br><span class="line">*cptr = <span class="number">4</span>;  <span class="comment">//错误：不能给*cotr赋值</span></span><br></pre></td></tr></table></figure>
+
+<p>前面提到，指针的类型必须与其所指对象的类型一致，但是有两个例外。第一种例外情况是允许令一个指向常量的指针指向一个非常量对象：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">double</span> dval = <span class="number">3.14</span>;  <span class="comment">// dval是一个双精度浮点数，它的值可以改变</span></span><br><span class="line">cptr = &amp;dval;  <span class="comment">// 正确:但是不能通过cptr改变dval的值</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>和常量引用一样，指向常量的指针也没有规定其所指的对象必须是一个常量。</strong></p>
+<p><strong>const 指针</strong><br>指针是对象而引用不是，因此就像其他对象类型一样，允许把指针本身定为常量。<strong>常量指针</strong>(const pointer)必须初始化，而且一旦初始化完成，则它的值（也就是存放在指针中的那个地址）就不能再改变了。把 * 放在const关键字之前用以说明指针是一个常量，这样的书写形式隐含着一层意味，即不变的是指针本身的值而非指向的那个值：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> errNumb = <span class="number">0</span> ;</span><br><span class="line"><span class="keyword">int</span> *<span class="keyword">const</span> curErr = &amp;errNumb; <span class="comment">// curErr将一直指向errNumb</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">double</span> pi = <span class="number">3.14159</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">double</span> *<span class="keyword">const</span> pip = &amp;pi; <span class="comment">// pip是一个指向常量对象的常量指针</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>顶层 const 表示指针本身是个常量</li>
+<li>底层 const 表示指针所指对象是个常量</li>
+</ul>
+<p><strong>常量表达式</strong>是指值不会改变并且在编译过程就能得到计算结果的表达式。显然，字面值属于常量表达式，用常量表达式初始化的const对象也是常量表达式。</p>
+<p>C++11新标准规定，允许将变量声明为constexpr类型以便由编译器来验证变量的值是否是一个常量表达式。声明为constexpr的变量一定是一个常量，而且必须用常量表达式初始化：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">constexpr</span> <span class="keyword">int</span> mf = <span class="number">20</span>;</span><br><span class="line"><span class="keyword">constexpr</span> <span class="keyword">int</span> mf = mf+<span class="number">1</span>;</span><br><span class="line"><span class="keyword">constexpr</span> <span class="keyword">int</span> mf = <span class="built_in">size</span>();  <span class="comment">//只有当size是个constexpr函数时才正确</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>在constexpr声明中如果定义了一个指针，限定符constexpr仅对指针有效，与指针所指的对象无关。</strong></p>
+<h2 id="处理类型"><a href="#处理类型" class="headerlink" title="处理类型"></a>处理类型</h2><p><strong>类型别名</strong>是一个名字，它是某种类型的同义词。使用类型别名有很多好处，它让复杂的类型名字变得简单明了、易于理解和使用，还有助于程序员清楚地知道使用该类型的真实目的。<br>有两种方法可用于定义类型别名。传统的方法是使用关键字<strong>typedef</strong>：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">double</span> wages;  <span class="comment">// wages是double的同义词</span></span><br><span class="line"><span class="keyword">typedef</span> wages base,*p;  <span class="comment">//base是double的同义词,p是double*的同义词</span></span><br></pre></td></tr></table></figure>
+
+<p>新标准规定了一种新的方法，使用<strong>别名声明</strong>来定义类型的别名：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> SI = sales_item;  <span class="comment">//SI工是sales_item的同义词</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>auto类型说明符</strong>能让编译器替我们去分析表达式所属的类型。和原来那些只对应一种特定类型的说明符（比如 double)不同，auto 让编译器通过初始值来推算变量的类型。显然，auto定义的变量必须有初始值。</p>
+<p>希望从表达式的类型推断出要定义的变量的类型，但是不想用该表达式的值初始化变量。C++11 新标准引入了第二种<strong>类型说明符decltype</strong>，它的作用是选择并返回操作数的数据类型。在此过程中，编译器分析表达式并得到它的类型，却不实际计算表达式的值:</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">decltype</span>(<span class="built_in">f</span>()) sum = x;  <span class="comment">// sum的类型就是函数f的返回类型</span></span><br></pre></td></tr></table></figure>
+
+<p>编译器并不实际调用函数f，而是使用当调用发生时f的返回值类型作为sum的类型。换句话说，编译器为sum 指定的类型是什么呢？就是假如f被调用的话将会返回的那个类型。</p>
+<p>如果decltype使用的表达式不是一个变量，则decltype返回表达式结果对应的类型。有些表达式将向decltype返回一个引用类型。一般来说当这种情况发生时，意味着该表达式的结果对象能作为一条赋值语句的左值：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> i = <span class="number">42</span>,*p = &amp;i, &amp;r = i;</span><br><span class="line"><span class="keyword">decltype</span> (r + <span class="number">0</span>) b;  <span class="comment">//正确:加法的结果是int，因此 b是一个(未初始化的) int</span></span><br><span class="line"><span class="keyword">decltype</span> (*p) c;  <span class="comment">//错误:c是int&amp;，必须初始化</span></span><br></pre></td></tr></table></figure>
+
+<p>因为r是一个引用，因此 decltype(r)的结果是引用类型。如果想让结果类型是r所指的类型，可以把r作为表达式的一部分，如r+0，显然这个表达式的结果将是一个具体值而非一个引用。</p>
+<p>另一方面，如果表达式的内容是解引用操作，则decltype 将得到引用类型。正如我们所熟悉的那样，解引用指针可以得到指针所指的对象，而且还能给这个对象赋值。因此，<strong>decltype (*p)的结果类型就是int&amp;，而非int。</strong></p>
+<p>如果 decltype 使用的是一个不加括号的变量，则得到的结果就是该变量的类型；如果给变量加上了一层或多层括号，编译器就会把它当成是一个表达式。变量是一种可以作为赋值语句左值的特殊表达式，所以这样的decltype就会得到引用类型。</p>
+<p><strong>切记：decltype ((variable))（双层括号)的结果永远是引用，而decltype(variable)结果只有当 variable本身就是一个引用时才是引用。</strong></p>
+<ul>
+<li><p>#define 是一条预处理指令，用于定义一个预处理变量。</p>
+</li>
+<li><p>#endif 是条预处理指令，用于结束一个#ifdef 或 #ifndef 区域。</p>
+</li>
+<li><p>#ifdef 是一条预处理指令，用于判断给定的变量是否已经定义。</p>
+</li>
+<li><p>#ifndef 是一条预处理指令，用于判断给定的变量是否尚未定义。</p>
+</li>
+</ul>
+<h1 id="字符串、向量和数组"><a href="#字符串、向量和数组" class="headerlink" title="字符串、向量和数组"></a>字符串、向量和数组</h1><h2 id="命名空间声明"><a href="#命名空间声明" class="headerlink" title="命名空间声明"></a>命名空间声明</h2><p>我们用到的库函数基本上都属于命名空间 std，使用 using 声明，就可以直接访问命名空间中的名字。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span>::name;</span><br><span class="line"><span class="comment">// 例如：</span></span><br><span class="line"><span class="keyword">using</span> std::cin;</span><br></pre></td></tr></table></figure>
+
+<p><strong>头文件不应包含using声明：</strong>这是因为头文件的内容会拷贝到所有引用它的文件中去，如果头文件里有某个using声明,那么每个使用了该头文件的文件就都会有这个声明。对于某些程序来说，由于不经意间包含了一些名字，反而可能产生始料未及的名字冲突。</p>
+<h2 id="string"><a href="#string" class="headerlink" title="string"></a>string</h2><p>使用 getlin 读取一整行</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">string line;</span><br><span class="line"><span class="keyword">while</span>(<span class="built_in">getlin</span>(cin,line))</span><br><span class="line">	cout&lt;&lt;line&lt;&lt;nedl;  <span class="comment">//line不包含换行符</span></span><br></pre></td></tr></table></figure>
+
+<p>size 函数返回值类型是 string::size_type。</p>
+<p>在cctype头文件定义了一组标准库函数，常用如下：</p>
+<ul>
+<li>isalnum(c) c 是字母或数字时为真</li>
+<li>isalpha(c) c 是字母时为真</li>
+<li>islower(c)  c 是小写字母为真</li>
+<li>isupper(c) c 是大写字母为真</li>
+<li>isdigit(c) c 是数字时为真</li>
+<li>ispunct() c 是标点符号为真</li>
+<li>tolower(c) 如果 c 是大写字母，输出小写，否则原样输出</li>
+<li>toupper(c) 如果 c 是小写字母，输出大写，否则原样输出</li>
+</ul>
+<h2 id="vector"><a href="#vector" class="headerlink" title="vector"></a>vector</h2><p>C++既有类模板（class template)，也有函数模板，其中vector是一个类模板。</p>
+<p>empty 检查 vector 对象是否包含元素然后返回一个布尔值; </p>
+<p>size 则返回 vector 对象中元素的个数，返回值的类型是由 vector 定义的 size_type类型。</p>
+<h2 id="迭代器"><a href="#迭代器" class="headerlink" title="迭代器"></a>迭代器</h2><p>迭代器而言，其对象是容器中的元素或者string对象中的字符。使用迭代器可以访问某个元素，迭代器也能从一个元素移动到另外一个元素。</p>
+<p>和指针不一样的是，获取迭代器不是使用取地址符，有迭代器的类型同时拥有返回迭代器的成员。比如，这些类型都拥有名为 begin 和 end 的成员：</p>
+<ul>
+<li> begin 成员负责返回指向第一个元素（或第一个字符）的迭代器</li>
+<li>end 成员则负责返回指向容器“尾元素的下一位置”的迭代器</li>
+</ul>
+<p>就像不知道string和 vector的size_type成员到底是什么类型一样，一般来说我们也不知道(其实是无须知道)迭代器的精确类型。而实际上，那些拥有迭代器的标准库类型使用 iterator 和 vector<int>:: 来表示迭代器的类型：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vector&lt;<span class="keyword">int</span>&gt;::iterator it;</span><br><span class="line">string::iterator it2;</span><br><span class="line">vector&lt;<span class="keyword">int</span>&gt;::vector&lt;<span class="keyword">int</span>&gt; it3;  <span class="comment">// it3只能读元素</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>谨记，但凡是使用了迭代器的循环体，都不要向迭代器所属的容器添加元素。</strong></p>
+<p>string 和 vector 的迭代器提供了更多额外的运算符，一方面可使得迭代器的每次移动跨过多个元素，另外也支持迭代器进行关系运算。所有这些运算被称作迭代器运算，其细节如下：</p>
+<table>
+<thead>
+<tr>
+<th>迭代器运算</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>iter + n</td>
+<td>迭代器指示的新位置与原来相比向前移动了n个元素</td>
+</tr>
+<tr>
+<td>iter - n</td>
+<td>迭代器指示的新位置与原来相比向前移动了n个元素</td>
+</tr>
+<tr>
+<td>iter += n</td>
+<td>将iter加n的结果赋给iter</td>
+</tr>
+<tr>
+<td>iter -= n</td>
+<td>将iter减n的结果赋给iter</td>
+</tr>
+<tr>
+<td>iter1 - iter2</td>
+<td>两个迭代器相减的结果是它们之间的距离，可正可负</td>
+</tr>
+<tr>
+<td>&gt;、&gt;= 、&lt;、&lt;=</td>
+<td>位置在前小</td>
+</tr>
+</tbody></table>
+<h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2><p>C++11新标准引入了两个名为begin和end的函数。这两个函数与容器中的两个同名成员功能类似，不过数组毕竟不是类类型，因此这两个函数不是成员函数。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a[] = &#123;<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">4</span>&#125;;</span><br><span class="line"><span class="keyword">int</span> *beg = <span class="built_in">begin</span>(a);  <span class="comment">//指向a首元素的指针</span></span><br><span class="line"><span class="keyword">int</span> *last = <span class="built_in">end</span>(a);  <span class="comment">//指向a尾元素下一个位置的指针</span></span><br></pre></td></tr></table></figure>
+
+<p>定义指向多维数组的指针时，千万别忘了这个多维数组实际上是数组的数组。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> ar[<span class="number">3</span>][<span class="number">4</span>]; <span class="comment">// 大小为3的数组，每个元素是含有4个整数的数组</span></span><br><span class="line"><span class="built_in"><span class="keyword">int</span></span> (*p)[<span class="number">4</span>] = ar;  <span class="comment">//p 指向含有4个整数的数组</span></span><br><span class="line">p = &amp;ar[<span class="number">2</span>];  <span class="comment">// p指向ar的尾元素</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="表达式"><a href="#表达式" class="headerlink" title="表达式"></a>表达式</h1><p>递增和递减运算符有两种形式：前置版本(++i)和后置版本(i++)</p>
+<ul>
+<li><strong>前置版本</strong>的递增运算符避免了不必要的工作，它把值加 1 后直接返回改变了的运算对象。</li>
+<li>后置版本需要将原始值存储下来以便于返回这个未修改的内容。如果我们不需要修改前的值，那么后置版本的操作就是一种浪费。</li>
+</ul>
+<p>成员访问运算符：箭头运算符与点运算符，表达式 ptr-&gt;mem 等价于 (*ptr).mem;</p>
+<p>sizeof 运算符返回一条表达式或一个类型名字所占的字节数。</p>
+<ul>
+<li>对char或者类型为char的表达式执行sizeof运算，结果得1。</li>
+<li>对引用类型执行 sizeof 运算得到被引用对象所占空间的大小。</li>
+<li>对指针执行 sizeof 运算得到指针本身所占空间的大小。</li>
+<li>对解引用指针执行 sizeof 运算得到指针指向的对象所占空间的大小，指针不需有效。</li>
+<li>对数组执行 sizeof 运算得到整个数组所占空间的大小，等价于对数组中所有的元素各执行一次 sizeof 运算并将所得结果求和。注意，sizeof 运算不会把数组转换成指针来处理。<strong>sizeof(arr)/sizeof(*arr) 数组元素数量。</strong></li>
+<li>对 string 对象或 vector 对象执行 sizeof 运算只返回该类型固定部分的大小，不会计算对象中的元素占用了多少空间。</li>
+</ul>
+<h1 id="语句"><a href="#语句" class="headerlink" title="语句"></a>语句</h1><p>try 语句块，异常处理部分使用 try 语句块处理异常。try 语句块以关键字 try 开始，并以一个或多个 catch 子句结束。try 语句块中代码抛出的异常通常会被某个catch 子句处理。因为 catch 子句“处理”异常，所以它们也被称作异常处理代码。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>&#123;</span><br><span class="line">  program-statements</span><br><span class="line">&#125;<span class="built_in"><span class="keyword">catch</span></span>(exception-declaration)&#123;</span><br><span class="line">  handlers-statements</span><br><span class="line">&#125;<span class="built_in"><span class="keyword">catch</span></span>(exception-declaration)&#123;</span><br><span class="line">  handlers-statements</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h1><h2 id="函数基础"><a href="#函数基础" class="headerlink" title="函数基础"></a>函数基础</h2><p>一个典型的函数定义包括以下部分：返回类型、函数名字、由0个或多个形参组成的列表以及函数体。其中，形参以逗号隔开，形参的列表位于一对圆括号之内。函数执行的操作在语句块中说明，该语句块称为函数体( function body)。</p>
+<p>在C++语言中，<strong>名字有作用域，对象有生命周期</strong></p>
+<p>形参和函数体内部定义的变量统称为<strong>局部变量</strong>。它们对函数而言是“局部”的，仅在函数的作用域内可见，同时局部变量还会<strong>隐藏</strong>在外层作用域中同名的其他所有声明中。</p>
+<p>某些时候，有必要令局部变量的生命周期贯穿函数调用及之后的时间。可以将局部变量定义成 <strong>static 类型</strong>从而获得这样的对象。<strong>局部静态对象</strong>在程序的执行路径第一次经过对象定义语句时初始化，并且直到程序终止才被销毁，在此期间即使对象所在的函数结束执行也不会对它有影响。</p>
+<h2 id="参数传递"><a href="#参数传递" class="headerlink" title="参数传递"></a>参数传递</h2><p><strong>使用引用传参尽量避免拷贝</strong>，如果函数无须改变引用形参的值，最好将其声明为<strong>常量引用</strong>。</p>
+<p>void fcn (const int i) {/* fcn能够读取i，但是不能向i写值*/ }</p>
+<p>调用 fcn 函数时，既可以传入 const int 也可以传入 int。</p>
+<p>因为不能拷贝数组，所以我们无法以值传递的方式使用数组参数。因为数组会被转换成指针，所以当我们为函数传递一个数组时，实际上传递的是指向数组首元素的指针。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">print</span><span class="params">(<span class="keyword">int</span>* a)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">print</span><span class="params">(<span class="keyword">int</span> a[])</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">print</span><span class="params">(<span class="keyword">int</span> a[<span class="number">10</span>])</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>数组引用形参，引用形参绑定到对应的实参上，也就是绑定到数组上：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">print</span><span class="params">(<span class="keyword">int</span> (&amp;arr)[<span class="number">10</span>])</span></span>;  <span class="comment">//&amp;arr括号不能少</span></span><br></pre></td></tr></table></figure>
+
+<p>传递多维数组，和所有数组一样，当将多维数组传递给函数时，真正传递的是指向数组首元素的指针，指针是一个指向数组的指针。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">print</span><span class="params">(<span class="keyword">int</span> (*matrix)[<span class="number">10</span>])</span></span>; <span class="comment">//*matrix括号不能少</span></span><br><span class="line"><span class="keyword">int</span> *matrix[<span class="number">10</span>];  <span class="comment">//10个指针构成的数组</span></span><br><span class="line"><span class="built_in"><span class="keyword">int</span></span> (*matrix)[<span class="number">10</span>];  <span class="comment">//指向含有10个整数的数组的指针</span></span><br></pre></td></tr></table></figure>
+
+<p>为了编写能处理不同数量实参的函数，C++11 新标准提供了两种主要的方法：</p>
+<ul>
+<li>如果所有的实参类型相同，可以传递一个名为initializer_list的标准库类型</li>
+<li>如果实参的类型不同，可以编写一种特殊的函数，也就是所谓的可变参数模板</li>
+<li>省略符形参，这种功能一般只用于与C函数交互的接口程序</li>
+</ul>
+<p>initializer_list 形参</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">initializer_list&lt;T&gt; lst;  <span class="comment">//默认初始化;T类型元素的空列表</span></span><br><span class="line">initializer_list&lt;T&gt; lst&#123;a,b,c...&#125;; <span class="comment">//lst的元素数量和初始值一样多;lst的元素是对应初始值的副本:列表中的元素是const</span></span><br><span class="line"><span class="built_in">lst2</span>(lst);  <span class="comment">//拷贝或赋值一个initializer_list对象不会拷贝列表中的元素;拷贝后，原始列表和副本共享元素</span></span><br><span class="line">lst2 = lst;  </span><br><span class="line">lst.<span class="built_in">size</span>();  <span class="comment">//列表中的元素数量</span></span><br><span class="line">lst.<span class="built_in">begin</span>();  <span class="comment">//返回指向lst中首元素的指针</span></span><br><span class="line">lst.<span class="built_in">end</span>();  <span class="comment">//返回指向lst中尾元素下一位置的指针</span></span><br></pre></td></tr></table></figure>
+
+<p>和vector一样，initializer_list也是一种模板类型。定义initializer_list对象时，必须说明列表中所含元素的类型:</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">initializer_list&lt;string&gt; ls; <span class="comment">// initializer_list的元素类型是string</span></span><br><span class="line">initializer_list&lt;<span class="keyword">int</span>&gt; li;  <span class="comment">// initializer_list的元素类型是int</span></span><br></pre></td></tr></table></figure>
+
+<p>和vector不一样的是，initializer_list对象中的元素永远是常量值，我们无法改变initializer_list对象中元素的值。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">msg</span><span class="params">(initializer_list&lt;string&gt; ls)</span></span>&#123;&#125;  <span class="comment">//定义</span></span><br><span class="line"><span class="built_in">msg</span>(&#123;<span class="string">&quot;hhh&quot;</span>,<span class="string">&quot;assd&quot;</span>&#125;);  <span class="comment">//调用</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">foo</span><span class="params">(...)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">foo</span><span class="params">(parm_list,...)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<h2 id="return语句"><a href="#return语句" class="headerlink" title="return语句"></a>return语句</h2><p>没有返回值的return语句只能用在返回类型是void 的函数中。返回void的函数不要求必须有return语句，因为在这类函数的最后一句后面会<strong>隐式地执行return</strong>。</p>
+<h2 id="函数重载"><a href="#函数重载" class="headerlink" title="函数重载"></a>函数重载</h2><p>函数重载的规则：</p>
+<ul>
+<li>函数名称必须相同</li>
+<li>参数列表必须不同（个数不同、类型不同、参数排列顺序不同等）</li>
+<li>函数的返回类型可以相同也可以不相同</li>
+<li>仅仅返回类型不同不足以成为函数的重载</li>
+</ul>
+<h2 id="特殊用途语言特性"><a href="#特殊用途语言特性" class="headerlink" title="特殊用途语言特性"></a>特殊用途语言特性</h2><p>默认实参：为一个或多个形参定义默认值，不过需要注意的是，一旦某个形参被赋予了默认值，它后面的所有形参都必须有默认值。</p>
+<p>内联机制用于优化规模较小、流程直接、频繁调用的函数。</p>
+<h2 id="函数指针"><a href="#函数指针" class="headerlink" title="函数指针"></a>函数指针</h2><p>函数指针指向的是函数而非对象。和其他指针一样，函数指针指向某种特定类型。函数的类型由它的返回类型和形参类型共同决定，与函数名无关。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">fun</span><span class="params">(string s)</span></span>;</span><br><span class="line"><span class="built_in"><span class="keyword">bool</span></span> (*pf)(string s);</span><br><span class="line">pf = fun;  <span class="comment">//pf指向fun函数，</span></span><br><span class="line">pf = &amp;fun; <span class="comment">//等价的赋值语句，取地址符可选</span></span><br><span class="line"><span class="keyword">bool</span> b1 = <span class="built_in">pf</span>(<span class="string">&quot;hello&quot;</span>);  <span class="comment">//等价调用fun</span></span><br><span class="line"><span class="keyword">bool</span> b2 = (*pf)(<span class="string">&quot;hello&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<h1 id="类"><a href="#类" class="headerlink" title="类"></a>类</h1><p>使用class和struct定义类唯一的区别就是默认的访问权限。</p>
+<p>友元关系不存在传递性，每个类负责控制自己的友元类或友元函数。</p>
+<p>如果成员是 const、引用，或者属于某种未提供默认构造函数的类类型,我们必须通过构造函数初始值列表为这些成员提供初值。</p>
+<p>静态数据成员不属于类的任何一个对象，所以它们并不是在创建类的对象时被定义的。这意味着它们不是由类的构造函数初始化的。</p>
+</div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">gzwang</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://gzwangu.github.io/2022/02/15/《C-Primer》学习笔记/">https://gzwangu.github.io/2022/02/15/《C-Primer》学习笔记/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://gzwangu.github.io">Rubina の blog</a>！</span></div></div><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/C-Primer/">C++ Primer</a></div><nav id="pagination"><div class="prev-post pull-left"><a href="/2022/02/16/31-%E4%B8%8B%E4%B8%80%E4%B8%AA%E6%8E%92%E5%88%97-LeetCode/"><i class="fa fa-chevron-left">  </i><span>31.下一个排列-LeetCode</span></a></div><div class="next-post pull-right"><a href="/2022/02/07/ubuntu%E4%B8%AD%E5%AE%9E%E7%8E%B0docker%E6%90%AD%E5%BB%BAjenkins%E7%8E%AF%E5%A2%83/"><span>ubuntu中实现docker搭建jenkins环境</span><i class="fa fa-chevron-right"></i></a></div></nav></div></div><footer><div class="layout" id="footer"><div class="copyright">&copy;2020 - 2022 By gzwang</div><div class="framework-info"><span>驱动 - </span><a target="_blank" rel="noopener" href="http://hexo.io"><span>Hexo</span></a><span class="footer-separator">|</span><span>主题 - </span><a target="_blank" rel="noopener" href="https://github.com/Molunerfinn/hexo-theme-melody"><span>Melody</span></a></div><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_page_pv"><i class="fa fa-file"></i><span id="busuanzi_value_page_pv"></span><span></span></span></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="https://cdn.jsdelivr.net/npm/animejs@latest/anime.min.js"></script><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js"></script><script src="/js/utils.js?version=1.9.0"></script><script src="/js/fancybox.js?version=1.9.0"></script><script src="/js/sidebar.js?version=1.9.0"></script><script src="/js/copy.js?version=1.9.0"></script><script src="/js/fireworks.js?version=1.9.0"></script><script src="/js/transition.js?version=1.9.0"></script><script src="/js/scroll.js?version=1.9.0"></script><script src="/js/head.js?version=1.9.0"></script><script src="/js/search/local-search.js"></script><script>if(/Android|webOS|iPhone|iPod|iPad|BlackBerry/i.test(navigator.userAgent)) {
+  $('#nav').addClass('is-mobile')
+  $('footer').addClass('is-mobile')
+  $('#top-container').addClass('is-mobile')
+}</script><div class="search-dialog" id="local-search"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章"></div></div></div><hr><div id="local-search-results"><div id="local-hits"></div><div id="local-stats"><div class="local-search-stats__hr" id="hr"><span>由</span> <a target="_blank" rel="noopener" href="https://github.com/wzpan/hexo-generator-search" style="color:#49B1F5;">hexo-generator-search</a>
+ <span>提供支持</span></div></div></div><span class="search-close-button"><i class="fa fa-times"></i></span></div><div class="search-mask"></div></body></html>

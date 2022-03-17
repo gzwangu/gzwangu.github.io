@@ -1,0 +1,880 @@
+<!DOCTYPE html><html lang="zh-Hans"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="DevOps导论-中国大学MOOC"><meta name="keywords" content="DevOps"><meta name="author" content="gzwang"><meta name="copyright" content="gzwang"><title>DevOps导论-中国大学MOOC | Rubina の blog</title><link rel="shortcut icon" href="/melody-favicon.ico"><link rel="stylesheet" href="/css/index.css?version=1.9.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css?version=1.9.0"><meta name="format-detection" content="telephone=no"><meta http-equiv="x-dns-prefetch-control" content="on"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容:${query}"}},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  hexoVersion: '5.4.0'
+} </script><meta name="generator" content="Hexo 5.4.0"></head><body><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar" data-display="true"><div class="toggle-sidebar-info text-center"><span data-toggle="切换文章详情">切换站点概览</span><hr></div><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar"></div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#DevOps%E6%A6%82%E8%BF%B0"><span class="toc-number">1.</span> <span class="toc-text">DevOps概述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%AA%E4%BD%93%E8%BD%AF%E4%BB%B6%E8%BF%87%E7%A8%8B"><span class="toc-number">2.</span> <span class="toc-text">个体软件过程</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%95%8F%E6%8D%B7%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91"><span class="toc-number">3.</span> <span class="toc-text">敏捷软件开发</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%BD%AF%E4%BB%B6%E6%9E%B6%E6%9E%84%E6%BC%94%E5%8C%96"><span class="toc-number">4.</span> <span class="toc-text">软件架构演化</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%91%E5%8E%9F%E7%94%9F%E4%B8%8E%E5%AE%B9%E5%99%A8%E6%8A%80%E6%9C%AF"><span class="toc-number">5.</span> <span class="toc-text">云原生与容器技术</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#DevOps%E5%B7%A5%E5%85%B7%E9%93%BE"><span class="toc-number">6.</span> <span class="toc-text">DevOps工具链</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95"><span class="toc-number">7.</span> <span class="toc-text">期末考试</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%A2%E8%A7%82%E9%A2%98%E9%83%A8%E5%88%86"><span class="toc-number">7.1.</span> <span class="toc-text">客观题部分</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BB%E8%A7%82%E9%A2%98%E9%83%A8%E5%88%86"><span class="toc-number">7.2.</span> <span class="toc-text">主观题部分</span></a></li></ol></li></ol></div></div><div class="author-info hide"><div class="author-info__avatar text-center"><img src="https://gzwangu.github.io/img/avatar.jpg"></div><div class="author-info__name text-center">gzwang</div><div class="author-info__description text-center">Study and Life growth record</div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">文章</span><span class="pull-right">35</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">标签</span><span class="pull-right">38</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">分类</span><span class="pull-right">10</span></a></div><hr><div class="author-info-links"><div class="author-info-links__title text-center">Links</div><a class="author-info-links__name text-center" target="_blank" rel="noopener" href="https://crownz.run/">crownZ</a><a class="author-info-links__name text-center" target="_blank" rel="noopener" href="https://blog.zyuanlee.cn/">Pandalzy</a><a class="author-info-links__name text-center" target="_blank" rel="noopener" href="https://blog.zguolee.cn/">Lee</a></div></div></div><div id="content-outer"><div class="no-bg" id="top-container"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">Rubina の blog</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus">   <a class="site-page" href="/">Home</a><a class="site-page" href="/archives">Archives</a><a class="site-page" href="/tags">Tags</a><a class="site-page" href="/categories">Categories</a></span><span class="pull-right"><a class="site-page social-icon search"><i class="fa fa-search"></i><span> 搜索</span></a></span></div><div id="post-info"><div id="post-title">DevOps导论-中国大学MOOC</div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2021-11-25</time><span class="post-meta__separator">|</span><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/%E8%AF%BE%E7%A8%8B%E5%AD%A6%E4%B9%A0/">课程学习</a><div class="post-meta-wordcount"><span>字数总计: </span><span class="word-count">12.5k</span><span class="post-meta__separator">|</span><span>阅读时长: 40 分钟</span></div></div></div></div><div class="layout" id="content-inner"><article id="post"><div class="article-container" id="post-content"><h1 id="DevOps概述"><a href="#DevOps概述" class="headerlink" title="DevOps概述"></a>DevOps概述</h1><p>1、下列描述中，不属于典型软件发展三大阶段的是：</p>
+<p>A.网络化和服务化</p>
+<p>B.软硬件一体化阶段</p>
+<p>C.软件成为独立产品</p>
+<p>D.软件作坊</p>
+<p>正确答案：D </p>
+<p>2、”Measure twice, Cut once” 是哪个阶段的典型开发特征？</p>
+<p>A.软件成为独立产品阶段</p>
+<p>B.软硬件一体化阶段</p>
+<p>C.网络化阶段</p>
+<p>D.软件作坊阶段</p>
+<p>正确答案：B </p>
+<p>3、‎关于软件过程管理，以下哪一种说法是比较贴切的：</p>
+<p>A.软件过程管理是软件企业发展到较高层次才需要关心的话题。</p>
+<p>B.软件过程管理主要关注软件成本和质量目标的达成。</p>
+<p>C.软件过程管理关注的是企业软件过程能力的稳定输出和提升。</p>
+<p>D.进入互联网时代，软件过程管理是过于老套的话题。</p>
+<p>正确答案：C </p>
+<p>4、软件开发的本质难题中哪一个与软件发展阶段没有直接关系？</p>
+<p>A.一致性</p>
+<p>B.可变性</p>
+<p>C.复杂性</p>
+<p>D.不可见性</p>
+<p>正确答案：D </p>
+<p>5、‏”Code and Fix” 是软件发展哪个阶段的典型开发特征？ </p>
+<p>A.网络化和服务化</p>
+<p>B.软硬件一体化</p>
+<p>C.软件作为独立产品</p>
+<p>D.互联网时代</p>
+<p>正确答案：B </p>
+<p>6、以下哪个因素促成了软件成为独立的产品？</p>
+<p>A.互联网的出现</p>
+<p>B.个人电脑的出现</p>
+<p>C.操作系统的出现</p>
+<p>D.高级程序设计语言的出现</p>
+<p>正确答案：C </p>
+<p>7‌、软件危机和软件工程这两个概念提出时间是？</p>
+<p>A.上世纪七十年代</p>
+<p>B.上世纪六十年代</p>
+<p>C.上世纪八十年代</p>
+<p>D.上世纪五十年代</p>
+<p>正确答案：B </p>
+<p>8、以下描述中，哪几种是网络化和服务化这个阶段的典型软件应用特征？</p>
+<p>A.通过CD和DVD等方式支持大容量和快速分发软件拷贝</p>
+<p>B.通过SaaS等方式来发布软件系统</p>
+<p>C.快速演化、需求不确定</p>
+<p>D.用户数量急剧增加</p>
+<p>正确答案：B、C、D </p>
+<p>9‌、关于形式化方法的描述当中，不正确的有哪些？</p>
+<p>A.这种方法应用范围有限，例如：不适合跟客户讨论需求。</p>
+<p>B.这种方法的主要目的是解决软件开发的效率问题</p>
+<p>C.这种方法对开发人员技能有较高的要求</p>
+<p>D.这种方法是网络化和服务化阶段用来应对软件开发本质四大难题而提出来的</p>
+<p>正确答案：B、D </p>
+<p>10、关于迭代式方法的说法哪些是比较恰当的？</p>
+<p>A.迭代式方法主要特征在于将软件开发过程视作一个逐步学习和交流的过程</p>
+<p>B.迭代式方法是指一类具有类似特征的方法</p>
+<p>C.迭代式方法是上世纪九十年代中后期才出现的一种方法</p>
+<p>D.迭代式方法主要是为了解决软件开发的质量问题</p>
+<p>正确答案：A、B </p>
+<p>11、‎DevOps方法的出现具有一定的必然性，与以下哪些软件应用特征相匹配？</p>
+<p>A.软件定义世界，软件随处可见</p>
+<p>B.软件在社会生活当中扮演了越来越关键的角色</p>
+<p>C.软件系统部署环境越来越错综复杂</p>
+<p>D.用户需求多变所带来了软件系统的快速演化的要求</p>
+<p>正确答案：A、B、C、D </p>
+<p>12、DevOps的哪些特点可以有效支撑当前社会对软件系统的期望？</p>
+<p>A.虚拟机技术的大量应用</p>
+<p>B.敏捷开发、精益思想以及看板方法，支持快速开发、交付、迭代和演化</p>
+<p>C.微服务架构设计</p>
+<p>D.工具链支持高效率的自动化</p>
+<p>正确答案：A、B、C、D </p>
+<p>13、在DevOps化的three ways当中，关注质量问题是第二个阶段才需要考虑的。</p>
+<p>A.√</p>
+<p>B.×</p>
+<p>正确答案：B </p>
+<p>14、DevOps中的XaaS特指 SaaS、PaaS以及IaaS这三种。</p>
+<p>A.√</p>
+<p>B.×</p>
+<p>正确答案：B </p>
+<p>15、DevOps化的Three ways当中，建立反馈机制是二阶段应该实现的目标。</p>
+<p>A.×</p>
+<p>B.√</p>
+<p>正确答案：B </p>
+<h1 id="个体软件过程"><a href="#个体软件过程" class="headerlink" title="个体软件过程"></a>个体软件过程</h1><p>1、下述各个度量项中，哪一个不是PSP的基本度量项？</p>
+<p>A.缺陷</p>
+<p>B.风险</p>
+<p>C.规模</p>
+<p>D.时间</p>
+<p>正确答案：B  </p>
+<p>2、‏关于面向用户的质量观，我们应该关注如下哪些问题：</p>
+<p>A.用户期望的优先级对软件开发的影响？</p>
+<p>B.用户期望是否有优先级？</p>
+<p>C.真实用户是谁？</p>
+<p>D.界面和可操作性是首要的，因为这是用户能直接感受到的。</p>
+<p>正确答案：A、B、C </p>
+<p>3、‎PSP当中为什么用缺陷管理替代质量管理？下述说法中正确的是：</p>
+<p>A.因为缺陷管理相关的活动（例如，测试等）本来就是软件开发中必须要开展的活动。</p>
+<p>B.因为单纯质量管理很难操作。</p>
+<p>C.因为缺陷管理和质量管理其实是一回事。</p>
+<p>D.因为缺陷往往对应了面向用户质量观中的首要用户期望。</p>
+<p>正确答案：B、D </p>
+<p>4、关于PROBE估算法，下述各种说法中，不正确的有哪些？</p>
+<p>A.PROBE估算结果带着小数，肯定不准确，因而， 不应该在项目估算的时候使用。</p>
+<p>B.PROBE方法不需要历史数据。</p>
+<p>C.PROBE方法不能用来估算质量。</p>
+<p>D.PROBE不能给出精确估算，因而适合用来跟用户讨论需求和规模。</p>
+<p>正确答案：A、B、D </p>
+<p>5‍、关于质量路径（Quality Journey），下列说法中哪些不恰当。</p>
+<p>A.质量路径与个体软件工程师无关，是团队层面的集体努力。</p>
+<p>B.高质量软件产品最终还是需要依赖测试来确保。</p>
+<p>C.进入测试之前的高质量，是获得测试之后高质量软件系统的前提条件。</p>
+<p>D.质量路径中所列举的方法都是提升开发质量的有效手段，可以随意选择使用。</p>
+<p>正确答案：A、D </p>
+<p>6、关于评审检查表，下述说法中不恰当的是：</p>
+<p>A.项目团队所有人应该共用一份评审检查表，体现统一性</p>
+<p>B.评审检查表应该是个性化的</p>
+<p>C.评审检查表应该定期更新</p>
+<p>D.评审检查表应该保持稳定，确保缺陷不会被遗漏</p>
+<p>正确答案：A、D  </p>
+<p>7、关于PQI，下述说法中不恰当的是：</p>
+<p>A.PQI五个分指标都可以超过1.0，比如，设计时间多于编码时间的时候，该分指标就超过1.0了</p>
+<p>B.PQI可以用来辅助判断模块开发的质量</p>
+<p>C.PQI可以为过程改进提供依据</p>
+<p>D.PQI越高越好，最好达到1.0</p>
+<p>正确答案：A、D  </p>
+<p>8、‏关于评审，下述说法中不恰当是：</p>
+<p>A.代码的个人评审也应该通过评审检查表来进行。</p>
+<p>B.如果安排了代码的小组评审，那么代码个人评审就可以不用做。</p>
+<p>C.代码的个人评审应该安排在单元测试之后，确保评审对象有着较高的质量，提升评审价值。</p>
+<p>D.代码的个人评审最好交叉进行，因为阅读自己代码容易产生思维定式，不利于缺陷发现。</p>
+<p>正确答案：C、D  </p>
+<p>9、关于质量的各种定义当中，下述哪些质量属性属于内部属性？</p>
+<p>A.可扩展性</p>
+<p>B.可移植性</p>
+<p>C.可靠性</p>
+<p>D.安全性</p>
+<p>正确答案：A、B  </p>
+<p>10、PSP鼓励使用瀑布型生命周期模型。</p>
+<p>A.√</p>
+<p>B.×</p>
+<p>正确答案：B </p>
+<p>11、‍对于初学者来说，代码评审速度可以控制到每小时不超过400行。</p>
+<p>A.×</p>
+<p>B.√</p>
+<p>正确答案：A  </p>
+<p>12、‌“高质量的软件开发是计划出来的”</p>
+<p>A.√</p>
+<p>B.×</p>
+<p>正确答案：A  </p>
+<h1 id="敏捷软件开发"><a href="#敏捷软件开发" class="headerlink" title="敏捷软件开发"></a>敏捷软件开发</h1><p>1、‌下列哪一项更好地描述了敏捷宣言？</p>
+<p>A.它包含了许多敏捷团队使用的实践</p>
+<p>B.它包含了建立敏捷思维方式的价值观</p>
+<p>C.它定义了构建软件的规则</p>
+<p>D.它概述了构建软件的最有效方法</p>
+<p>正确答案：B </p>
+<p>2、你是一家社交媒体公司的开发人员，正在开发一个项目，项目需要一个为企业客户创建私有网站的新功能。 您需要与公司的网络工程师一起确定部署策略，并提出一组工程师可以用于管理站点的服务和工具。 网络工程师希望在你的网络内部部署所有服务，但您和您的团队成员不同意，并且认为服务应该部署在客户的网络上。 为了达成一个协议，该项目的工作已经停止。 哪种敏捷价值最适合这种情况？</p>
+<p>A.工作的软件 高于 详尽的文档</p>
+<p>B.响应变化 高于 遵循计划</p>
+<p>C.客户合作 高于 合同谈判</p>
+<p>D.个体和互动 高于 流程和工具</p>
+<p>正确答案：C </p>
+<p>3、‍你是一个软件团队的开发人员。 一个用户向你的团队询问有关构建新功能的信息，并以规范的形式提供了需求。 她非常确定这个功能要如何工作，并承诺不会有任何变化。 哪种敏捷价值最适用于这种情况？</p>
+<p>A.响应变化 高于 遵循计划</p>
+<p>B.工作的软件 高于 详尽的文档</p>
+<p>C.客户合作 高于 合同谈判</p>
+<p>D.个体和互动 高于 流程和工具</p>
+<p>正确答案：B </p>
+<p>4、‏Sean是一个正在构建财务软件的团队的开发人员。 他的团队被要求开发一个新的交易系统。 他和他的团队召开会议来提出他们正在使用的工作流的图景。 然后，他们将流程放在白板上，流程中的每个步骤都有一列。 经过对团队在白板上的工作项目进行了几周观察，他们注意到这个过程中有几个步骤似乎过载了。对于他们来说，下一步应该做什么？</p>
+<p>‍A.在较慢的步骤中使用更多的人力</p>
+<p>B.对过载步骤中正在进行的工作项目的数量进行限制</p>
+<p>C.与团队合作，在工作进展缓慢的阶段更好地完成工作</p>
+<p>D.专注于完成看板上的工作</p>
+<p>正确答案：B </p>
+<p>5、‎下列哪一个不是精益原则？</p>
+<p>A.识别所有的步骤</p>
+<p>B.尽可能晚的做决定</p>
+<p>C.消除浪费</p>
+<p>D.实施反馈循环</p>
+<p>正确答案：D </p>
+<p>6、下列哪一个更好地描述了如何使用看板？</p>
+<p>A.观察特征如何流经过程，以便团队可以确定如何限制WIP并通过工作流程中的步骤确定最均匀的工作流程</p>
+<p>B.跟踪缺陷和问题，并创建解决产品问题的最快途径</p>
+<p>C.帮助团队自我组织，并了解工作流程中的瓶颈所在</p>
+<p>D.跟踪WIP限制和当前任务状态，以便团队知道他们还有多少工作要做</p>
+<p>正确答案：A </p>
+<p>7、‍以下不是经常出现在Kanban上记事贴中的内容</p>
+<p>A.完成时间</p>
+<p>B.谁在处理这个工作项</p>
+<p>C.工作项描述</p>
+<p>D.团队名词</p>
+<p>正确答案：D </p>
+<p>8、‍一个公司内，各个团队的Kanban列设置应当一致，便于公司管理。</p>
+<p>A.×</p>
+<p>B.√</p>
+<p>正确答案：A </p>
+<p>9、‏在制品规模越小越好，因为这样可以优化前置时间，并且团队的效率会变高。</p>
+<p>A.√</p>
+<p>B.×</p>
+<p>正确答案：B </p>
+<p>10、‏ 在DevOps中，可以使用Kanban方法，也可以使用Scrum等其他敏捷方法。</p>
+<p>A.√</p>
+<p>B.×</p>
+<p>正确答案：A </p>
+<h1 id="软件架构演化"><a href="#软件架构演化" class="headerlink" title="软件架构演化"></a>软件架构演化</h1><p>1、‍下面关于软件架构的描述哪个是不正确的？</p>
+<p>A.软件架构即一系列重要的设计决策。</p>
+<p>B.软件架构是一组特定的架构元素，包括处理元素、数据元素和上下文元素。</p>
+<p>C.软件架构包含一系列重要决策，包括软件组织、构成系统的结构要素等。</p>
+<p>D.软件架构包括系统组件、连接件和约束的集合。</p>
+<p>正确答案：B<br>解析：  B、软件架构不包含上下文元素。</p>
+<p>2、在应用分层架构的软件系统中，最先处理外部请求的是：</p>
+<p>A.应用层</p>
+<p>B.表现层</p>
+<p>C.业务层</p>
+<p>D.数据层</p>
+<p>正确答案：B<br>解析：  B、在应用分层架构的软件系统中，各层处理外部请求的顺序依次是表现层、业务层、持久层和数据层。</p>
+<p>3、以下哪个关于面向服务架构的描述是错误的？</p>
+<p>A.面向服务架构包含服务提供者组件和服务消费者组件</p>
+<p>B.在SOA中，服务消费者消费其他组件提供的服务不需要知道其具体的实现细节</p>
+<p>C.SOA依赖企业服务总线为服务间的相互调用提供支持环境</p>
+<p>D.面向服务架构是一个集中式组件的集合</p>
+<p>正确答案：D<br>解析：  D、面向服务架构应该是分布式组件的集合。</p>
+<p>4、‏以下对于微服务优点的描述中，哪一个是错误的？</p>
+<p>A.微服务可以使用RPC进行服务间通信</p>
+<p>B.微服务系统测试变得非常简单</p>
+<p>C.单个微服务很简单，只关注一个业务功能</p>
+<p>D.不同的微服务可以使用不同的语言进行开发</p>
+<p>正确答案：B<br>解析：  B、分布式系统的复杂性使得系统测试变得复杂</p>
+<p>5、在微服务架构中，ZooKeeper的主要作用是？</p>
+<p>A.开发服务</p>
+<p>B.调用服务</p>
+<p>C.注册服务</p>
+<p>D.封装服务</p>
+<p>正确答案：C</p>
+<p>6、‍除Spring Boot之外，主流的微服务开发框架还有什么？</p>
+<p>A.Django</p>
+<p>B.Apache Dubbo</p>
+<p>C.Kubernetes</p>
+<p>D.MyBaits</p>
+<p>正确答案：B</p>
+<p>7、‎在组成派看来，软件架构是指？</p>
+<p>A.软件架构由软件元素、这些元素的外部可见属性，以及元素之间的关系组成。</p>
+<p>B.软件架构包括系统组件、连接件和约束的集合。</p>
+<p>C.软件架构将系统定义为计算组件及组件间的交互。</p>
+<p>D.软件架构是一系列重要决策的集合，包括构成系统的结构要素及其接口的选择。</p>
+<p>正确答案：A、B、C<br>解析：  D、决策派的观点</p>
+<p>8、分层架构将软件系统的组件分成多个互不重叠的层，包括</p>
+<p>A.应用层</p>
+<p>B.物理层</p>
+<p>C.表现层</p>
+<p>D.数据层</p>
+<p>正确答案：C、D<br>解析：  A、网络分层  B、网络分层</p>
+<p>9、‎分层架构模式的缺点包括：</p>
+<p>A.不易于持续发布和部署</p>
+<p>B.代码调整通常比较麻烦</p>
+<p>C.额外的性能开销</p>
+<p>D.软件升级需要暂停整个服务</p>
+<p>正确答案：A、B、C、D<br>解析：  C、见分层架构部分“分层架构模式特点”。</p>
+<p>10、‍以下哪几个不是面向服务架构强调的实现原则？</p>
+<p>A.服务去中心化</p>
+<p>B.服务简单</p>
+<p>C.服务解耦</p>
+<p>D.服务自治</p>
+<p>正确答案：A、B<br>解析：  A、微服务架构强调的实现原则。  B、微服务架构强调的实现原则。</p>
+<p>11、‍以下选项中，哪些属于微服务架构的特点？</p>
+<p>A.围绕业务能力组织</p>
+<p>B.通过服务组件化</p>
+<p>C.基础设施自动化</p>
+<p>D.内聚和解耦</p>
+<p>正确答案：A、B、C、D你</p>
+<p>12、‎以下选项中，API网关模式的优点有哪些?</p>
+<p>A.确保客户端不受服务实例位置的影响</p>
+<p>B.增加请求往返次数</p>
+<p>C.为每套客户端提供最优API</p>
+<p>D.确保客户端不必关心应用程序的微服务拆分方式</p>
+<p>正确答案：A、C、D<br>解析：  B、应为“减少”</p>
+<p>13、‎与面向服务架构相关的Web服务标准包括：</p>
+<p>A.HTTPS</p>
+<p>B.UML</p>
+<p>C.WSDL</p>
+<p>D.UDDI</p>
+<p>正确答案：A、C、D<br>解析：  B、应改为XML</p>
+<p>14、‏单体应用的所有功能都被集成在一起作为一个单一的单元。</p>
+<p>A.√</p>
+<p>B.×</p>
+<p>正确答案：A </p>
+<p>15、单体架构更多地作为应用的部署架构，单体应用只运行在一个进程中。</p>
+<p>A.√</p>
+<p>B.×</p>
+<p>正确答案：B<br>解析：可能存在单体应用的多个实例运行在多个进程中。</p>
+<p>16、‍微服务架构架构风格是一种将一个单一应用程序开发为一个小型服务的方法。</p>
+<p>A.×</p>
+<p>B.√</p>
+<p>正确答案：A<br>解析：一组小型服务，而非一个。</p>
+<p>17、‍本质上，微服务架构是SOA的一种扩展。</p>
+<p>A.√</p>
+<p>B.×</p>
+<p>正确答案：A </p>
+<p>18、‏核心模式即针对采用微服务系统在通用场景下的所有问题，所使用的成熟的架构解决方案集合。</p>
+<p>A.√</p>
+<p>B.×</p>
+<p>正确答案：B<br>解析：是在特定场景下的特定问题</p>
+<h1 id="云原生与容器技术"><a href="#云原生与容器技术" class="headerlink" title="云原生与容器技术"></a>云原生与容器技术</h1><p>1、‍下列哪项不是Docker容器的特点：</p>
+<p>A.资源使用较少</p>
+<p>B.可以共享操作系统的资源</p>
+<p>C.启动时间是分钟级</p>
+<p>D.创建速度很快</p>
+<p>正确答案：C </p>
+<p>2、下列哪项不是Docker的网络模式</p>
+<p>A.None模式</p>
+<p>B.Host模式</p>
+<p>C.其他全是</p>
+<p>D.Bridge 模式</p>
+<p>正确答案：C </p>
+<p>3、以下哪些是Docker的存储驱动：‎</p>
+<p>A.其他都是</p>
+<p>B.Device mapper</p>
+<p>C.AUFS</p>
+<p>D.OverlayFS</p>
+<p>正确答案：A </p>
+<p>4、‍以下哪个命令可以查看当前运行容器：</p>
+<p>A.docker logs</p>
+<p>B.docker top</p>
+<p>C.docker run</p>
+<p>D.docker ps</p>
+<p>正确答案：D </p>
+<p>5、‏Kubernetes集群将元数据保存在以下哪个组件：</p>
+<p>A.Etcd</p>
+<p>B.Kubelet</p>
+<p>C.Kube-apiserver</p>
+<p>D.以上都不是</p>
+<p>正确答案：A </p>
+<p>6、‎以下哪些是Kubernetes的控制器：</p>
+<p>A.ReplicaSet</p>
+<p>B.Both ReplicaSet and Deployment</p>
+<p>C.Deployment</p>
+<p>D.Rolling Updates</p>
+<p>正确答案：B </p>
+<p>7、‍以下哪些是Kubernetes的核心概念</p>
+<p>A.Services</p>
+<p>B.其他都是</p>
+<p>C.Volumes</p>
+<p>D.Pods</p>
+<p>正确答案：B </p>
+<p>8、‎Kubernetes里面的Replication控制器的职责是：</p>
+<p>A.帮助达到预期的状态</p>
+<p>B.删除或者更新多个Pod</p>
+<p>C.其他都是</p>
+<p>D.当已存在的Pod异常退出后，创建新的Pod</p>
+<p>正确答案：C </p>
+<p>9、‏如何通过命令行创建一个容器</p>
+<p>A.docker create</p>
+<p>B.docker poll</p>
+<p>C.docker start</p>
+<p>D.docker run</p>
+<p>正确答案：D </p>
+<p>10、‏Dockerfile中的命令 RUN, CMD 和ENTRYPOINT几者有何区别?</p>
+<p>A.ENTRYPOINT 配置容器启动时运行的命令</p>
+<p>B.RUN 执行命令并创建新的镜像层，RUN 经常用于安装软件包。</p>
+<p>C.其他都是</p>
+<p>D.CMD 设置容器启动后默认执行的命令及其参数，但 CMD 能够被 docker run 后面跟的命令行参数替换</p>
+<p>正确答案：C </p>
+<p>11、‏使用Kubernetes带来的好处有哪些</p>
+<p>A.自动调度</p>
+<p>B.其他都是</p>
+<p>C.横向扩展</p>
+<p>D.自动回滚</p>
+<p>正确答案：B </p>
+<p>12、‌以下哪项用于确保pod不会被调度到不适当的节点上？</p>
+<p>A.以上都不是</p>
+<p>B.Taints</p>
+<p>C.Taints 和 Tolerations</p>
+<p>D.Tolerations</p>
+<p>正确答案：C </p>
+<p>13、‎Docker容器的状态有</p>
+<p>A.Restarting</p>
+<p>B.Running</p>
+<p>C.Paused</p>
+<p>D.Exited</p>
+<p>正确答案：B、D </p>
+<p>14、‌关于Kubernetes的namespace的论述是否正确：命名空间是在多个用户之间划分群集资源的方法</p>
+<p>A.×</p>
+<p>B.√</p>
+<p>正确答案：B </p>
+<p>15、‎以下描述是否正确：多步构建允许在Dockerfile中使用多个FROM指令。两个FROM指令之间的所有指令会生产一个中间镜像，最后一个FROM指令之后的指令将生成最终镜像。中间镜像中的文件可以通过COPY –from=<image-number>指令拷贝，其中image-number为镜像编号，0为第一个基础镜像。没有被拷贝的文件都不会存在于最终生成的镜像，这样可以减小镜像大小，同时避免出现安全问题。</p>
+<p>A.√</p>
+<p>B.×</p>
+<p>正确答案：A </p>
+<h1 id="DevOps工具链"><a href="#DevOps工具链" class="headerlink" title="DevOps工具链"></a>DevOps工具链</h1><p>1、‎下列哪项不属于DevOps工具生态圈？</p>
+<p>A.编译</p>
+<p>B.持续集成</p>
+<p>C.持续部署</p>
+<p>D.监控</p>
+<p>正确答案：C </p>
+<p>2、‎下列哪项不属于协同开发工具？</p>
+<p>A.Confluence</p>
+<p>B.Kanban</p>
+<p>C.Rally</p>
+<p>D.JIRA</p>
+<p>正确答案：A </p>
+<p>3、下列哪种持续集成工具是目前DevOps领域使用最广泛的？</p>
+<p>A.Jenkins</p>
+<p>B.Travis CI</p>
+<p>C.TeamCity</p>
+<p>D.VSTS</p>
+<p>正确答案：A </p>
+<p>4、‎下列哪种版本管理工具不是同宗同源的？</p>
+<p>A.Git</p>
+<p>B.Subversion</p>
+<p>C.GitHub</p>
+<p>D.GitLab</p>
+<p>正确答案：B </p>
+<p>5、‌以下哪项不是Git的文件目录？</p>
+<p>A.工作目录</p>
+<p>B.git目录</p>
+<p>C.加载区</p>
+<p>D.Documents</p>
+<p>正确答案：D </p>
+<p>6、‏下列哪种编译工具无法编译JAVA语言？</p>
+<p>A.Ant</p>
+<p>B.MSBuild</p>
+<p>C.Maven</p>
+<p>D.Gradle</p>
+<p>正确答案：B </p>
+<p>7、‍下列哪种工具无法实现对远程服务器的配置操作？</p>
+<p>A.JIRA</p>
+<p>B.Puppt</p>
+<p>C.Ansible</p>
+<p>D.Chef</p>
+<p>正确答案：A </p>
+<p>8、‍下列不属于测试的是</p>
+<p>A.SIT部署</p>
+<p>B.单元测试</p>
+<p>C.UI测试</p>
+<p>D.API测试</p>
+<p>正确答案：A </p>
+<p>9、 使用（）工具完成DevOps持续交付流水线编排配置？</p>
+<p>A.Java</p>
+<p>B.Jenkins</p>
+<p>C.JUnit</p>
+<p>D.SonarQube</p>
+<p>正确答案：B </p>
+<p>10、‏Git是何种工具？</p>
+<p>A.单元测试工具</p>
+<p>B.监控工具</p>
+<p>C.版本管理工具</p>
+<p>D.持续集成工具</p>
+<p>正确答案：C </p>
+<p>11、‌以下哪种工具是开源工具？</p>
+<p>A.JUnit</p>
+<p>B.TeamCity</p>
+<p>C.Zabbix</p>
+<p>D.JIRA</p>
+<p>正确答案：A </p>
+<p>12、下列哪种工具能模拟市场上主流浏览器的操作？</p>
+<p>A.Jenkins</p>
+<p>B.JUnit</p>
+<p>C.Selenium</p>
+<p>D.FitNesse</p>
+<p>正确答案：C </p>
+<p>13、JIRA Software不支持极限编程这种敏捷开发方法。</p>
+<p>A.√</p>
+<p>B.×</p>
+<p>正确答案：A </p>
+<p>14、Jenkins支持工作流即代码（pipeline-as-code）。</p>
+<p>A.√</p>
+<p>B.×</p>
+<p>正确答案：A </p>
+<p>15、‏Git使用副本方式存储文件版本。</p>
+<p>A.×</p>
+<p>B.√</p>
+<p>正确答案：A </p>
+<p>16、‏Selenium能实现自动化单元测试。</p>
+<p>A.×</p>
+<p>B.√</p>
+<p>正确答案：A </p>
+<p>17、‌Nagios不属于监控工具。</p>
+<p>A.×</p>
+<p>B.√</p>
+<p>正确答案：A </p>
+<p>18、Zabbix有两种工作模式。</p>
+<p>A.√</p>
+<p>B.×</p>
+<p>正确答案：A </p>
+<p>19、‏SonarQube能完成持续交付流水线编排配置</p>
+<p>A.×</p>
+<p>B.√</p>
+<p>正确答案：A<br>解析：静态代码扫描</p>
+<p>20、Ansible只需要在Server端安装就能实现对远程服务器的配置管理？</p>
+<p>A.×</p>
+<p>B.√</p>
+<p>正确答案：B </p>
+<h1 id="期末考试"><a href="#期末考试" class="headerlink" title="期末考试"></a>期末考试</h1><h2 id="客观题部分"><a href="#客观题部分" class="headerlink" title="客观题部分"></a>客观题部分</h2><p>1单选(1分)<br>‌下列描述中，不属于典型软件发展三大阶段的是：</p>
+<p>A.软硬件一体化阶段</p>
+<p>B.网络化和服务化</p>
+<p>C.软件成为独立产品</p>
+<p>D.软件作坊</p>
+<p>正确答案：D</p>
+<p>2单选(1分)<br>‍”Measure twice, Cut once” 是哪个阶段的典型开发特征？</p>
+<p>A.软硬件一体化阶段</p>
+<p>B.网络化阶段</p>
+<p>C.软件成为独立产品阶段</p>
+<p>D.软件作坊阶段</p>
+<p>正确答案：A</p>
+<p>3单选(1分)<br>关于软件过程管理，以下哪一种说法是比较贴切的：</p>
+<p>A.软件过程管理主要关注软件成本和质量目标的达成。</p>
+<p>B.进入互联网时代，软件过程管理是过于老套的话题。</p>
+<p>C.软件过程管理关注的是企业软件过程能力的稳定输出和提升。</p>
+<p>D.软件过程管理是软件企业发展到较高层次才需要关心的话题。</p>
+<p>正确答案：C</p>
+<p>4单选(1分)<br>‍软件开发的本质难题中哪一个与软件发展阶段没有直接关系？</p>
+<p>A.复杂性</p>
+<p>B.可变性</p>
+<p>C.一致性</p>
+<p>D.不可见性</p>
+<p>正确答案：D</p>
+<p>5单选(1分)<br>‏以下哪个因素促成了软件成为独立的产品？</p>
+<p>A.个人电脑的出现</p>
+<p>B.高级程序设计语言的出现</p>
+<p>C.操作系统的出现</p>
+<p>D.互联网的出现</p>
+<p>正确答案：C</p>
+<p>6单选(1分)<br>‌软件危机和软件工程这两个概念提出时间是？</p>
+<p>A.上世纪六十年代</p>
+<p>B.上世纪八十年代</p>
+<p>C.上世纪七十年代</p>
+<p>D.上世纪五十年代</p>
+<p>正确答案：A</p>
+<p>7单选(1分)<br>‏下述各个度量项中，哪一个不是PSP的基本度量项？</p>
+<p>A.缺陷</p>
+<p>B.时间</p>
+<p>C.风险</p>
+<p>D.规模</p>
+<p>正确答案：C</p>
+<p>8单选(1分)<br>‎根据敏捷宣言，以下哪项描述了更多的价值？</p>
+<p>A.可工作的软件、个体交互、响应变化、相近的文档 </p>
+<p>B.响应变化、个体和交互、流程和工作、客户协作</p>
+<p>C.客户协作、遵循计划、可工作的软件、个体交互</p>
+<p>D.个体和交互、可工作的软件、客户协作、响应变化</p>
+<p>正确答案：D</p>
+<p>9单选(1分)<br>下列哪一项更好地描述了敏捷宣言？</p>
+<p>A.它包含了建立敏捷思维方式的价值观</p>
+<p>B.它定义了构建软件的规则</p>
+<p>C.它概述了构建软件的最有效方法</p>
+<p>D.它包含了许多敏捷团队使用的实践</p>
+<p>正确答案：A</p>
+<p>10单选(1分)<br>‍你是一家社交媒体公司的开发人员，正在开发一个项目，项目需要一个为企业客户创建私有网站的新功能。 您需要与公司的网络工程师一起确定部署策略，并提出一组工程师可以用于管理站点的服务和工具。 网络工程师希望在你的网络内部部署所有服务，但您和您的团队成员不同意，并且认为服务应该部署在客户的网络上。 为了达成一个协议，该项目的工作已经停止。 哪种敏捷价值最适合这种情况？</p>
+<p>A.工作的软件 高于 详尽的文档</p>
+<p>B.客户合作 高于 合同谈判</p>
+<p>C.个体和互动 高于 流程和工具</p>
+<p>D.响应变化 高于 遵循计划</p>
+<p>正确答案：B</p>
+<p>11单选(1分)<br>‏你是一个软件团队的开发人员。 一个用户向你的团队询问有关构建新功能的信息，并以规范的形式提供了需求。 她非常确定这个功能要如何工作，并承诺不会有任何变化。 哪种敏捷价值最适用于这种情况？</p>
+<p>A.客户合作 高于 合同谈判</p>
+<p>B.个体和互动 高于 流程和工具</p>
+<p>C.响应变化 高于 遵循计划</p>
+<p>D.工作的软件 高于 详尽的文档</p>
+<p>正确答案：D</p>
+<p>12单选(1分)<br>‏下列哪一个更好地描述了如何使用看板？</p>
+<p>A.观察特征如何流经过程，以便团队可以确定如何限制WIP并通过工作流程中的步骤确定最均匀的工作流程</p>
+<p>B.跟踪缺陷和问题，并创建解决产品问题的最快途径</p>
+<p>C.帮助团队自我组织，并了解工作流程中的瓶颈所在</p>
+<p>D.跟踪WIP限制和当前任务状态，以便团队知道他们还有多少工作要做</p>
+<p>正确答案：A</p>
+<p>13单选(1分)<br>‍下面关于软件架构的描述哪个是不正确的？</p>
+<p>A.软件架构包括系统组件、连接件和约束的集合。</p>
+<p>B.软件架构即一系列重要的设计决策。</p>
+<p>C.软件架构包含一系列重要决策，包括软件组织、构成系统的结构要素等。</p>
+<p>D.软件架构是一组特定的架构元素，包括处理元素、数据元素和上下文元素。</p>
+<p>正确答案：D</p>
+<p>14单选(1分)<br>以下哪个关于面向服务架构的描述是错误的？</p>
+<p>A.面向服务架构包含服务提供者组件和服务消费者组件</p>
+<p>B.面向服务架构是一个集中式组件的集合</p>
+<p>C.SOA依赖企业服务总线为服务间的相互调用提供支持环境</p>
+<p>D.在SOA中，服务消费者消费其他组件提供的服务不需要知道其具体的实现细节</p>
+<p>正确答案：B</p>
+<p>15单选(1分)<br>以下对于微服务优点的描述中，哪一个是错误的？</p>
+<p>A.不同的微服务可以使用不同的语言进行开发</p>
+<p>B.单个微服务很简单，只关注一个业务功能</p>
+<p>C.微服务可以使用RPC进行服务间通信</p>
+<p>D.微服务系统测试变得非常简单</p>
+<p>正确答案：D</p>
+<p>16单选(1分)<br>‍在微服务架构中，ZooKeeper的主要作用是？</p>
+<p>A.封装服务</p>
+<p>B.调用服务</p>
+<p>C.注册服务</p>
+<p>D.开发服务</p>
+<p>正确答案：C</p>
+<p>17单选(1分)<br>下列哪项不是Docker容器的特点：</p>
+<p>A.资源使用较少</p>
+<p>B.启动时间是分钟级</p>
+<p>C.可以共享操作系统的资源</p>
+<p>D.创建速度很快    </p>
+<p>正确答案：B</p>
+<p>18单选(1分)<br>‏以下哪些是Docker的存储驱动：</p>
+<p>A.Device mapper</p>
+<p>B.AUFS</p>
+<p>C.其他都是</p>
+<p>D.OverlayFS</p>
+<p>正确答案：C</p>
+<p>19单选(1分)<br>‌以下哪个命令可以查看当前运行容器：</p>
+<p>‎A.docker logs</p>
+<p>B.docker ps</p>
+<p>C.docker top</p>
+<p>D.docker run</p>
+<p>正确答案：B</p>
+<p>20单选(1分)<br>‎Kubernetes集群将元数据保存在以下哪个组件：</p>
+<p>A.Kubelet</p>
+<p>B.其他都不是</p>
+<p>C.Etcd</p>
+<p>D.Kube-apiserver</p>
+<p>正确答案：C</p>
+<p>21单选(1分)<br>Kubernetes里面的Replication控制器的职责是：</p>
+<p>A.其他都是</p>
+<p>B.删除或者更新多个Pod     </p>
+<p>C.当已存在的Pod异常退出后，创建新的Pod</p>
+<p>D.帮助达到预期的状态</p>
+<p>正确答案：A</p>
+<p>22单选(1分)<br>‏如何通过命令行创建一个容器</p>
+<p>A.docker create</p>
+<p>B.docker poll</p>
+<p>C.docker start</p>
+<p>D.docker run</p>
+<p>正确答案：D</p>
+<p>23单选(1分)<br>‌Dockerfile中的命令 RUN, CMD 和ENTRYPOINT几者有何区别?</p>
+<p>A.RUN 执行命令并创建新的镜像层，RUN 经常用于安装软件包。</p>
+<p>B.ENTRYPOINT 配置容器启动时运行的命令</p>
+<p>C.CMD 设置容器启动后默认执行的命令及其参数，但 CMD 能够被 docker run 后面跟的命令行参数替换</p>
+<p>D.其他都是</p>
+<p>正确答案：D</p>
+<p>24单选(1分)<br>‌使用Kubernetes带来的好处有哪些</p>
+<p>A.其他都是</p>
+<p>B.横向扩展</p>
+<p>C.自动回滚</p>
+<p>D.自动调度</p>
+<p>正确答案：A</p>
+<p>25单选(1分)<br>下列哪项不属于DevOps工具生态圈？</p>
+<p>A.持续部署</p>
+<p>B.监控</p>
+<p>C.持续集成</p>
+<p>D.编译</p>
+<p>正确答案：A</p>
+<p>26单选(1分)<br>‎下列哪项不属于协同开发工具？</p>
+<p>A.Confluence</p>
+<p>B.Rally</p>
+<p>C.Kanban</p>
+<p>D.JIRA</p>
+<p>正确答案：A</p>
+<p>27单选(1分)<br>下列哪种持续集成工具是目前DevOps领域使用最广泛的？</p>
+<p>A.VSTS</p>
+<p>B.Jenkins</p>
+<p>C.TeamCity</p>
+<p>D.Travis CI</p>
+<p>正确答案：B</p>
+<p>28单选(1分)<br>‎下列哪种版本管理工具不是同宗同源的？</p>
+<p>A.GitLab</p>
+<p>B.Git</p>
+<p>C.Subversion</p>
+<p>D.GitHub</p>
+<p>正确答案：C</p>
+<p>29单选(1分)<br>以下选项中，哪一项不属于API网关模式的优点？</p>
+<p>A.确保客户端不受服务实例位置的影响。</p>
+<p>B.确保客户端不必关心应用程序的微服务拆分方式。</p>
+<p>C.增加请求往返次数。</p>
+<p>D.将从客户端调用多项服务的逻辑转换为从API网关处调用，以简化整个客户端。</p>
+<p>正确答案：C</p>
+<p>30单选(1分)<br>‏以下选项中，哪一项不属于微服务架构的特点？</p>
+<p>A.低内聚和高耦合</p>
+<p>B.去中心化</p>
+<p>C.基础设施自动化</p>
+<p>D.围绕业务能力组织</p>
+<p>正确答案：A</p>
+<p>31多选(2分)<br>‌以下描述中，哪几种是网络化和服务化这个阶段的典型软件应用特征？</p>
+<p>A.通过CD和DVD等方式支持大容量和快速分发软件拷贝</p>
+<p>B.通过SaaS等方式来发布软件系统</p>
+<p>C.用户数量急剧增加</p>
+<p>D.快速演化、需求不确定</p>
+<p>正确答案：B、C、D</p>
+<p>32多选(2分)<br>‌关于形式化方法的描述当中，不正确的有哪些？</p>
+<p>A.这种方法应用范围有限，例如：不适合跟客户讨论需求。</p>
+<p>B.这种方法对开发人员技能有较高的要求</p>
+<p>C.这种方法是网络化和服务化阶段用来应对软件开发本质四大难题而提出来的</p>
+<p>D.这种方法的主要目的是解决软件开发的效率问题</p>
+<p>正确答案：C、D</p>
+<p>33多选(2分)<br>‌关于迭代式方法的说法哪些是比较恰当的？</p>
+<p>A.迭代式方法是指一类具有类似特征的方法</p>
+<p>B.迭代式方法主要特征在于将软件开发过程视作一个逐步学习和交流的过程</p>
+<p>C.迭代式方法是上世纪九十年代中后期才出现的一种方法</p>
+<p>D.迭代式方法主要是为了解决软件开发的质量问题</p>
+<p>正确答案：A、B</p>
+<p>34多选(2分)<br>‍DevOps方法的出现具有一定的必然性，与以下哪些软件应用特征相匹配？</p>
+<p>A.软件系统部署环境越来越错综复杂</p>
+<p>B.软件在社会生活当中扮演了越来越关键的角色</p>
+<p>C.软件定义世界，软件随处可见</p>
+<p>D.用户需求多变所带来了软件系统的快速演化的要求</p>
+<p>正确答案：A、B、C、D</p>
+<p>35多选(2分)<br>‎DevOps的哪些特点可以有效支撑当前社会对软件系统的期望？</p>
+<p>A.敏捷开发、精益思想以及看板方法，支持快速开发、交付、迭代和演化</p>
+<p>B.微服务架构设计</p>
+<p>C.工具链支持高效率的自动化</p>
+<p>D.虚拟机技术的大量应用</p>
+<p>正确答案：A、B、C、D</p>
+<p>36多选(2分)<br>‌关于面向用户的质量观，我们应该关注如下哪些问题：</p>
+<p>A.用户期望的优先级对软件开发的影响？</p>
+<p>B.真实用户是谁？</p>
+<p>C.界面和可操作性是首要的，因为这是用户能直接感受到的。</p>
+<p>D.用户期望是否有优先级？</p>
+<p>正确答案：A、B、D</p>
+<p>37多选(2分)<br>‏关于PROBE估算法，下述各种说法中，不正确的有哪些？</p>
+<p>A.PROBE方法不能用来估算质量。</p>
+<p>B.PROBE方法不需要历史数据。</p>
+<p>C.PROBE不能给出精确估算，因而适合用来跟用户讨论需求和规模。</p>
+<p>D.PROBE估算结果带着小数，肯定不准确，因而， 不应该在项目估算的时候使用。</p>
+<p>正确答案：B、C、D</p>
+<p>38多选(2分)<br>‌关于质量路径（Quality Journey），下列说法中哪些不恰当。</p>
+<p>A.进入测试之前的高质量，是获得测试之后高质量软件系统的前提条件。</p>
+<p>B.高质量软件产品最终还是需要依赖测试来确保。v</p>
+<p>C.质量路径与个体软件工程师无关，是团队层面的集体努力。</p>
+<p>D.质量路径中所列举的方法都是提升开发质量的有效手段，可以随意选择使用。</p>
+<p>正确答案：C、D</p>
+<p>39多选(2分)<br>‌关于评审检查表，下述说法中不恰当的是：</p>
+<p>A.评审检查表应该保持稳定，确保缺陷不会被遗漏</p>
+<p>B.项目团队所有人应该共用一份评审检查表，体现统一性</p>
+<p>C.评审检查表应该定期更新</p>
+<p>D.评审检查表应该是个性化的</p>
+<p>正确答案：A、B</p>
+<p>40多选(2分)<br>关于PQI，下述说法中不恰当的是：</p>
+<p>A.PQI五个分指标都可以超过1.0，比如，设计时间多于编码时间的时候，该分指标就超过1.0了</p>
+<p>B.PQI可以用来辅助判断模块开发的质量</p>
+<p>C.PQI越高越好，最好达到1.0</p>
+<p>D.PQI可以为过程改进提供依据</p>
+<p>正确答案：A、C</p>
+<p>41多选(2分)<br>‎关于质量的各种定义当中，下述哪些质量属性属于内部属性？</p>
+<p>‍A.可靠性</p>
+<p>B.安全性</p>
+<p>C.可扩展性</p>
+<p>D.可移植性</p>
+<p>正确答案：C、D</p>
+<p>42多选(2分)<br>‎在组成派看来，软件架构是指？</p>
+<p>A.软件架构将系统定义为计算组件及组件间的交互。</p>
+<p>B.软件架构由软件元素、这些元素的外部可见属性，以及元素之间的关系组成。</p>
+<p>C.软件架构是一系列重要决策的集合，包括构成系统的结构要素及其接口的选择。</p>
+<p>D.软件架构包括系统组件、连接件和约束的集合。</p>
+<p>正确答案：A、B、D</p>
+<p>43多选(2分)<br>‌分层架构将软件系统的组件分成多个互不重叠的层，包括</p>
+<p>A.应用层</p>
+<p>B.数据层</p>
+<p>C.物理层</p>
+<p>D.表现层</p>
+<p>正确答案：B、D</p>
+<p>44多选(2分)<br>‏分层架构模式的缺点包括：</p>
+<p>A.不易于持续发布和部署</p>
+<p>B.由于层间依赖关系，软件系统的可扩展性差</p>
+<p>C.额外的性能开销</p>
+<p>D.软件升级需要暂停整个服务</p>
+<p>正确答案：A、B、C、D</p>
+<p>45多选(2分)<br>‍以下哪几个不是面向服务架构强调的实现原则？</p>
+<p>A.服务无状态</p>
+<p>B.服务组成</p>
+<p>C.服务简单</p>
+<p>D.服务去中心化</p>
+<p>正确答案：C、D</p>
+<p>46多选(2分)<br>‌以下选项中，哪些属于微服务架构的特点？</p>
+<p>A.围绕业务能力组织</p>
+<p>B.基础设施自动化</p>
+<p>C.内聚和解耦</p>
+<p>D.通过服务组件化</p>
+<p>正确答案：A、B、C、D</p>
+<p>47多选(2分)<br>‎以下选项中，API网关模式的优点有哪些?</p>
+<p>A.增加请求往返次数</p>
+<p>B.为每套客户端提供最优API</p>
+<p>C.确保客户端不必关心应用程序的微服务拆分方式</p>
+<p>D.将从客户端调用多项服务的逻辑转换为从API网关处调用，以简化整个客户端。</p>
+<p>正确答案：B、C、D</p>
+<p>48多选(2分)<br>‌与面向服务架构相关的Web服务标准包括：</p>
+<p>A.HTTPS</p>
+<p>B.WSDL</p>
+<p>C.SOAP</p>
+<p>D.UDDI</p>
+<p>正确答案：A、B、C、D</p>
+<p>49多选(2分)<br>‍Docker容器的状态有</p>
+<p>A.Paused</p>
+<p>B.Exited</p>
+<p>C.Running</p>
+<p>D.Restarting</p>
+<p>正确答案：B、C</p>
+<p>50多选(2分)<br>‎以下对于微服务优点的描述中，哪几项是正确的？</p>
+<p>A.不同的微服务可以使用不同的语言进行开发。</p>
+<p>B.单个微服务很简单，只关注一个业务功能</p>
+<p>C.微服务系统测试变得非常简单</p>
+<p>D.微服务可以使用RPC进行服务间通信</p>
+<p>正确答案：A、B、D</p>
+<p>51判断(1分)<br>DevOps化的Three ways当中，建立反馈机制是二阶段应该实现的目标。</p>
+<p>A.√</p>
+<p>B.×<br>正确答案：A</p>
+<p>52判断(1分)<br>‎一个公司内，各个团队的Kanban列设置应当一致，便于公司管理。</p>
+<p>A.√</p>
+<p>B.×<br>正确答案：B</p>
+<p>53判断(1分)<br>‍单体架构更多地作为应用的部署架构，单体应用只运行在一个进程中。</p>
+<p>A.×</p>
+<p>B.√<br>正确答案：A</p>
+<p>54判断(1分)<br>‏本质上，微服务架构是SOA的一种扩展。</p>
+<p>A.×</p>
+<p>B.√<br>正确答案：B</p>
+<p>55判断(1分)<br>‏核心模式即针对采用微服务系统在通用场景下的所有问题，所使用的成熟的架构解决方案集合。</p>
+<p>A.×</p>
+<p>B.√<br>正确答案：A</p>
+<p>56判断(1分)<br>‌JIRA Software不支持极限编程这种敏捷开发方法。</p>
+<p>A.×</p>
+<p>B.√<br>正确答案：B</p>
+<p>57判断(1分)<br>‌Zabbix有两种工作模式。</p>
+<p>A.√</p>
+<p>B.×<br>正确答案：A</p>
+<p>58判断(1分)<br>‌微服务架构的特点包括“围绕业务能力组织”、“内聚和解耦”、“基础设施自动化”等。</p>
+<p>A.√</p>
+<p>B.×<br>正确答案：A</p>
+<p>59判断(1分)<br>‍持续集成是DevOps理念中重要的一个实践环节，它经历了纯脚本驱动到持续集成工具两个发展阶段，目前正向第三个阶段流水线即代码的阶段发展</p>
+<p>A.√</p>
+<p>B.×<br>正确答案：A</p>
+<p>60判断(1分)<br>‍Ansible是一款开源的配置管理工具。它采用Server和Client管理模式，Server端和Client端均需要安装Ansible，方能实现软件多节点部署。</p>
+<p>A.×</p>
+<p>B.√<br>正确答案：A</p>
+<h2 id="主观题部分"><a href="#主观题部分" class="headerlink" title="主观题部分"></a>主观题部分</h2><p><strong>1( 5分 )</strong><br><strong>‌请谈谈微服务架构与面向服务的架构存在哪些异同？</strong></p>
+<p>回答：<br>1、微服务是一种软件的架构风格，面向服务的架构（SOA）不是一种特定的技术，而是一种分布式计算的软件设计方法。</p>
+<p>2、微服务简单的说就是组合化，它的每部分需要实现的功能可以有不同的小程序单独构成，然后相互之间协同实现一个大的目标。这个角度上来说，两者是一脉相承的，但是面向服务的架构，没有微服务的分离度高，相互之间的关联度还是相对较高。</p>
+<p>3、微服务相比较来说，在各个组件上可以使用不一样的编程语言。</p>
+<p>4、微服务更加关注于解耦，不追求系统之间的相关性。</p>
+<p>5、微服务的系统发生改变只需要构建一个新的服务，简单快捷，但是SOA则需要对整个系统进行修改。</p>
+<p>6、微服务使用的协议一般都是轻量级的协议，就像HTTP、Thrift API等协议，但是SOA则是使用更为复杂多样的多种消息协议。微服务的容错性能会更好，即使一个微服务出现问题，其他的微服务也会正常工作。</p>
+<p>7、每个微服务都有单独的数据库，SOA则是共享一个数据库。</p>
+<p>8、微服务的规模更小，SOA则是一个较大的规模。SOA可以是一个整体，也可以是多个微服务组成的。</p>
+<p>该题得分：3.2<br>整体评价：无</p>
+<p><strong>2( 5分 )</strong><br><strong>‎从你的理解出发，谈谈为什么微服务架构具有高可用性、灵活性等优点？</strong></p>
+<p>回答：<br>1、微服务架构普遍被采用于云原生应用、无服务器计算、以及使用轻量级容器部署的应用等,根据Fowler的观点，由于服务数量众多（与单体应用实现相比），为了有效地开发、维护和运营这类应用，去中心化的持续交付和带有整体服务监控的DevOps是必要的。 遵循这种方法的一个合理性结果是，单独的微服务可以单独扩展。在单体应用架构方法中，一个支持三个功能的应用，即使只有其中一个功能需要添加资源约束，也需要对其进行整体的扩展。微服务则不同，只需要对有资源约束需求的微服务进行扩展， 这样就带来了资源和成本的优化。</p>
+<p>2、微服务并不是单体应用中的一个层，相反，它是一个自成一体的业务功能，具有明确的接口，可以通过自己的内部组件实现分层架构。从策略的角度来看，微服务架构本质上遵循了Unix的 “做一件事，做好一件事 “的理念，改变应用程序的一小部分只需要重建和重新部署一个或少量的服务即可,使用可直达独立部署服务的精细化接口、业务驱动开发（如领域驱动设计）等原则。</p>
+<p>该题得分：5<br>整体评价：无</p>
+<p><strong>3( 5分 )</strong><br><strong>‎请描述一个简单的持续交付流水线所包含的基本步骤。</strong></p>
+<p>‏<br>回答：<br>开发–&gt;版本控制–&gt;代码检查–&gt;构建–&gt;自动化测试–&gt;打包–&gt;远程仓库发布–&gt;自动化部署</p>
+<p>该题得分：5<br>整体评价：无</p>
+<p><strong>4( 5分 )</strong><br><strong>‌请列举出敏捷软件开发中常见的3中开发方法？</strong></p>
+<p>‍<br>回答：<br>1、极限编程（简称XP），是一种近螺旋式的开发方法，它将复杂的开发过程分解为一个个相对比较简单的小周期；通过积极的交流、反馈以及其它一系列的方法，开发人员和客户可以非常清楚开发进度、变化、待解决的问题和潜在的困难等，并根据实际情况及时地调整开发过程。</p>
+<p>2、精益开发，思想起源于丰田公司，旨在创造价值的目标下，通过改良流程不断地消除浪费。这种方法现已被广泛用于生产制造管理，对于IT系统建设，精益开发的常用工具模型是价值流模型。</p>
+<p>3、Scrum 是一个用于开发和维护复杂产品的框架 ，是一个增量的、迭代的开发过程。Scrum以经验性过程控制理论（经验主义）做为理论基础的过程。经验主义主张知识源于经验, 以及基于已知的东西做决定。Scrum 采用迭代、增量的方法来优化可预见性并控制风险。</p>
+<p>该题得分：5<br>整体评价：无</p>
+<p><strong>5( 5分 )</strong><br><strong>‎请描述敏捷软件开发宣言内容？</strong></p>
+<p>回答：<br>我们一直在实践中探寻更好的软件开发方法，<br>身体力行的同时也帮助他人。由此我们建立了如下价值观：</p>
+<p>个体和互动 高于 流程和工具<br>工作的软件 高于 详尽的文档<br>客户合作 高于 合同谈判<br>响应变化 高于 遵循计划</p>
+<p>也就是说，尽管右项有其价值，<br>我们更重视左项的价值。</p>
+<p>该题得分：5<br>整体评价：无</p>
+<p><strong>6( 5分 )</strong><br><strong>‍请解释一下什么是Kanban方法中的WIP？为什么要限制WIP？</strong></p>
+<p>回答：<br>WIP全称是work in progress，表示在途工作量，即同时进行中的工作数量。</p>
+<p>限制WIP可以让团队成员更佳专注与手边的工作，减少工作切换所造成的浪费，因而可以加速工作完成的时间。此外，当工作卡住而无法完成的时候，开发团队不能以此为借口忽略这些被卡住的工作（因为有WIP限制，不能无限制的一直拿工作而不完成它），此时就有可能会有人闲置下来，而影响工作流程与产能。鼓励团队成员一起解决问题，排除阻碍。可以更均衡的工作产出，避免前期开发后期集中或者压缩测试时间，能够更稳健的长久的进行敏捷实践。</p>
+<p>该题得分：5<br>整体评价：无</p>
+<p><strong>7( 5分 )</strong><br><strong>什么叫做面向用户的质量观？这种观点对软件开发有什么影响？</strong></p>
+<p>‍<br>回答：<br>面向用户的质量观是定义质量为满足用户需求的程度。这个定义中需要进一步明确：用户究竟是谁？用户需求的优先级是什么？这种用户的优先级对软件产品的开发过程产生什么样的影响？怎样来度量这种质量观下的质量水平？</p>
+<p>在软件开发中，用缺陷管理来替代质量管理，高质量产品也就意味着要求组成软件产品的各个组件基本无缺陷。缺陷消除的平均代价随着开发过程的进展会显著增加，各个组件的高质量是通过高质量评审来实现的。</p>
+<p>该题得分：5<br>整体评价：无</p>
+<p><strong>8( 5分 )</strong><br><strong>‎DevOps有哪些常见的质量手段有助于确保最终软件服务的质量？</strong></p>
+<p>‏<br>回答：<br>1、持续集成。持续集成 (CI) 是一个开发过程，每天多次将代码集成到共享存储库中。借助自动化测试，CI 帮助允许团队及早识别错误、轻松定位问题，提高了软件质量并缩短了交付时间。</p>
+<p>2、持续部署。通过评估拉取请求并将它们组合到主分支，持续部署为开发人员提供了对流水线末端产品的的关注。它允许企业快速部署、验证新功能，并在测试自动化完成后立即做出响应。有了持续部署流水线，一旦客户提交质量问题，团队就可以轻松处理新版本的错误，因为每个版本都是小批量交付的。</p>
+<p>3、持续测试。在 CI/CD 工作流中，构建往往以小批量进行。因此，为每次构建，手动运行测试用例会非常耗时。持续测试借助自动化手段，尽早、逐步和充分地执行测试，发现问题解决问题。</p>
+<p>4、自动化。借助强大的部署自动化手段和标准化的环境管理来降低部署操作的成本，确保部署任务的可重复性，减少部署出错的可能性。</p>
+<p>5、DevOps 致力于在整个开发过程中的每一个环节都引入QA 和测试管理，使它们成为质量的推动者，并确保产品符合利益相关者和用户所设定的质量标准。QA 实际上被认为是DevOps 中非常关键的组件，甚至于DevOps 强调质量保证是每个人的责任。</p>
+<p>该题得分：3.6<br>整体评价：无</p>
+</div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">gzwang</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://gzwangu.github.io/2021/11/25/DevOps导论-中国大学MOOC/">https://gzwangu.github.io/2021/11/25/DevOps导论-中国大学MOOC/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://gzwangu.github.io">Rubina の blog</a>！</span></div></div><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/DevOps/">DevOps</a></div><nav id="pagination"><div class="prev-post pull-left"><a href="/2021/12/02/C-11%E4%B8%ADLambda%E8%A1%A8%E8%BE%BE%E5%BC%8F/"><i class="fa fa-chevron-left">  </i><span>C++11中Lambda表达式</span></a></div><div class="next-post pull-right"><a href="/2021/11/24/Linux%E7%B3%BB%E7%BB%9F%E5%AE%9E%E9%AA%8C/"><span>Linux系统实验</span><i class="fa fa-chevron-right"></i></a></div></nav></div></div><footer><div class="layout" id="footer"><div class="copyright">&copy;2020 - 2022 By gzwang</div><div class="framework-info"><span>驱动 - </span><a target="_blank" rel="noopener" href="http://hexo.io"><span>Hexo</span></a><span class="footer-separator">|</span><span>主题 - </span><a target="_blank" rel="noopener" href="https://github.com/Molunerfinn/hexo-theme-melody"><span>Melody</span></a></div><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_page_pv"><i class="fa fa-file"></i><span id="busuanzi_value_page_pv"></span><span></span></span></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="https://cdn.jsdelivr.net/npm/animejs@latest/anime.min.js"></script><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js"></script><script src="/js/utils.js?version=1.9.0"></script><script src="/js/fancybox.js?version=1.9.0"></script><script src="/js/sidebar.js?version=1.9.0"></script><script src="/js/copy.js?version=1.9.0"></script><script src="/js/fireworks.js?version=1.9.0"></script><script src="/js/transition.js?version=1.9.0"></script><script src="/js/scroll.js?version=1.9.0"></script><script src="/js/head.js?version=1.9.0"></script><script src="/js/search/local-search.js"></script><script>if(/Android|webOS|iPhone|iPod|iPad|BlackBerry/i.test(navigator.userAgent)) {
+  $('#nav').addClass('is-mobile')
+  $('footer').addClass('is-mobile')
+  $('#top-container').addClass('is-mobile')
+}</script><div class="search-dialog" id="local-search"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章"></div></div></div><hr><div id="local-search-results"><div id="local-hits"></div><div id="local-stats"><div class="local-search-stats__hr" id="hr"><span>由</span> <a target="_blank" rel="noopener" href="https://github.com/wzpan/hexo-generator-search" style="color:#49B1F5;">hexo-generator-search</a>
+ <span>提供支持</span></div></div></div><span class="search-close-button"><i class="fa fa-times"></i></span></div><div class="search-mask"></div></body></html>
