@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>结合深度学习的视觉SLAM研究</title>
+      <link href="2023/06/25/%E7%BB%93%E5%90%88%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%9A%84%E8%A7%86%E8%A7%89SLAM%E7%A0%94%E7%A9%B6/"/>
+      <url>2023/06/25/%E7%BB%93%E5%90%88%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%9A%84%E8%A7%86%E8%A7%89SLAM%E7%A0%94%E7%A9%B6/</url>
+      
+        <content type="html"><![CDATA[<p>视觉SLAM是一种基于视觉相机传感器的SLAM 系统，与激光雷达传感器相比，视觉传感器具有成本低，能够获取环境语义信息的优点，可以与深度学习（Deep Learning，DL）进行大量结合。</p><h1 id="结合方向"><a href="#结合方向" class="headerlink" title="结合方向"></a>结合方向</h1><p>DL与SLAM的结合大致分为3个思路：</p><ol><li>用DL实现SLAM的所有功能</li><li>用DL改进SLAM的部分功能</li><li>介于思路1和思路2之间</li></ol><ul><li><p>第1种思路就是简单粗暴地用DL直接实现SLAM，也就是所谓的端到端方法（End-to-End），输入连续帧图像，经过网络直接得到pose信息，例如D3VO、UnDeepVO和NeuralRecon就是典型代表。</p></li><li><p>第2中思路是用DL改进SLAM中的个别功能模块，比如基于DL方法的<strong>特征匹配、重定位、深度估计</strong>等，比如CNN-SLAM就是典型代表。例如Magicleap团队用SuperPoint和SuperGlue进行特征点的提取和匹配，普林普顿Jia Deng团队的RAFT光流，DroidSLAM主要用学习的方法进行BA，类似工作还有BANet；还有一些工作用深度学习来做场景识别，可以用来SLAM中的<strong>回环检测</strong>阶段。</p></li><li><p>更多的是介于思路1和思路2之间的方法，利用深度学习的其他模块来提取一些更高级的语义特征。包括：端到端视觉里程计、端到端建图、端到端定位导航、<strong>语义SLAM</strong>。</p></li></ul><h1 id="具体工作"><a href="#具体工作" class="headerlink" title="具体工作"></a>具体工作</h1><ol><li>结合<strong>YOLOv5目标检测</strong>，动态物体特征点剔除</li><li>DL进行深度估计</li><li>CNN提取特征点和描述子，并降低网络参数</li><li><strong>语义地图构建</strong></li><li>MobileNetv3-KPCA<strong>回环检测</strong></li></ol><h1 id="视觉SLAM框架"><a href="#视觉SLAM框架" class="headerlink" title="视觉SLAM框架"></a>视觉SLAM框架</h1><p>视觉SLAM可采用开源的<a href="https://github.com/UZ-SLAMLab/ORB_SLAM3">ORB-SLAM3</a>，支持视觉、视觉加惯导、混合地图的SLAM系统，可以在单目，双目和RGB-D相机上利用针孔或者鱼眼模型运行。</p><h1 id="目标检测网络"><a href="#目标检测网络" class="headerlink" title="目标检测网络"></a>目标检测网络</h1><p>目标检测可采用<a href="https://github.com/ultralytics/yolov5">YOLOv5</a>，将PyTorch格式的模型转换为<a href="https://pytorch.org/docs/stable/jit.html">TorchScript</a>，使用<em>LibTorch</em>库进行部署，实现将目标检测整合到以C++为主要编程语言的SLAM系统中。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> SLAM </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 机器学习 </tag>
+            
+            <tag> 视觉SLAM </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>面试小记</title>
       <link href="2022/05/03/%E9%9D%A2%E8%AF%95%E5%B0%8F%E8%AE%B0/"/>
       <url>2022/05/03/%E9%9D%A2%E8%AF%95%E5%B0%8F%E8%AE%B0/</url>
